@@ -8,9 +8,13 @@ const FXInput = ({
   type = "text",
   variant = "underlined",
   size = "md",
-  required = false,
+  isRequired = false,
   label = "label",
   name,
+  className,
+  placeholder,
+  startContent,
+  endContent,
 }: IInput) => {
   const {
     register,
@@ -18,14 +22,18 @@ const FXInput = ({
   } = useFormContext();
   return (
     <Input
+      className={className}
+      placeholder={placeholder}
       type={type}
       variant={variant}
       size={size}
-      required={required}
+      isRequired={isRequired}
       label={label}
       isInvalid={!!errors[name]}
       errorMessage={errors[name] ? (errors[name].message as String) : ""}
       {...register(name)}
+      startContent={startContent}
+      endContent={endContent}
     />
   );
 };

@@ -4,7 +4,12 @@ import { Controller } from "react-hook-form";
 
 interface IDatePicker extends IInput {}
 
-const FXDatePicker = ({ label, name, variant = "underlined" }: IDatePicker) => {
+const FXDatePicker = ({
+  label,
+  name,
+  variant = "underlined",
+  isRequired = false,
+}: IDatePicker) => {
   return (
     <Controller
       name={name}
@@ -18,6 +23,7 @@ const FXDatePicker = ({ label, name, variant = "underlined" }: IDatePicker) => {
           // isInvalid={!!errors[name]}
           // errorMessage={errors[name] ? (errors[name].message as String) : ""}
           {...fields}
+          isRequired={isRequired}
         />
       )}
     />

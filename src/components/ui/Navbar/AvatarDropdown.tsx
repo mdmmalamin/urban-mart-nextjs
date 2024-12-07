@@ -37,8 +37,8 @@ const AvatarDropdown = () => {
               className="cursor-pointer"
               isBordered
               radius="lg"
-              src={user?.profilePhoto as string}
-              name={user?.name}
+              src={user?.avatar as string}
+              name={user?.fullName}
             />
           </DropdownTrigger>
           <DropdownMenu>

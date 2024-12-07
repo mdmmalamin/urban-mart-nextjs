@@ -7,7 +7,8 @@ const AuthRoutes = ["/login", "/register"];
 type Role = keyof typeof roleBasedRoutes;
 
 const roleBasedRoutes = {
-  USER: [/^\/profile/],
+  CUSTOMER: [/^\/profile/],
+  VENDOR: [/^\/shop/],
   ADMIN: [/^\/admin/],
 };
 
@@ -43,6 +44,8 @@ export const config = {
   matcher: [
     "/profile",
     "/profile/:page*",
+    "/vendor",
+    "/vendor/:page*",
     "/admin",
     "/admin/:page*",
     "/login",

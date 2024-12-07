@@ -38,6 +38,7 @@ const LoginPage = () => {
   return (
     <>
       {isPending && <Loading />}
+
       <Container>
         <section className="flex flex-col items-center justify-center gap-12">
           <div className="text-center space-y-2">
@@ -50,12 +51,12 @@ const LoginPage = () => {
               resolver={zodResolver(loginValidationSchema)}
               //! Only for development
               defaultValues={{
-                email: "mdamin01@gmail.com",
+                phone: "1111111111",
                 password: "123456",
               }}
             >
               <div className="space-y-3">
-                <FXInput name="email" type="email" label="Email" />
+                <FXInput name="phone" type="phone" label="Phone Number" />
                 <FXInput name="password" type="password" label="Password" />
 
                 <Button className="w-full" size="md" type="submit">

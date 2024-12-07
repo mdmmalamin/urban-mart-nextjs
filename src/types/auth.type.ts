@@ -1,11 +1,15 @@
+export type TUserRole = "CUSTOMER" | "VENDOR" | "ADMIN" | "SUPER_ADMIN";
+
+export type TUserStatus = "ACTIVE" | "SUSPENDED" | "DELETED";
+
 export type TAuthProps = {
   _id: string;
-  name: string;
+  fullName: string;
   email: string;
-  mobileNumber: string;
-  role: "USER" | "ADMIN" | "SUPER_ADMIN";
-  status: "ACTIVE" | "BLOCKED";
-  profilePhoto: string;
+  phone: string;
+  role: TUserRole;
+  status: TUserStatus;
+  avatar: string;
   iat: number;
   exp: number;
 };

@@ -1,4 +1,4 @@
-import CartSolid from "@/src/assets/icons/CartSolid";
+import CartSolid from "@/src/assets/icons/CartSVG";
 import { TProductProps } from "@/src/types";
 import { linkString } from "@/src/utils/linkString";
 import Image from "next/image";

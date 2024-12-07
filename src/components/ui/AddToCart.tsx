@@ -1,6 +1,6 @@
 "use client";
 
-import CartSolid from "@/src/assets/icons/CartSolid";
+import CartSVG from "@/src/assets/icons/CartSVG";
 import React from "react";
 
 const AddToCart = ({ id }: { id: string }) => {
@@ -9,7 +9,7 @@ const AddToCart = ({ id }: { id: string }) => {
       className="border-2 p-1 rounded-lg bg-warning-500 shadow-lg hover:shadow-default-200 duration-300 absolute bottom-3 right-3"
       onClick={() => console.log(id)}
     >
-      <CartSolid size="size-5" />
+      <CartSVG size="size-5" />
     </button>
   );
 };

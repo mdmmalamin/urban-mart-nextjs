@@ -1,4 +1,4 @@
-const CartSolid = ({ size = "size-6", className = "" }) => {
+const CartSVG = ({ size = "size-6", className = "" }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -17,4 +17,4 @@ const CartSolid = ({ size = "size-6", className = "" }) => {
   );
 };
 
-export default CartSolid;
+export default CartSVG;

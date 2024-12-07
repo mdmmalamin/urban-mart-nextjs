@@ -15,9 +15,10 @@ const FXSelect = ({
   name,
   label,
   variant = "underlined",
-  size = "lg",
+  size = "md",
   placeholder = "placeholder",
   isDisabled = false,
+  isRequired = false,
 }: IProps) => {
   const {
     register,
@@ -31,8 +32,7 @@ const FXSelect = ({
       variant={variant}
       size={size}
       isDisabled={isDisabled}
-      // required={required}
-      // isInvalid={!!errors[name]}
+      isRequired={isRequired}
       // errorMessage={errors[name] ? (errors[name].message as String) : ""}
       {...register(name)}
     >
