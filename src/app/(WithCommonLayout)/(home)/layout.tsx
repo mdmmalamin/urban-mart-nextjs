@@ -2,15 +2,15 @@ import { ReactNode } from "react";
 
 const layout = ({
   children,
-  flashSale,
+  // flashSale,
 }: {
   children: ReactNode;
-  flashSale: ReactNode;
+  // flashSale: ReactNode;
 }) => {
   return (
     <div className="space-y-12">
       {children}
-      {flashSale}
+      {/* {flashSale} */}
     </div>
   );
 };

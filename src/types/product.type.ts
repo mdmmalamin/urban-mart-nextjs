@@ -1,4 +1,5 @@
 export type TProductStatus = "DRAFTED" | "PUBLISHED" | "UNLISTED";
+export type TShopStatus = "ACTIVE" | "INACTIVE" | "BLACKLISTED" | "DELETED";
 
 export type TCategoryProps = {
   id: string;
@@ -8,11 +9,25 @@ export type TCategoryProps = {
   updatedAt: string;
 };
 
+export type TShopProps = {
+  id: string;
+  vendorId: string;
+  name: string;
+  logo: string;
+  coverImage: null;
+  description: null;
+  status: TShopStatus;
+  createdAt: string;
+  updatedAt: string;
+};
+
 export type TInventoryProps = {
   id: string;
   shopId: string;
   sku: string;
   availableQuantity: number;
+
+  shop?: TShopProps;
 
   createdAt: string;
   updatedAt: string;

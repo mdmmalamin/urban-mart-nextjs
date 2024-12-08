@@ -5,7 +5,10 @@ export const getProducts = async () => {
       tags: ["PRODUCTS"],
     },
   };
-  const res = await fetch(`${envConfig.baseApi}/products?page=1&limit=10&status=PUBLISHED`, fetchOptions);
+  const res = await fetch(
+    `${envConfig.baseApi}/products?page=1&limit=10&status=PUBLISHED`,
+    fetchOptions
+  );
 
   return await res.json();
 };

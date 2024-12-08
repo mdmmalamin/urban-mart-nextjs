@@ -13,8 +13,12 @@ export const siteConfig = {
       href: "/flash-sale",
     },
     {
-      label: "About",
-      href: "/about",
+      label: "Shop",
+      href: "/shop",
+    },
+    {
+      label: "Product",
+      href: "/all-products",
     },
   ],
   navMenuItems: [
@@ -27,8 +31,12 @@ export const siteConfig = {
       href: "/flash-sale",
     },
     {
-      label: "About",
-      href: "/about",
+      label: "Shop",
+      href: "/shop",
+    },
+    {
+      label: "Product",
+      href: "/all-products",
     },
   ],
   links: {

@@ -24,7 +24,6 @@ const RecentProduct = async () => {
         {products?.slice(0, 10)?.map((product: TProductProps) => (
           <>
             <RecentProductCard product={product} key={product.id} />
-            {/* <RecentProductCard product={product} key={product.id} /> */}
           </>
         ))}
       </div>

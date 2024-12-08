@@ -1,4 +1,3 @@
-import CartSolid from "@/src/assets/icons/CartSVG";
 import { TProductProps } from "@/src/types";
 import { linkString } from "@/src/utils/linkString";
 import Image from "next/image";
@@ -23,7 +22,7 @@ const RecentProductCard = ({ product }: { product: TProductProps }) => {
           /> */}
       </>
       <Link
-        href={`/product-details/${linkString(name)}-${id}`}
+        href={`/all-products/product-details/${linkString(name)}-${id}`} //? ${linkString(name)}-
         // onClick={() => handleNavigation(_id)}
       >
         <div className="p-3 bg-gradient-to-t to-default-100/0 from-default-100 hover:from-default-100/0 border border-dark/15 hover:shadow-md hover:shadow-accent/20 max-w-64 rounded-lg duration-300 flex flex-col justify-between h-full group">

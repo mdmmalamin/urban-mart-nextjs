@@ -35,6 +35,7 @@ interface IProps {
     | "full"
     | undefined;
   backdrop?: "blur" | "transparent" | "opaque" | undefined;
+  buttonSize?: "sm" | "md" | "lg";
 }
 
 const FXModal = ({
@@ -45,6 +46,7 @@ const FXModal = ({
   buttonClassName,
   size = "2xl",
   backdrop = "blur",
+  buttonSize = "lg",
 }: IProps) => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
@@ -54,6 +56,7 @@ const FXModal = ({
         className={buttonClassName}
         variant={buttonVariant}
         onPress={onOpen}
+        size={buttonSize}
       >
         {buttonText}
       </Button>
