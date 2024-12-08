@@ -13,27 +13,31 @@ import Loading from "@/src/components/ui/Loading";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 import { useUser } from "@/src/context/user.provider";
+import ForgetPasswordModal from "@/src/components/modules/login/ForgetPasswordModal";
 
 const LoginPage = () => {
-  const { setIsLoading } = useUser();
+  const { user, setIsLoading } = useUser();
   const searchParams = useSearchParams();
   const router = useRouter();
   const redirect = searchParams.get("redirect");
 
   const { mutate: handleUserLogin, isPending, isSuccess } = useUserLogin();
-  const onSubmit: SubmitHandler<FieldValues> = async (data) => {
+  const onSubmit: SubmitHandler<FieldValues> = (data) => {
     handleUserLogin(data);
     setIsLoading(true);
   };
+
   useEffect(() => {
     if (!isPending && isSuccess) {
-      if (redirect) {
+      if (user?.role === "VENDOR") {
+        router.push("/vendor/shop");
+      } else if (redirect) {
         router.push(redirect);
       } else {
         router.push("/");
       }
     }
-  }, [isPending, isSuccess]);
+  }, [isPending, isSuccess, user]);
 
   return (
     <>
@@ -51,8 +55,10 @@ const LoginPage = () => {
               resolver={zodResolver(loginValidationSchema)}
               //! Only for development
               defaultValues={{
-                phone: "1111111111",
-                password: "123456",
+                phone: "1684420495", //! vendor
+                password: "amin1234", //! vendor
+                // phone: "1111111111", //! user
+                // password: "123456", //! user
               }}
             >
               <div className="space-y-3">
@@ -64,6 +70,9 @@ const LoginPage = () => {
                 </Button>
               </div>
             </FXForm>
+            <div className="flex justify-end my-2">
+              <ForgetPasswordModal />
+            </div>
           </div>
 
           <div className="text-center">

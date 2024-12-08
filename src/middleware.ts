@@ -8,13 +8,14 @@ type Role = keyof typeof roleBasedRoutes;
 
 const roleBasedRoutes = {
   CUSTOMER: [/^\/profile/],
-  VENDOR: [/^\/shop/],
+  VENDOR: [/^\/vendor/],
   ADMIN: [/^\/admin/],
 };
 
 //? This function can be marked `async` if using `await` inside
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
+  // console.log(pathname);
 
   const user = await getCurrentUser();
 

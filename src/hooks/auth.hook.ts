@@ -1,8 +1,10 @@
 import { useMutation } from "@tanstack/react-query";
 import {
+  forgetPassword,
   loginUser,
   registerCustomer,
   registerVendor,
+  resetPassword,
 } from "../services/AuthServices";
 import { FieldValues } from "react-hook-form";
 import { toast } from "sonner";
@@ -21,7 +23,6 @@ export const useVendorRegistration = () => {
   return useMutation<any, Error, FieldValues>({
     mutationKey: ["USER_REG"],
     mutationFn: async (userData) => await registerVendor(userData),
-    // onMutate: () => toast.loading("User creating..."),
     onSuccess: () =>
       toast.success("Your vendor account registration successfully."),
     onError: (error) => toast.error(error?.message) || "Something went wrong!",
@@ -34,6 +35,25 @@ export const useUserLogin = () => {
     mutationFn: async (userData) => await loginUser(userData),
     // onMutate: () => toast.loading("User creating..."),
     onSuccess: () => toast.success("User login successfully."),
+    onError: (error) => toast.error(error?.message) || "Something went wrong!",
+  });
+};
+
+export const useForgetPassword = () => {
+  return useMutation<any, Error, FieldValues>({
+    mutationKey: ["USER_FORGET_PASSWORD"],
+    mutationFn: async (userData) => await forgetPassword(userData),
+    onSuccess: () => toast.success("Send verification email successfully."),
+    onError: (error) => toast.error(error?.message) || "Something went wrong!",
+  });
+};
+
+export const useResetPassword = () => {
+  return useMutation<any, Error, FieldValues>({
+    mutationKey: ["USER_RESET_PASSWORD"],
+    mutationFn: async (userData) => await resetPassword(userData),
+    onSuccess: () =>
+      toast.success("Your password reset successfully. Please login..."),
     onError: (error) => toast.error(error?.message) || "Something went wrong!",
   });
 };

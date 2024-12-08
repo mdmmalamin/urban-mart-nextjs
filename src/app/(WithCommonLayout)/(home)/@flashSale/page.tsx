@@ -6,7 +6,7 @@ import { getProducts } from "@/src/services/RecentPosts";
 
 const FoundPosts = async () => {
   const { data: posts } = await getProducts();
-  console.log(posts)
+  // console.log(posts)
   return (
     <Container>
       <div className="section-title my-8">

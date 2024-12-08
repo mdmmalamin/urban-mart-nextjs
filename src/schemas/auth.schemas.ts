@@ -1,11 +1,6 @@
 import { z } from "zod";
 
 export const registerCustomerValidationSchema = z.object({
-  // fullName: z
-  //   .string({
-  //     required_error: "Please enter a valid name.",
-  //   })
-  //   .min(3, "Please enter your name!"),
   email: z.string().trim().toLowerCase().email("Please enter a valid email!"),
   phone: z.string().regex(/^\d{10}$/, "Please enter a valid mobile number!"),
   password: z.string().min(6, "Password at least 6 character!"),
@@ -28,4 +23,13 @@ export const registerVendorValidationSchema = z.object({
   email: z.string().trim().toLowerCase().email("Please enter a valid email!"),
   phone: z.string().regex(/^\d{10}$/, "Please enter a valid mobile number!"),
   password: z.string().min(6, "Password at least 6 character!"),
+});
+
+export const loginValidationSchema = z.object({
+  phone: z.string().regex(/^\d{10}$/, "Please enter a valid mobile number!"),
+  password: z.string().min(6, "Password at least 6 character."),
+});
+
+export const forgetPasswordValidationSchema = z.object({
+  email: z.string().trim().toLowerCase().email("Please enter a valid email!"),
 });

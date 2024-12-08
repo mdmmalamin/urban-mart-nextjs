@@ -10,14 +10,14 @@ import {
 import { getCurrentUser } from "../services/AuthServices";
 import { TAuthProps } from "../types";
 
-const USER_CONTEXT = createContext<IUserProviderValues | undefined>(undefined);
-
 interface IUserProviderValues {
   user: TAuthProps | null;
   setUser: (user: TAuthProps | null) => void;
   isLoading: boolean;
   setIsLoading: Dispatch<SetStateAction<boolean>>;
 }
+
+const USER_CONTEXT = createContext<IUserProviderValues | undefined>(undefined);
 
 const UserProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<TAuthProps | null>(null);

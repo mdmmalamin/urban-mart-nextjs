@@ -1,3 +1,4 @@
+import Footer from "@/src/components/ui/Footer";
 import Navbar from "@/src/components/ui/Navbar";
 
 const layout = ({ children }: { children: React.ReactNode }) => {
@@ -5,9 +6,7 @@ const layout = ({ children }: { children: React.ReactNode }) => {
     <div className="relative flex flex-col h-screen">
       <Navbar />
       <main>{children}</main>
-      <footer className="w-full flex items-center justify-center py-3">
-        Footer
-      </footer>
+      <Footer />
     </div>
   );
 };

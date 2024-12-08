@@ -85,8 +85,8 @@ const CreatePostPage = () => {
       formData.append("itemImages", image);
     }
 
-    console.log(formData.get("data"));
-    console.log(formData.get("itemImages"));
+    // console.log(formData.get("data"));
+    // console.log(formData.get("itemImages"));
 
     handleCreatePost(formData);
   };

@@ -5,7 +5,7 @@ import { TProductProps } from "@/src/types";
 
 const FoundItemsPage = async () => {
   const { data: products } = await axiosInstance.get(`/products`);
-  console.log(products)
+  // console.log(products)
 
   return (
     <Container>

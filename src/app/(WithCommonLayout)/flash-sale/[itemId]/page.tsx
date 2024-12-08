@@ -10,12 +10,14 @@ interface IProps {
 
 const ItemDetailPage = async ({ params: { itemId } }: IProps) => {
   const { data: post } = await getPost(itemId);
-  console.log(post);
+  // console.log(post);
 
   return (
     <Container>
       <div className="mx-auto my-3 max-w-[720px]">
-        <Post key={post?._id} post={post} />
+        {/* <Post key={post?._id} post={post} /> */}
+        abc
+        
       </div>
     </Container>
   );

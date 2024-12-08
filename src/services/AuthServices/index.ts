@@ -53,6 +53,47 @@ export const loginUser = async (userData: FieldValues) => {
   }
 };
 
+export const forgetPassword = async (userData: FieldValues) => {
+  try {
+    const { data } = await axiosInstance.post(
+      "/auth/forget-password",
+      userData
+    );
+
+    return data;
+  } catch (error: any) {
+    throw new Error(error);
+  }
+};
+
+export const resetPassword = async (userData: FieldValues) => {
+  const { resetToken, ...resetData } = userData;
+
+  // console.log(resetToken);
+  // console.log(resetData);
+
+  if (!resetToken) {
+    throw new Error("Authorization token is missing.");
+  }
+
+  try {
+    const { data } = await axiosInstance.post(
+      "/auth/reset-password",
+      resetData,
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `${resetToken}`,
+        },
+      }
+    );
+
+    return data;
+  } catch (error: any) {
+    throw new Error(error);
+  }
+};
+
 export const getCurrentUser = async () => {
   const accessToken = cookies().get("accessToken")?.value;
 
