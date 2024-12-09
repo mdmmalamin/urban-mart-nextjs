@@ -7,7 +7,7 @@ const loading = () => {
       <Spinner size="lg" />
       <div className="flex items-end justify-end gap-2">
         <span className={`text-xl font-semibold dark:text-white text-black`}>
-          Global Loading
+          Global Loading...
         </span>
         <DotLoadingSVG mode="White" />
       </div>

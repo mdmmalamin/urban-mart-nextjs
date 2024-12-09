@@ -1,15 +1,15 @@
 "use client";
 
-import CustomerReview from "@/src/components/modules/productDetails/CustomerReview";
-import ImageGallery from "@/src/components/modules/productDetails/ImageGallery";
-import ProductInfo from "@/src/components/modules/productDetails/ProductInfo";
-import RelatedProduct from "@/src/components/modules/productDetails/RelatedProduct";
 import ProductInfoSkeleton from "@/src/components/skeletons/ProductInfoSkeleton";
 import RecentPostSkeleton from "@/src/components/skeletons/RecentPostSkeleton";
 import ErrorBoundary from "@/src/components/ui/ErrorBoundary";
 import { useGetProduct } from "@/src/hooks/product.hook";
 import { linkToGetId } from "@/src/utils/linkString";
 import { Suspense } from "react";
+import ProductInfo from "../_components/ProductInfo";
+import RelatedProduct from "../_components/RelatedProduct";
+import CustomerReview from "../_components/CustomerReview";
+import ImageGallery from "../_components/ImageGallery";
 
 const ProductDetailsPage = ({ params }: { params: { productId: string } }) => {
   const { productId } = params;

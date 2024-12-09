@@ -1,7 +1,7 @@
 import { Avatar } from "@nextui-org/avatar";
-import Container from "../../ui/Container";
-import Rating from "../../ui/Rating";
 import { formatDate } from "@/src/utils";
+import Container from "@/src/components/ui/Container";
+import Rating from "@/src/components/ui/Rating";
 
 const CustomerReview = () => {
   const reviews = [

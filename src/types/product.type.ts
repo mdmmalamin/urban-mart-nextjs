@@ -17,6 +17,8 @@ export type TShopProps = {
   coverImage: null;
   description: null;
   status: TShopStatus;
+  inventory?: TInventoryProps[];
+
   createdAt: string;
   updatedAt: string;
 };
@@ -26,6 +28,7 @@ export type TInventoryProps = {
   shopId: string;
   sku: string;
   availableQuantity: number;
+  product?: TProductProps;
 
   shop?: TShopProps;
 

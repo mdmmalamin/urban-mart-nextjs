@@ -1,10 +1,10 @@
-import React from "react";
-import Container from "../../ui/Container";
+"use client";
+import Container from "../../../../components/ui/Container";
 import { Button } from "@nextui-org/button";
 import Link from "next/link";
-import { getProducts } from "@/src/services/RecentPosts";
+import { getProducts } from "@/src/services/RecentProducts";
 import { TProductProps } from "@/src/types";
-import RecentProductCard from "../../cards/RecentProductCard";
+import RecentProductCard from "../../../../components/cards/RecentProductCard";
 
 const RecentProduct = async () => {
   const { data: products } = await getProducts();

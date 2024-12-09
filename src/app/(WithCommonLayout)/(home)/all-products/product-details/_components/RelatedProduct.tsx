@@ -1,13 +1,9 @@
-// "use client";
-
-import Container from "../../ui/Container";
-import RecentProductCard from "../../cards/RecentProductCard";
 import { TCategoryProps, TProductProps } from "@/src/types";
-import Link from "next/link";
-import { Button } from "@nextui-org/button";
 import { useGetAllProducts } from "@/src/hooks/product.hook";
+import Container from "@/src/components/ui/Container";
+import RecentProductCard from "@/src/components/cards/RecentProductCard";
 
-const RelatedProduct = ({ category }: { category: TCategoryProps }) => {
+const RelatedProduct = async ({ category }: { category: TCategoryProps }) => {
   const { data: products } = useGetAllProducts([
     {
       name: "category",
@@ -22,6 +18,7 @@ const RelatedProduct = ({ category }: { category: TCategoryProps }) => {
       value: "5",
     },
   ]);
+
   return (
     <Container>
       <div className="section-title my-8">

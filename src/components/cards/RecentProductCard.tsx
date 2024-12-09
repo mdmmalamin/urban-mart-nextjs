@@ -5,7 +5,11 @@ import Link from "next/link";
 import React from "react";
 import AddToCart from "../ui/AddToCart";
 
-const RecentProductCard = ({ product }: { product: TProductProps }) => {
+const RecentProductCard = ({
+  product,
+}: {
+  product: Partial<TProductProps>;
+}) => {
   const { id, name, price, stock, images } = product;
 
   return (
@@ -22,7 +26,7 @@ const RecentProductCard = ({ product }: { product: TProductProps }) => {
           /> */}
       </>
       <Link
-        href={`/all-products/product-details/${linkString(name)}-${id}`} //? ${linkString(name)}-
+        href={`/all-products/product-details/${linkString(name as string)}-${id}`} //? ${linkString(name)}-
         // onClick={() => handleNavigation(_id)}
       >
         <div className="p-3 bg-gradient-to-t to-default-100/0 from-default-100 hover:from-default-100/0 border border-dark/15 hover:shadow-md hover:shadow-accent/20 max-w-64 rounded-lg duration-300 flex flex-col justify-between h-full group">
@@ -33,7 +37,7 @@ const RecentProductCard = ({ product }: { product: TProductProps }) => {
             <Image
               alt={`${name} recent product card image`}
               className="size-40 w-full bg-light/0 object-contain object-center rounded"
-              src={images?.[0]?.url}
+              src={images?.[0]?.url as string}
               width={160}
               height={160}
             />
@@ -56,11 +60,11 @@ const RecentProductCard = ({ product }: { product: TProductProps }) => {
           {/* Card Footer */}
           <div className="border-t pt-2">
             <p className="sm:text-lg font-semibold">
-              ${(price - 10).toFixed(2)}
+              ${((price as number) - 10).toFixed(2)}
             </p>
 
             <p className="text-xs sm:text-sm text-default-500 font-semibold line-through">
-              ${price.toFixed(2)}
+              ${price!.toFixed(2)}
             </p>
           </div>
         </div>
@@ -68,7 +72,7 @@ const RecentProductCard = ({ product }: { product: TProductProps }) => {
 
       <>
         {/* Position Absolute */}
-        <AddToCart id={id} />
+        <AddToCart id={id!} />
       </>
     </div>
   );

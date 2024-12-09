@@ -16,8 +16,8 @@ const Sidebar = () => {
       <div className="relative rounded-lg overflow-hidden ring ring-default-300">
         {user ? (
           <Image
-            alt={user?.name as string}
-            src={user?.profilePhoto as string}
+            alt={user?.fullName as string}
+            src={user?.avatar as string}
             width={300}
             height={300}
             className="aspect-square w-full object-contain object-center bg-gradient-to-t to-default-50 from-transparent"
@@ -29,7 +29,7 @@ const Sidebar = () => {
         <div className="bg-black/50 backdrop-blur-lg absolute bottom-0 w-full p-3">
           {user ? (
             <>
-              <h3 className="text-lg font-semibold">{user?.name}</h3>
+              <h3 className="text-lg font-semibold">{user?.fullName}</h3>
               <h5 className="text-sm font-medium">{user?.email}</h5>
             </>
           ) : (
@@ -50,7 +50,7 @@ const Sidebar = () => {
       <div className="rounded-lg ring ring-default-300 bg-gradient-to-t to-default-100 from-transparent">
         {user ? (
           <SidebarOptions
-            links={user?.role === "USER" ? profileRoutes : adminRoutes}
+            links={user?.role === "CUSTOMER" ? profileRoutes : adminRoutes}
           />
         ) : (
           <SidebarRoutesSkeleton />

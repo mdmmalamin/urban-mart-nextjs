@@ -1,5 +1,5 @@
 import { Input } from "@nextui-org/input";
-import { SearchIcon } from "../../icons";
+import { SearchIcon } from "../../../../components/icons";
 import { Button } from "@nextui-org/button";
 import ShippingSVG from "@/src/assets/icons/ShippingSVG";
 import Link from "next/link";

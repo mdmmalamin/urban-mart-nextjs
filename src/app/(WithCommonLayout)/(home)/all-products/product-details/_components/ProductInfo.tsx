@@ -1,11 +1,11 @@
 import Link from "next/link";
-import Rating from "../../ui/Rating";
 import BdtSVG from "@/src/assets/icons/BdtSVG";
 import { Button } from "@nextui-org/button";
 import CartSVG from "@/src/assets/icons/CartSVG";
 import { Accordion, AccordionItem } from "@nextui-org/accordion";
 import { TProductProps } from "@/src/types";
 import ShopAvatar from "./ShopAvatar";
+import Rating from "@/src/components/ui/Rating";
 
 const ProductInfo = ({
   inventory,
