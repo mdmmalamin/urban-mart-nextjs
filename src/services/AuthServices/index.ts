@@ -1,6 +1,7 @@
 "use server";
 
 import axiosInstance from "@/src/lib/AxiosInstance";
+import { TAuthProps } from "@/src/types";
 import { jwtDecode } from "jwt-decode";
 import { cookies } from "next/headers";
 import { FieldValues } from "react-hook-form";
@@ -15,6 +16,9 @@ export const registerCustomer = async (userData: FieldValues) => {
     if (data.success) {
       cookies().set("accessToken", data?.data?.accessToken);
       cookies().set("refreshToken", data?.data?.refreshToken);
+
+      // localStorage.setItem("accessToken", data?.data?.accessToken);
+      // localStorage.setItem("refreshToken", data?.data?.refreshToken);
     }
 
     return data;
@@ -30,6 +34,9 @@ export const registerVendor = async (userData: FieldValues) => {
     if (data.success) {
       cookies().set("accessToken", data?.data?.accessToken);
       cookies().set("refreshToken", data?.data?.refreshToken);
+
+      // localStorage.setItem("accessToken", data?.data?.accessToken);
+      // localStorage.setItem("refreshToken", data?.data?.refreshToken);
     }
 
     return data;
@@ -43,8 +50,13 @@ export const loginUser = async (userData: FieldValues) => {
     const { data } = await axiosInstance.post("/auth/login", userData);
 
     if (data.success) {
-      cookies().set("accessToken", data?.data?.accessToken);
-      cookies().set("refreshToken", data?.data?.refreshToken);
+      cookies().set("accessToken", data.data.accessToken);
+      cookies().set("refreshToken", data.data.refreshToken);
+
+      // if (typeof window !== "undefined") {
+      //   localStorage.setItem("accessToken", data?.data?.accessToken);
+      //   localStorage.setItem("refreshToken", data?.data?.refreshToken);
+      // }
     }
 
     return data;
@@ -68,9 +80,6 @@ export const forgetPassword = async (userData: FieldValues) => {
 
 export const resetPassword = async (userData: FieldValues) => {
   const { resetToken, ...resetData } = userData;
-
-  // console.log(resetToken);
-  // console.log(resetData);
 
   if (!resetToken) {
     throw new Error("Authorization token is missing.");
@@ -96,6 +105,8 @@ export const resetPassword = async (userData: FieldValues) => {
 
 export const getCurrentUser = async () => {
   const accessToken = cookies().get("accessToken")?.value;
+  // const accessToken = localStorage.getItem("accessToken");
+  console.log("accessToken: ", accessToken);
 
   let decodedToken = null;
 
@@ -104,6 +115,13 @@ export const getCurrentUser = async () => {
 
     return decodedToken;
   }
+
+  //? Optional: Validate the token (e.g., check expiration)
+  // const currentTime = Math.floor(Date.now() / 1000);
+  // if (decodedToken.exp < currentTime) {
+  //   console.warn("Access token has expired.");
+  //   return null;
+  // }
 
   return decodedToken;
 };

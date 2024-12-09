@@ -4,7 +4,6 @@ import { useGetAllShops } from "@/src/hooks/shop.hook";
 import { TShopProps } from "@/src/types";
 import ShopCard from "./ShopCard";
 import VendorProductCard from "./VendorProductCard";
-import { delay } from "@/src/utils";
 
 const ShopPageContainer = async () => {
   const { data: shops } = useGetAllShops([

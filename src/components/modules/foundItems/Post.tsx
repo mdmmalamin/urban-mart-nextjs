@@ -11,7 +11,7 @@ import ClaimRequestModal from "./CliamRequestModal";
 import { Button } from "@nextui-org/button";
 import FXModal from "../../ui/FXModal";
 import Link from "next/link";
-import { useUser } from "@/src/context/user.provider";
+import { useCurrentUser } from "@/src/context/user.provider";
 import AuthenticationModal from "./AuthenticationModal";
 import { TProductProps } from "@/src/types";
 
@@ -37,7 +37,7 @@ const Post = ({ post }: { post: TProductProps }) => {
 
   const { name, email, profilePhoto } = user || {};
 
-  const { user: currentUser } = useUser();
+  const { user: currentUser } = useCurrentUser();
 
   return (
     <section className="max-w-lg min-w-72 mx-auto mb-12 p-3 space-y-3 rounded-lg ring ring-default-50 bg-gradient-to-t to-default-50 from-transparent">

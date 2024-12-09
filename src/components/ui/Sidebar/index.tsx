@@ -1,6 +1,5 @@
 "use client";
 
-import { useUser } from "@/src/context/user.provider";
 import Image from "next/image";
 import SidebarOptions from "./SidebarOptions";
 import { Button } from "@nextui-org/button";
@@ -8,9 +7,19 @@ import { adminRoutes, profileRoutes } from "./constant";
 import Link from "next/link";
 import { Skeleton } from "@nextui-org/skeleton";
 import SidebarRoutesSkeleton from "../../skeletons/SidebarRoutesSkeleton";
+import { useCurrentUser } from "@/src/context/user.provider";
 
 const Sidebar = () => {
-  const { user } = useUser();
+  const { user } = useCurrentUser();
+
+  if (user) {
+    console.log("User info:", user);
+  } else {
+    console.log("No user information available.");
+  }
+
+  console.log(user);
+
   return (
     <div className="w-full space-y-6">
       <div className="relative rounded-lg overflow-hidden ring ring-default-300">

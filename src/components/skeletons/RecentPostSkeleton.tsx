@@ -9,13 +9,14 @@ const RecentPostSkeleton = () => {
   return (
     <Container>
       <div className="section-title my-8">
-        <h2 className="mb-2 text-center text-2xl">Recently Found Items</h2>
+        <h2 className="mb-2 text-center text-2xl">Recently Added Products</h2>
         <p className="text-center">
-          A list of items that have been recently found and reported.
+          Explore our newly added products, carefully curated to meet your
+          needs. Each item is selected for its quality and uniqueness.
         </p>
       </div>
-      <div className="my-8 grid justify-center gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        {[...Array(8)].map(() => (
+      <div className="my-8 grid justify-center gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+        {[...Array(10)].map(() => (
           <Card className="space-y-5 p-4 w-full h-[300px]">
             <Skeleton className="rounded-lg">
               <div className="h-24 rounded-lg bg-default-300"></div>

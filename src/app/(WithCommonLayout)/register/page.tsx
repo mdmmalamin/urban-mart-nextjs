@@ -25,10 +25,10 @@ import ShopSVG from "@/src/assets/icons/ShopSVG";
 import FXDatePicker from "@/src/components/form/FXDatePicker";
 import FXSelect from "@/src/components/form/FXSelect";
 import { dateToISO } from "@/src/utils";
-import { useUser } from "@/src/context/user.provider";
+import { useCurrentUser } from "@/src/context/user.provider";
 
 const RegisterPage = () => {
-  const { setIsLoading } = useUser();
+  const { setIsLoading } = useCurrentUser();
   const searchParams = useSearchParams();
   const router = useRouter();
   const redirect = searchParams.get("redirect");

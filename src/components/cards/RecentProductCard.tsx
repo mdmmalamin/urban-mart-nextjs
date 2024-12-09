@@ -1,9 +1,10 @@
 import { TProductProps } from "@/src/types";
-import { linkString } from "@/src/utils/linkString";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import AddToCart from "../ui/AddToCart";
+import { linkString } from "@/src/utils";
+import { NO_IMAGE_FOUND } from "@/src/constant";
 
 const RecentProductCard = ({
   product,
@@ -37,7 +38,7 @@ const RecentProductCard = ({
             <Image
               alt={`${name} recent product card image`}
               className="size-40 w-full bg-light/0 object-contain object-center rounded"
-              src={images?.[0]?.url as string}
+              src={images?.[0]?.url || NO_IMAGE_FOUND}
               width={160}
               height={160}
             />

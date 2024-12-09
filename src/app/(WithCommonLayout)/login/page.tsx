@@ -12,11 +12,11 @@ import { useUserLogin } from "@/src/hooks/auth.hook";
 import Loading from "@/src/components/ui/Loading";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
-import { useUser } from "@/src/context/user.provider";
-import ForgetPasswordModal from "@/src/components/modules/login/ForgetPasswordModal";
+import { useCurrentUser } from "@/src/context/user.provider";
+import ForgetPasswordModal from "@/src/app/(WithCommonLayout)/login/_components/ForgetPasswordModal";
 
 const LoginPage = () => {
-  const { user, setIsLoading } = useUser();
+  const { user, setIsLoading } = useCurrentUser();
   const searchParams = useSearchParams();
   const router = useRouter();
   const redirect = searchParams.get("redirect");

@@ -1,8 +1,12 @@
 "use client";
 
-import { avatarRoutes } from "@/src/config/avatar.route";
+import {
+  adminAvatarRoutes,
+  customerAvatarRoutes,
+  vendorAvatarRoutes,
+} from "@/src/config/avatar.route";
 import { protectedRouts } from "@/src/constant";
-import { useUser } from "@/src/context/user.provider";
+import { useCurrentUser } from "@/src/context/user.provider";
 import { logout } from "@/src/services/AuthServices";
 import { Avatar } from "@nextui-org/avatar";
 import {
@@ -15,7 +19,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 
 const AvatarDropdown = () => {
-  const { user, setIsLoading } = useUser();
+  const { user, setIsLoading } = useCurrentUser();
   const router = useRouter();
   const pathname = usePathname();
 
@@ -43,17 +47,56 @@ const AvatarDropdown = () => {
           </DropdownTrigger>
           <DropdownMenu>
             <>
-              {avatarRoutes.map(({ label, href }) => (
-                <DropdownItem
-                  key={label}
-                  className={`m-0 p-0 my-1 ${pathname === href && "bg-default-300"}`}
-                >
-                  <Link href={href} className={`w-full inline-block px-3 py-2`}>
-                    {label}
-                  </Link>
-                </DropdownItem>
-              ))}
+              {user?.role === "CUSTOMER" &&
+                customerAvatarRoutes.map(({ label, href }) => (
+                  <DropdownItem
+                    key={label}
+                    className={`m-0 p-0 my-1 ${pathname === href && "bg-default-300"}`}
+                  >
+                    <Link
+                      href={href}
+                      className={`w-full inline-block px-3 py-2`}
+                    >
+                      {label}
+                    </Link>
+                  </DropdownItem>
+                ))}
             </>
+
+            <>
+              {user?.role === "VENDOR" &&
+                vendorAvatarRoutes.map(({ label, href }) => (
+                  <DropdownItem
+                    key={label}
+                    className={`m-0 p-0 my-1 ${pathname === href && "bg-default-300"}`}
+                  >
+                    <Link
+                      href={href}
+                      className={`w-full inline-block px-3 py-2`}
+                    >
+                      {label}
+                    </Link>
+                  </DropdownItem>
+                ))}
+            </>
+
+            <>
+              {(user?.role === "ADMIN" || user?.role === "SUPER_ADMIN") &&
+                adminAvatarRoutes.map(({ label, href }) => (
+                  <DropdownItem
+                    key={label}
+                    className={`m-0 p-0 my-1 ${pathname === href && "bg-default-300"}`}
+                  >
+                    <Link
+                      href={href}
+                      className={`w-full inline-block px-3 py-2`}
+                    >
+                      {label}
+                    </Link>
+                  </DropdownItem>
+                ))}
+            </>
+
             <DropdownItem
               onClick={() => handleLogout()}
               key="Logout"

@@ -1,3 +1,5 @@
+"use client";
+
 import {
   createContext,
   Dispatch,
@@ -7,8 +9,8 @@ import {
   useEffect,
   useState,
 } from "react";
-import { getCurrentUser } from "../services/AuthServices";
 import { TAuthProps } from "../types";
+import { getCurrentUser } from "../services/AuthServices";
 
 interface IUserProviderValues {
   user: TAuthProps | null;
@@ -24,26 +26,34 @@ const UserProvider = ({ children }: { children: ReactNode }) => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   const handleUser = async () => {
-    const userData = await getCurrentUser();
+    try {
+      const userData = await getCurrentUser();
 
-    setUser(userData);
-    setIsLoading(false);
+      setUser(userData);
+      setIsLoading(false);
+    } catch (error) {
+      console.error("Failed to fetch user data:", error);
+      setUser(null);
+    }
   };
 
   useEffect(() => {
     handleUser();
   }, [isLoading]);
 
-  const values = { user, setUser, isLoading, setIsLoading };
   return (
-    <USER_CONTEXT.Provider value={values}>{children}</USER_CONTEXT.Provider>
+    <USER_CONTEXT.Provider value={{ user, setUser, isLoading, setIsLoading }}>
+      {children}
+    </USER_CONTEXT.Provider>
   );
 };
 
-export const useUser = () => {
+export const useCurrentUser = () => {
   const context = useContext(USER_CONTEXT);
   if (context === undefined) {
-    throw new Error("useUser must be used within the UserProvider context.");
+    throw new Error(
+      "useCurrentUser must be used within the UserProvider context."
+    );
   }
   return context;
 };

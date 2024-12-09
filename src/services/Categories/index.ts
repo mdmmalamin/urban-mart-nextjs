@@ -8,9 +8,7 @@ export const getCategories = async (query: TQuery) => {
   const { name, value } = query;
 
   try {
-    const { data } = await axiosInstance.get(
-      `/item-categories?${name}=${value}`
-    );
+    const { data } = await axiosInstance.get(`/categories?${name}=${value}`);
 
     return data;
   } catch (error: any) {

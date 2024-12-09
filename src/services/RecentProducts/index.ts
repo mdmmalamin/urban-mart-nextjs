@@ -1,4 +1,4 @@
-// "use server";
+"use server";
 
 import envConfig from "@/src/config/envConfig";
 
