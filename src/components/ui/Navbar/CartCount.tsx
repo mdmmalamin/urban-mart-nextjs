@@ -1,12 +1,17 @@
 import CartSVG from "@/src/assets/icons/CartSVG";
+import { useMyCarts } from "@/src/hooks/addToCart.hook";
 import Link from "next/link";
 
-const CartCount = ({ value = 100 }) => {
-  let maxValue: number | string = value || 0;
+const CartCount = () => {
+  const { data } = useMyCarts();
+  const value: number = data?.data?.cartItems?.length;
 
-  if (maxValue > 99) {
+  let maxValue: number | string = value || "0";
+
+  if (+maxValue > 99) {
     maxValue = "...";
   }
+
   return (
     <div>
       <div className="relative select-none">
@@ -17,7 +22,7 @@ const CartCount = ({ value = 100 }) => {
               maxValue !== 0 ? "block" : "hidden"
             }`}
           >
-            {maxValue}
+            {maxValue.toString()}
           </span>
         </Link>
       </div>
