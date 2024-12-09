@@ -17,13 +17,13 @@ import clsx from "clsx";
 import { siteConfig } from "@/src/config/site";
 import { ThemeSwitch } from "@/src/components/ui/theme-switch";
 import {
-  TwitterIcon,
   GithubIcon,
-  DiscordIcon,
   HeartFilledIcon,
   Logo,
+  LinkedInIcon,
 } from "@/src/components/icons";
 import AvatarDropdown from "./AvatarDropdown";
+import CartCount from "./CartCount";
 
 const Navbar = () => {
   return (
@@ -63,15 +63,13 @@ const Navbar = () => {
       >
         <NavbarItem className="hidden sm:flex gap-2">
           <Link isExternal aria-label="Twitter" href={siteConfig.links.twitter}>
-            <TwitterIcon className="text-default-500" />
-          </Link>
-          <Link isExternal aria-label="Discord" href={siteConfig.links.discord}>
-            <DiscordIcon className="text-default-500" />
+            <LinkedInIcon className="text-default-500" />
           </Link>
           <Link isExternal aria-label="Github" href={siteConfig.links.github}>
             <GithubIcon className="text-default-500" />
           </Link>
           <ThemeSwitch />
+          <CartCount />
         </NavbarItem>
         {/* //? Medium Device Sponsor */}
         <NavbarItem className="hidden md:flex">
@@ -93,6 +91,7 @@ const Navbar = () => {
       {/* //? Small Device Social Links */}
       <NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
         <ThemeSwitch />
+        <CartCount />
         {/* //? Avatar Dropdown */}
         <AvatarDropdown />
         <NavbarMenuToggle />

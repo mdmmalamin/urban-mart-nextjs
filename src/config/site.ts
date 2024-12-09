@@ -41,9 +41,8 @@ export const siteConfig = {
   ],
   links: {
     github: "https://github.com/mdmmalamin",
-    twitter: "https://twitter.com/mdmmalamin",
+    twitter: "https://www.linkedin.com/in/mdmmalamin",
     docs: "https://github.com/mdmmalamin/urban-mart-nextjs",
-    discord: "https://discord.gg/mdmmalamin.",
     sponsor: "https://buymeacoffee.com/mdmmalaminm",
   },
 };
