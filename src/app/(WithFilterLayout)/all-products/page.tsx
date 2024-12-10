@@ -1,3 +1,8 @@
+export const metadata = {
+  title: "All Product",
+  description: "",
+};
+
 const AllProductPage = () => {
   return (
     <div>

@@ -4,6 +4,11 @@ interface IProps {
   };
 }
 
+export const metadata = {
+  title: "Flash Sale",
+  description: "",
+};
+
 const FlashProductDetailsPage = async ({ params: { flashSaleId } }: IProps) => {
   // const { data: post } = await getPost(itemId);
   // console.log(post);

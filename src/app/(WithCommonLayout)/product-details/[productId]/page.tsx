@@ -11,6 +11,11 @@ import ImageGallery from "./_components/ImageGallery";
 import { linkToGetId } from "@/src/utils";
 import FXErrorBoundary from "@/src/components/ui/FXErrorBoundary";
 
+// export const metadata = {
+//   title: "Home",
+//   description: "",
+// };
+
 const ProductDetailsPage = ({ params }: { params: { productId: string } }) => {
   const { productId } = params;
 

@@ -17,6 +17,11 @@ import ForgetPasswordModal from "./_components/ForgetPasswordModal";
 import EyeCloseSVG from "@/src/assets/icons/EyeCloseSVG";
 import EyeSlashOpenSVG from "@/src/assets/icons/EyeSlashOpenSVG";
 
+// export const metadata = {
+//   title: "Login Please",
+//   description: "This is image optimization page.",
+// };
+
 const LoginPage = () => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const { user, setIsLoading } = useCurrentUser();
