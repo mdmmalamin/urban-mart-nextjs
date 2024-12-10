@@ -1,19 +1,9 @@
-import Container from "@/src/components/ui/Container";
-// import axiosInstance from "@/src/lib/AxiosInstance";
-import { TProductProps } from "@/src/types";
-
-const FoundItemsPage = async () => {
-  // const { data: products } = await axiosInstance.get(`/products`);
-  // console.log(products)
-
+const FlashSalePage = async () => {
   return (
-    <Container>
+    <div className="bg-gradient-to-t to-default-100 from-transparent h-screen">
       Flash Sale
-      {/* {products?.data?.map((product: TProductProps) => (
-        <Post key={product.id} post={product} />
-      ))} */}
-    </Container>
+    </div>
   );
 };
 
-export default FoundItemsPage;
+export default FlashSalePage;

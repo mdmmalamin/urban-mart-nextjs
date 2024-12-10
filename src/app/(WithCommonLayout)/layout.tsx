@@ -1,13 +1,14 @@
+import Container from "@/src/components/ui/Container";
 import Footer from "@/src/components/ui/Footer";
 import { ReactNode } from "react";
 
 const layout = ({ children }: { children: ReactNode }) => {
   return (
-    <div className="relative flex flex-col h-screen">
-      <main>{children}</main>
+    <>
+      <Container>{children}</Container>
 
       <Footer />
-    </div>
+    </>
   );
 };
 

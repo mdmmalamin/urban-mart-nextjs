@@ -1,25 +1,22 @@
-import Container from "@/src/components/ui/Container";
-// import { getPost } from "@/src/services/Post";
-
 interface IProps {
   params: {
-    itemId: string;
+    flashSaleId: string;
   };
 }
 
-const ItemDetailPage = async ({ params: { itemId } }: IProps) => {
+const FlashProductDetailsPage = async ({ params: { flashSaleId } }: IProps) => {
   // const { data: post } = await getPost(itemId);
   // console.log(post);
 
   return (
-    <Container>
+    <>
       flash-sale/:id
-      <div className="mx-auto my-3 max-w-[720px]">
+      <div className="mx-auto my-3 max-w-[720px] border">
         {/* <Post key={post?._id} post={post} /> */}
         abc
       </div>
-    </Container>
+    </>
   );
 };
 
-export default ItemDetailPage;
+export default FlashProductDetailsPage;
