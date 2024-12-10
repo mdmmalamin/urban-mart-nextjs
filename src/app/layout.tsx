@@ -5,6 +5,7 @@ import clsx from "clsx";
 import { siteConfig } from "@/src/config/site";
 import { fontSans } from "@/src/config/fonts";
 import { Providers } from "../lib/Providers";
+import Navbar from "../components/ui/Navbar";
 
 export const metadata: Metadata = {
   title: {
@@ -30,7 +31,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html suppressHydrationWarning lang="en"  className='light'>
+    <html suppressHydrationWarning lang="en" className="light">
       <head />
       <body
         className={clsx(
@@ -39,7 +40,9 @@ export default function RootLayout({
         )}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "light" }}>
-          {children}
+          <Navbar />
+
+          <main>{children}</main>
         </Providers>
       </body>
     </html>

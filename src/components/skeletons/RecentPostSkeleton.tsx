@@ -5,7 +5,7 @@ import Container from "../ui/Container";
 import { Button } from "@nextui-org/button";
 import Link from "next/link";
 
-const RecentPostSkeleton = () => {
+const RecentProductSkeleton = () => {
   return (
     <Container>
       <div className="section-title my-8">
@@ -44,4 +44,4 @@ const RecentPostSkeleton = () => {
   );
 };
 
-export default RecentPostSkeleton;
+export default RecentProductSkeleton;

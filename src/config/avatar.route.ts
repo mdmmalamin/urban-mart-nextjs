@@ -4,12 +4,12 @@ export const customerAvatarRoutes = [
     href: "/user/profile",
   },
   {
-    label: "Order",
-    href: "/user/order",
+    label: "My Order",
+    href: "/user/my-order",
   },
   {
-    label: "Review",
-    href: "/user/review",
+    label: "My Review",
+    href: "/user/my-review",
   },
 ];
 

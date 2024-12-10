@@ -1,11 +1,9 @@
 import Footer from "@/src/components/ui/Footer";
-import Navbar from "@/src/components/ui/Navbar";
+import { ReactNode } from "react";
 
-const layout = ({ children }: { children: React.ReactNode }) => {
+const layout = ({ children }: { children: ReactNode }) => {
   return (
     <div className="relative flex flex-col h-screen">
-      <Navbar />
-
       <main>{children}</main>
 
       <Footer />

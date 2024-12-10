@@ -14,7 +14,7 @@ const RecentProductCard = ({
   const { id, name, price, stock, images } = product;
 
   return (
-    <div className="relative group max-w-64">
+    <div className="relative group max-w-64 w-full">
       <>
         {/* Position Absolute */}
         <p className="text-xs capitalize rounded-md px-2 py-0.5 bg-default-500 text-white absolute top-3 left-3">
@@ -27,7 +27,7 @@ const RecentProductCard = ({
           /> */}
       </>
       <Link
-        href={`/all-products/product-details/${linkString(name as string)}-${id}`} //? ${linkString(name)}-
+        href={`/product-details/${linkString(name as string)}-${id}`} //? ${linkString(name)}-
         // onClick={() => handleNavigation(_id)}
       >
         <div className="p-3 bg-gradient-to-t to-default-100/0 from-default-100 hover:from-default-100/0 border border-dark/15 hover:shadow-md hover:shadow-accent/20 max-w-64 rounded-lg duration-300 flex flex-col justify-between h-full group">
@@ -43,11 +43,11 @@ const RecentProductCard = ({
               height={160}
             />
             {/* Card Info */}
-            <div className="flex items-center justify-between my-2 text-xs">
+            {/* <div className="flex items-center justify-between my-2 text-xs">
               <span className="border px-2.5 rounded-full font-medium">
                 {stock}
               </span>
-            </div>
+            </div> */}
 
             <h3 className="text-sm font-semibold text-left line-clamp-2">
               {name}
