@@ -1,6 +1,6 @@
 type TSize = "size-6" | "size-8" | "size-10" | "size-12";
 
-const BdtSVG = ({ size }: { size: TSize }) => {
+const BdtSVG = ({ size }: { size?: TSize }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

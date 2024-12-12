@@ -8,20 +8,16 @@ export const getAllProducts = async (query?: TQuery[]) => {
 
   if (query) {
     query.forEach((item) => {
-      params.append(item.name, item.value);
+      if (item.name && item.value) {
+        params.append(item.name, item.value);
+      }
     });
   }
-  console.log(params);
-  try {
-    const { data } = await axiosInstance.get(
-      `/products?`,
-      {
-        params,
-      }
-      // `/products?${query?.map(item => (item.name = item.value))}`
-    );
 
-    console.log(data);
+  try {
+    const { data } = await axiosInstance.get(`/products?`, {
+      params,
+    });
 
     return data;
   } catch (error: any) {

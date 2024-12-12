@@ -1,14 +1,28 @@
-// "use client";
+"use client";
 
 import Container from "../../../../components/ui/Container";
 import { Button } from "@nextui-org/button";
 import Link from "next/link";
-import { getProducts } from "@/src/services/RecentProducts";
 import { TProductProps } from "@/src/types";
 import RecentProductCard from "../../../../components/cards/RecentProductCard";
+import { useGetAllProducts } from "@/src/hooks/product.hook";
+import { useProduct } from "@/src/context/product.provider";
 
-const RecentProduct = async () => {
-  const { data: products } = await getProducts();
+const RecentProduct = () => {
+  const { queryPriceRange } = useProduct();
+  console.log(queryPriceRange);
+  const { data: products } = useGetAllProducts([
+    {
+      name: "minPrice",
+      value: queryPriceRange[0]?.toString(),
+    },
+    {
+      name: "maxPrice",
+      value: queryPriceRange[1]?.toString(),
+    },
+  ]);
+
+  console.log(products);
 
   return (
     <Container>
@@ -25,9 +39,8 @@ const RecentProduct = async () => {
 
       {/* //? Body */}
       <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center gap-4 my-8">
-        {products?.slice(0, 10)?.map((product: TProductProps) => (
+        {products?.data?.slice(0, 10)?.map((product: TProductProps) => (
           <>
-            <RecentProductCard product={product} key={product.id} />
             <RecentProductCard product={product} key={product.id} />
           </>
         ))}

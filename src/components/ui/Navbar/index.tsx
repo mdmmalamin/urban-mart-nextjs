@@ -28,7 +28,7 @@ import CartCount from "./CartCount";
 
 const Navbar = () => {
   return (
-    <NextUINavbar maxWidth="xl" position="sticky">
+    <NextUINavbar maxWidth="xl" position="sticky" shouldHideOnScroll>
       {/* //? Large Device Logo & Links */}
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
         {/* //? Logo */}

@@ -3,8 +3,9 @@ import { getAllProducts, getProductDetails } from "../services/Products";
 import { TQuery } from "../services/Categories";
 
 export const useGetAllProducts = (query?: TQuery[]) => {
+  console.log(query);
   return useQuery({
-    queryKey: ["GET_ALL_PRODUCTS"],
+    queryKey: ["GET_ALL_PRODUCTS", query],
     queryFn: async () => await getAllProducts(query),
   });
 };

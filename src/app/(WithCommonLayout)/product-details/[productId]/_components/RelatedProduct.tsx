@@ -19,6 +19,8 @@ const RelatedProduct = async ({ category }: { category: TCategoryProps }) => {
     },
   ]);
 
+  console.log("Related Product:", products);
+
   return (
     <Container>
       <div className="section-title my-8">

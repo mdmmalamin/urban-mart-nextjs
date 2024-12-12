@@ -9,7 +9,7 @@ const FXInput = ({
   variant = "underlined",
   size = "md",
   isRequired = false,
-  label = "label",
+  label = "",
   name,
   className,
   placeholder,
