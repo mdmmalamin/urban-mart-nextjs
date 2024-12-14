@@ -1,7 +1,6 @@
 "use server";
 
 import axiosInstance from "@/src/lib/AxiosInstance";
-import { TAuthProps } from "@/src/types";
 import { jwtDecode } from "jwt-decode";
 import { cookies } from "next/headers";
 import { FieldValues } from "react-hook-form";
@@ -103,10 +102,20 @@ export const resetPassword = async (userData: FieldValues) => {
   }
 };
 
+export const changeEmail = async (userData: FieldValues) => {
+  try {
+    const { data } = await axiosInstance.post("/auth/change-email", userData);
+
+    return data;
+  } catch (error: any) {
+    throw new Error(error);
+  }
+};
+
 export const getCurrentUser = async () => {
   const accessToken = cookies().get("accessToken")?.value;
   // const accessToken = localStorage.getItem("accessToken");
-  console.log("accessToken: ", accessToken);
+  // console.log("accessToken: ", accessToken);
 
   let decodedToken = null;
 

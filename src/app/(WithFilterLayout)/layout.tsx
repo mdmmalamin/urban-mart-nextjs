@@ -10,7 +10,7 @@ const layout = ({ children }: { children: ReactNode }) => {
         <div className="grid grid-cols-4 lg:gap-6">
           <FilterSidebar />
 
-          <div className="col-span-full lg:col-span-3 border space-y-12">
+          <div className="col-span-full lg:col-span-3 min-h-screen space-y-12">
             {children}
           </div>
         </div>

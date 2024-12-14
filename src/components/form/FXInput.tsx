@@ -6,6 +6,7 @@ import { useFormContext } from "react-hook-form";
 
 const FXInput = ({
   type = "text",
+  defaultValue,
   variant = "underlined",
   size = "md",
   isRequired = false,
@@ -23,6 +24,7 @@ const FXInput = ({
   return (
     <Input
       className={className}
+      defaultValue={defaultValue}
       placeholder={placeholder}
       type={type}
       variant={variant}

@@ -1,46 +1,49 @@
 "use client";
 
-import ArrowSVG from "@/src/assets/icons/ArrowSVG";
 import BdtSVG from "@/src/assets/icons/BdtSVG";
-import FXForm from "@/src/components/form/FXForm";
-import FXInput from "@/src/components/form/FXInput";
+import { SVGicons } from "@/src/assets/icons/SVGicons";
 import FXPriceRange from "@/src/components/ui/FXPriceRange";
+import { PriceRangeOptions } from "@/src/constant";
 import { useProduct } from "@/src/context/product.provider";
 import { useCategories } from "@/src/hooks/categories.hook";
+import { TCategoryProps } from "@/src/types";
 import { Button } from "@nextui-org/button";
+import Link from "next/link";
 import { useState } from "react";
-import { FieldValues, SubmitHandler } from "react-hook-form";
 
 const FilterSidebar = () => {
-  const [isFilterShow, setFilterShow] = useState(false);
+  const [isFilterOpen, setFilterOpen] = useState(false);
   const { maxPrice, setQueryPriceRange } = useProduct();
 
   const { data: categories } = useCategories();
-  // console.log(categories?.data);
-
-  const onSubmit: SubmitHandler<FieldValues> = (data) => {
-    // console.log(data);
-  };
 
   return (
-    <div className="relative z-20 text-nowrap">
+    <aside className="sticky z-20 text-nowrap">
+      {/* //? Responsive Sidebar */}
       <div
-        className={`${isFilterShow ? "-translate-x-full -left-3" : ""} absolute duration-300 min-w-72 w-full h-screen border border-default-200 p-2 rounded-lg bg-default-50/10 backdrop-blur-3xl`}
+        className={`${
+          isFilterOpen
+            ? "translate-x-0 -left-3 lg:left-0"
+            : "-translate-x-full -left-3 lg:left-0 lg:translate-x-0"
+        } absolute lg:block duration-300 min-w-72 w-full h-screen border border-default-200 p-2 rounded-lg bg-default-50/10 backdrop-blur-3xl space-y-6 transition-transform`}
       >
+        {/* //? Toggle Button for small devices */}
         <Button
-          className="lg:hidden absolute -right-5 top-5"
+          className="lg:hidden fixed -right-10 top-5"
           isIconOnly
           radius="full"
-          onClick={() => setFilterShow(!isFilterShow)}
+          onClick={() => setFilterOpen(!isFilterOpen)}
         >
-          <ArrowSVG
-            className={`${isFilterShow ? "" : "rotate-180"} duration-300 ease-soft-spring`}
+          <SVGicons
+            className={`${isFilterOpen ? "" : "rotate-180"} duration-300 ease-soft-spring`}
           />
         </Button>
 
-        <h1>Filter : {isFilterShow.toString()}</h1>
+        {/* Filter Title */}
+        <h1 className="text-lg font-semibold">Filter</h1>
 
-        <div>
+        {/* Price Range Options */}
+        <div className="space-y-3">
           <h3>Price</h3>
           <div>
             <FXPriceRange
@@ -49,69 +52,56 @@ const FilterSidebar = () => {
             />
           </div>
 
-          <FXForm
-            onSubmit={onSubmit}
-            // resolver={zodResolver(loginValidationSchema)}
-            //! Only for development
-            // defaultValues={{}}
-          >
-            <div className="space-y-3">
-              <FXInput
-                name="minPrice"
-                placeholder="Min Price"
-                startContent={<BdtSVG />}
-              />
-              <FXInput
-                name="maxPrice"
-                placeholder="Max Price"
-                startContent={<BdtSVG />}
-              />
-
-              {/* <Button className="w-full" size="md" type="submit">
-                Login
-              </Button> */}
-            </div>
-          </FXForm>
-
           <div className="space-y-3">
-            {fxPriceRange?.map(({ min, max }, idx) => (
-              <Button className="w-full flex items-center gap-2" key={idx}>
-                {min === 0 ? (
-                  <span>Under</span>
-                ) : (
-                  <span className="flex items-center gap-0">
-                    <BdtSVG />
-                    {min}
-                  </span>
-                )}
-                -
-                {fxPriceRange.length - 1 === idx ? (
-                  <span>Above</span>
-                ) : (
-                  <span className="flex items-center gap-0">
-                    <BdtSVG />
-                    {max}
-                  </span>
-                )}
-              </Button>
+            {PriceRangeOptions?.map(({ min, max }, idx) => (
+              <Link href={`/all-products?`} className="block" key={idx}>
+                <Button
+                  size="sm"
+                  className="w-full flex items-center gap-2"
+                  onClick={() => setQueryPriceRange([min, max])}
+                >
+                  {min === 0 ? (
+                    <span>Under</span>
+                  ) : (
+                    <span className="flex items-center gap-0">
+                      <BdtSVG />
+                      {min}
+                    </span>
+                  )}
+                  -
+                  {PriceRangeOptions.length - 1 === idx ? (
+                    <span>Above</span>
+                  ) : (
+                    <span className="flex items-center gap-0">
+                      <BdtSVG />
+                      {max}
+                    </span>
+                  )}
+                </Button>
+              </Link>
             ))}
           </div>
         </div>
 
-        <div>{}</div>
+        {/* Category Options */}
+        <div className="space-y-3">
+          <h3>Categories</h3>
+          <div className="space-y-3">
+            {categories?.data?.map(({ id, name, _count }: TCategoryProps) => (
+              <Link
+                href={`/all-products?category=${name}`}
+                className="w-full flex items-center justify-between gap-2 bg-default-50 hover:bg-default-100 duration-300 py-2 px-3 rounded-lg"
+                key={id}
+              >
+                {name}
+                <span>{_count?.products}</span>
+              </Link>
+            ))}
+          </div>
+        </div>
       </div>
-    </div>
+    </aside>
   );
 };
 
 export default FilterSidebar;
-
-//* Filtering functionalities (price range, category, keyword, etc.).
-
-const fxPriceRange = [
-  { min: 0, max: 500 },
-  { min: 500, max: 1000 },
-  { min: 1000, max: 5000 },
-  { min: 5000, max: 10000 },
-  { min: 10000, max: 99999999 },
-];

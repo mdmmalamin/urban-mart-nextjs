@@ -3,30 +3,33 @@
 import Image from "next/image";
 import SidebarOptions from "./SidebarOptions";
 import { Button } from "@nextui-org/button";
-import { adminRoutes, profileRoutes } from "./constant";
+import {
+  adminSidebarRoutes,
+  customerSidebarRoutes,
+  vendorSidebarRoutes,
+} from "./constant";
 import Link from "next/link";
 import { Skeleton } from "@nextui-org/skeleton";
-import SidebarRoutesSkeleton from "../../skeletons/SidebarRoutesSkeleton";
 import { useCurrentUser } from "@/src/context/user.provider";
+import SidebarRoutesSkeleton from "@/src/components/skeletons/SidebarRoutesSkeleton";
+import { NO_IMAGE_FOUND } from "@/src/constant";
 
 const Sidebar = () => {
   const { user } = useCurrentUser();
 
-  if (user) {
-    console.log("User info:", user);
-  } else {
-    console.log("No user information available.");
-  }
-
-  console.log(user);
+  // if (user) {
+  //   console.log("User info:", user);
+  // } else {
+  //   console.log("No user information available.");
+  // }
 
   return (
     <div className="w-full space-y-6">
       <div className="relative rounded-lg overflow-hidden ring ring-default-300">
         {user ? (
           <Image
-            alt={user?.fullName as string}
-            src={user?.avatar as string}
+            alt={(user?.fullName as string) || ""}
+            src={(user?.avatar as string) || NO_IMAGE_FOUND}
             width={300}
             height={300}
             className="aspect-square w-full object-contain object-center bg-gradient-to-t to-default-50 from-transparent"
@@ -59,7 +62,15 @@ const Sidebar = () => {
       <div className="rounded-lg ring ring-default-300 bg-gradient-to-t to-default-100 from-transparent">
         {user ? (
           <SidebarOptions
-            links={user?.role === "CUSTOMER" ? profileRoutes : adminRoutes}
+            links={
+              user.role === "CUSTOMER"
+                ? customerSidebarRoutes
+                : user.role === "VENDOR"
+                  ? vendorSidebarRoutes
+                  : user.role === "SUPER_ADMIN"
+                    ? adminSidebarRoutes
+                    : adminSidebarRoutes
+            }
           />
         ) : (
           <SidebarRoutesSkeleton />

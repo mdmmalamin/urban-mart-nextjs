@@ -1,5 +1,6 @@
 import { useMutation } from "@tanstack/react-query";
 import {
+  changeEmail,
   forgetPassword,
   loginUser,
   registerCustomer,
@@ -54,6 +55,15 @@ export const useResetPassword = () => {
     mutationFn: async (userData) => await resetPassword(userData),
     onSuccess: () =>
       toast.success("Your password reset successfully. Please login..."),
+    onError: (error) => toast.error(error?.message) || "Something went wrong!",
+  });
+};
+
+export const useChangeEmail = () => {
+  return useMutation<any, Error, FieldValues>({
+    mutationKey: ["USER_EMAIL_CHANGE"],
+    mutationFn: async (userData) => await changeEmail(userData),
+    onSuccess: () => toast.success("Your email changed successfully."),
     onError: (error) => toast.error(error?.message) || "Something went wrong!",
   });
 };

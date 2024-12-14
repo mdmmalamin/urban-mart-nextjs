@@ -5,8 +5,9 @@ export type TCategoryProps = {
   id: string;
   name: string;
 
-  createdAt: string;
-  updatedAt: string;
+  _count?: { products: number };
+  createdAt?: string;
+  updatedAt?: string;
 };
 
 export type TShopProps = {

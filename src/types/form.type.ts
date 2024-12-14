@@ -2,6 +2,7 @@ import { ReactNode } from "react";
 
 export interface IInput {
   type?: string;
+  defaultValue?: any;
   variant?: "underlined" | "flat" | "faded" | "bordered";
   size?: "md" | "lg" | "sm";
   label?: string;

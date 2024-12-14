@@ -9,7 +9,7 @@ import {
 import { ReactNode } from "react";
 
 interface IProps {
-  buttonText: string;
+  buttonText: string | ReactNode;
   title: string;
   children: ReactNode;
   buttonVariant?:
@@ -36,6 +36,8 @@ interface IProps {
     | undefined;
   backdrop?: "blur" | "transparent" | "opaque" | undefined;
   buttonSize?: "sm" | "md" | "lg";
+  isIconOnly?: boolean;
+  isDismissable?: boolean;
 }
 
 const FXModal = ({
@@ -47,6 +49,8 @@ const FXModal = ({
   size = "2xl",
   backdrop = "blur",
   buttonSize = "lg",
+  isIconOnly = false,
+  isDismissable = true,
 }: IProps) => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
@@ -57,6 +61,7 @@ const FXModal = ({
         variant={buttonVariant}
         onPress={onOpen}
         size={buttonSize}
+        isIconOnly={isIconOnly}
       >
         {buttonText}
       </Button>
@@ -65,6 +70,7 @@ const FXModal = ({
         onOpenChange={onOpenChange}
         size={size}
         backdrop={backdrop}
+        // isDismissable={isDismissable}
       >
         <ModalContent>
           {(onClose) => (

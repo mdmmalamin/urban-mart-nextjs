@@ -8,6 +8,7 @@ interface IProps extends IInput {
     label: string;
   }[];
   placeholder?: string;
+  defaultSelectedKeys?: string[];
 }
 
 const FXSelect = ({
@@ -19,6 +20,7 @@ const FXSelect = ({
   placeholder = "placeholder",
   isDisabled = false,
   isRequired = false,
+  defaultSelectedKeys,
 }: IProps) => {
   const {
     register,
@@ -33,6 +35,7 @@ const FXSelect = ({
       size={size}
       isDisabled={isDisabled}
       isRequired={isRequired}
+      defaultSelectedKeys={defaultSelectedKeys}
       // errorMessage={errors[name] ? (errors[name].message as String) : ""}
       {...register(name)}
     >

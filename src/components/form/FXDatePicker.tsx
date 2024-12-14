@@ -9,6 +9,7 @@ const FXDatePicker = ({
   name,
   variant = "underlined",
   isRequired = false,
+  defaultValue,
 }: IDatePicker) => {
   return (
     <Controller
@@ -18,6 +19,7 @@ const FXDatePicker = ({
           label={label}
           className="min-w-full sm:min-w-xs"
           variant={variant}
+          defaultValue={defaultValue}
           // size={size}
           // required={required}
           // isInvalid={!!errors[name]}

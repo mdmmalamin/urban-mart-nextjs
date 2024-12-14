@@ -6,6 +6,7 @@ import { siteConfig } from "@/src/config/site";
 import { fontSans } from "@/src/config/fonts";
 import { Providers } from "../lib/Providers";
 import Navbar from "../components/ui/Navbar";
+import ScrollToTop from "../components/ui/ScrollToTop";
 
 export const metadata: Metadata = {
   title: {
@@ -43,6 +44,8 @@ export default function RootLayout({
           <Navbar />
 
           <main>{children}</main>
+
+          <ScrollToTop />
         </Providers>
       </body>
     </html>

@@ -9,7 +9,7 @@ import Image from "next/image";
 const InventoryContainer = () => {
   const { data } = useGetMyInventories();
   const { data: myInventories } = data || [];
-  console.log("My Shop Hook: ", myInventories);
+  // console.log("My Shop Hook: ", myInventories);
   return (
     <Container>
       <h1>All Inventory</h1>

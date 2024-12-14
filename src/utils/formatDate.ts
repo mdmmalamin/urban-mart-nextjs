@@ -23,3 +23,9 @@ export const dateToISO = (date: IDateToISO) => {
 
   return new Date(`${date.month}-${date.day}-${date.year}`).toISOString();
 };
+
+export const dateToString = (date: IDateToISO) => {
+  if (!date) return new Date().toISOString();
+
+  return `${date.month}-${date.day}-${date.year}`;
+};

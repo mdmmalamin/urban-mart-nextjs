@@ -11,3 +11,7 @@ export const linkToGetId = (url: string) => {
 
   return parts?.slice(-5)?.join("-"); //? Get the last 5 segments
 };
+
+export const queryString = (query: string) => {
+  return query.trim().split(" ").join;
+};

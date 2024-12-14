@@ -38,7 +38,7 @@ const LoginPage = () => {
   useEffect(() => {
     if (!isPending && isSuccess) {
       if (user?.role === "VENDOR") {
-        router.push("/vendor/shop");
+        router.push("/vendor/my-shop");
       } else if (redirect) {
         router.push(redirect);
       } else {
@@ -65,8 +65,10 @@ const LoginPage = () => {
               defaultValues={{
                 // phone: "1684420495", //! vendor
                 // password: "amin1234", //! vendor
-                phone: "1111111111", //! user
-                password: "123456", //! user
+                phone: "1941505091", //! vendor
+                password: "123456", //! vendor
+                // phone: "1111111111", //! user
+                // password: "123456", //! user
               }}
             >
               <div className="space-y-3">
