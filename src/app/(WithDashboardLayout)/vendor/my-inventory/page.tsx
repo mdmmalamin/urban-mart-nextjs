@@ -1,7 +1,7 @@
 const MyInventoryPage = () => {
   return (
     <div>
-      <h1>Vendor Profile Page</h1>
+      <h1>My Inventory Page</h1>
     </div>
   );
 };

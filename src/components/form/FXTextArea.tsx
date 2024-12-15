@@ -7,7 +7,12 @@ interface IProps extends IInput {
   type?: string;
 }
 
-const FXTextArea = ({ name, label, variant = "underlined" }: IProps) => {
+const FXTextArea = ({
+  name,
+  label,
+  variant = "underlined",
+  isRequired = false,
+}: IProps) => {
   const {
     register,
     formState: { errors },
@@ -19,6 +24,7 @@ const FXTextArea = ({ name, label, variant = "underlined" }: IProps) => {
       label={label}
       minRows={6}
       variant={variant}
+      isRequired={isRequired}
     />
   );
 };

@@ -1,5 +1,6 @@
 import { IInput } from "@/src/types";
 import { Select, SelectItem } from "@nextui-org/select";
+import { ChangeEventHandler } from "react";
 import { useFormContext } from "react-hook-form";
 
 interface IProps extends IInput {
@@ -9,6 +10,7 @@ interface IProps extends IInput {
   }[];
   placeholder?: string;
   defaultSelectedKeys?: string[];
+  onChange?: ChangeEventHandler<HTMLSelectElement> | undefined;
 }
 
 const FXSelect = ({
@@ -21,6 +23,7 @@ const FXSelect = ({
   isDisabled = false,
   isRequired = false,
   defaultSelectedKeys,
+  onChange,
 }: IProps) => {
   const {
     register,
@@ -38,6 +41,7 @@ const FXSelect = ({
       defaultSelectedKeys={defaultSelectedKeys}
       // errorMessage={errors[name] ? (errors[name].message as String) : ""}
       {...register(name)}
+      onChange={onChange}
     >
       {options.map(({ key, label }) => (
         <SelectItem key={key}>{label}</SelectItem>

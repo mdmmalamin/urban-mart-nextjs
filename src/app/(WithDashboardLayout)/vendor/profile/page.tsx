@@ -10,7 +10,7 @@ const VendorProfilePage = async () => {
   console.log(data);
 
   return (
-    <div className="h-screen p-3 w-full max-w-5xl">
+    <div className="h-screen p-3 w-full max-w-5xl mx-auto">
       <h1 className="mb-3 text-xl font-semibold">My Profile</h1>
 
       <div className="space-y-6 bg-default-50 p-6 rounded-lg">

@@ -21,7 +21,6 @@ export const useGetMyInventories = () => {
   });
 };
 
-// updateMyProfile
 export const useUpdateMyProfile = () => {
   const queryClient = useQueryClient();
 
