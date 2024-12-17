@@ -1,4 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
+
 import { getCategories, TQuery } from "../services/Categories";
 
 export const useCategories = (query?: TQuery[]) => {

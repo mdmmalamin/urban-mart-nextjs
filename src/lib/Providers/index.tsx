@@ -7,6 +7,7 @@ import { ThemeProvider as NextThemesProvider } from "next-themes";
 import { ThemeProviderProps } from "next-themes/dist/types";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "sonner";
+
 import UserProvider from "@/src/context/user.provider";
 import { ProductProvider } from "@/src/context/product.provider";
 
@@ -27,7 +28,7 @@ export function Providers({ children, themeProps }: ProvidersProps) {
           <NextUIProvider navigate={router.push}>
             <NextThemesProvider {...themeProps}>{children}</NextThemesProvider>
 
-            <Toaster theme="system" richColors />
+            <Toaster richColors theme="system" />
           </NextUIProvider>
         </UserProvider>
       </ProductProvider>

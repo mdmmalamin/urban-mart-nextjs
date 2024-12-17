@@ -1,7 +1,9 @@
+import { ReactNode } from "react";
+
+import FilterSidebar from "./_components/FilterSidebar";
+
 import Container from "@/src/components/ui/Container";
 import Footer from "@/src/components/ui/Footer";
-import { ReactNode } from "react";
-import FilterSidebar from "./_components/FilterSidebar";
 
 const layout = ({ children }: { children: ReactNode }) => {
   return (

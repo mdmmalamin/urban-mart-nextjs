@@ -15,7 +15,7 @@ export const getCategories = async (query?: TQuery[]) => {
         params.append(item.name, item.value);
       });
     }
-    // console.log(params);
+    // // // console.log(params);
 
     const { data } = await axiosInstance.get(`/categories?`, {
       params,

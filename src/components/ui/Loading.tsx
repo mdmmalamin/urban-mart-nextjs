@@ -1,5 +1,6 @@
-import DotLoadingSVG from "@/src/assets/icons/DotLoadingSVG";
 import { Spinner } from "@nextui-org/spinner";
+
+import DotLoadingSVG from "@/src/assets/icons/DotLoadingSVG";
 
 type TProps = {
   mode?: "Dark" | "White";

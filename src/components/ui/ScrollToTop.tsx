@@ -30,7 +30,20 @@ const ScrollToTop: React.FC = () => {
     });
   };
 
-  return <>{isVisible && <Button isIconOnly radius="full" className="fixed bottom-2 right-2 z-50 duration-300" onClick={scrollToTop}>↑</Button>}</>;
+  return (
+    <>
+      {isVisible && (
+        <Button
+          isIconOnly
+          className="fixed bottom-2 right-2 z-50 duration-300"
+          radius="full"
+          onClick={scrollToTop}
+        >
+          ↑
+        </Button>
+      )}
+    </>
+  );
 };
 
 export default ScrollToTop;

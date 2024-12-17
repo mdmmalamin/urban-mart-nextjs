@@ -1,5 +1,7 @@
 import { Suspense } from "react";
+
 import ShopPageContainer from "./_components/ShopPageContainer";
+
 import FXErrorBoundary from "@/src/components/ui/FXErrorBoundary";
 
 export const metadata = {

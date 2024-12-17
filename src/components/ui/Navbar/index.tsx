@@ -15,6 +15,9 @@ import { link as linkStyles } from "@nextui-org/theme";
 import NextLink from "next/link";
 import clsx from "clsx";
 
+import AvatarDropdown from "./AvatarDropdown";
+import CartCount from "./CartCount";
+
 import { siteConfig } from "@/src/config/site";
 import { ThemeSwitch } from "@/src/components/ui/theme-switch";
 import {
@@ -23,12 +26,10 @@ import {
   Logo,
   LinkedInIcon,
 } from "@/src/components/icons";
-import AvatarDropdown from "./AvatarDropdown";
-import CartCount from "./CartCount";
 
 const Navbar = () => {
   return (
-    <NextUINavbar maxWidth="xl" position="sticky" shouldHideOnScroll>
+    <NextUINavbar shouldHideOnScroll maxWidth="xl" position="sticky">
       {/* //? Large Device Logo & Links */}
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
         {/* //? Logo */}
@@ -45,7 +46,7 @@ const Navbar = () => {
               <NextLink
                 className={clsx(
                   linkStyles({ color: "foreground" }),
-                  "data-[active=true]:text-primary data-[active=true]:font-medium"
+                  "data-[active=true]:text-primary data-[active=true]:font-medium",
                 )}
                 color="foreground"
                 href={item.href}
@@ -102,7 +103,7 @@ const Navbar = () => {
       <NavbarMenu>
         <div className="mx-4 mt-2 flex flex-col gap-2">
           {siteConfig.navMenuItems.map(({ label, href }) => (
-            <Link href={href} key={label}>
+            <Link key={label} href={href}>
               <div className="w-full text-black dark:text-white">
                 <NavbarMenuItem>{label}</NavbarMenuItem>
               </div>

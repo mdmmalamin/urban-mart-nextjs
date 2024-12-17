@@ -58,33 +58,25 @@ const FXModal = ({
     <>
       <Button
         className={buttonClassName}
+        isIconOnly={isIconOnly}
+        size={buttonSize}
         variant={buttonVariant}
         onPress={onOpen}
-        size={buttonSize}
-        isIconOnly={isIconOnly}
       >
         {buttonText}
       </Button>
       <Modal
-        isOpen={isOpen}
-        onOpenChange={onOpenChange}
-        size={size}
         backdrop={backdrop}
-        // isDismissable={isDismissable}
+        isDismissable={isDismissable}
+        isOpen={isOpen}
+        size={size}
+        onOpenChange={onOpenChange}
       >
         <ModalContent>
-          {(onClose) => (
+          {() => (
             <>
               <ModalHeader className="flex flex-col gap-1">{title}</ModalHeader>
               <ModalBody>{children}</ModalBody>
-              {/* <ModalFooter>
-                <Button color="danger" variant="light" onPress={onClose}>
-                  Close
-                </Button>
-                <Button color="primary" onPress={onClose}>
-                  Action
-                </Button>
-              </ModalFooter> */}
             </>
           )}
         </ModalContent>

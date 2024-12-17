@@ -2,11 +2,12 @@ import "@/src/styles/globals.css";
 import { Metadata, Viewport } from "next";
 import clsx from "clsx";
 
-import { siteConfig } from "@/src/config/site";
-import { fontSans } from "@/src/config/fonts";
 import { Providers } from "../lib/Providers";
 import Navbar from "../components/ui/Navbar";
 import ScrollToTop from "../components/ui/ScrollToTop";
+
+import { fontSans } from "@/src/config/fonts";
+import { siteConfig } from "@/src/config/site";
 
 export const metadata: Metadata = {
   title: {
@@ -32,12 +33,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html suppressHydrationWarning lang="en" className="light">
+    <html suppressHydrationWarning className="light" lang="en">
       <head />
       <body
         className={clsx(
           "min-h-screen bg-background font-sans antialiased",
-          fontSans.variable
+          fontSans.variable,
         )}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "light" }}>

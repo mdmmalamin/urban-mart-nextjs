@@ -1,4 +1,5 @@
 import { Spinner } from "@nextui-org/spinner";
+
 import DotLoadingSVG from "../assets/icons/DotLoadingSVG";
 
 const loading = () => {

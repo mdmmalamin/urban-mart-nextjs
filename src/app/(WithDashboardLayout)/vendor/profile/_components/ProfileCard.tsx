@@ -1,7 +1,9 @@
+import Image from "next/image";
+
+import ProfileEditModal from "./ProfileEditModal";
+
 import { NO_IMAGE_FOUND } from "@/src/constant";
 import { TUser } from "@/src/types/profile.type";
-import Image from "next/image";
-import ProfileEditModal from "./ProfileEditModal";
 
 const ProfileCard = ({
   fullName,
@@ -14,10 +16,10 @@ const ProfileCard = ({
       <div className="flex flex-col md:flex-row items-center md:items-start justify-center gap-6">
         <Image
           alt={fullName || ""}
+          className="aspect-square object-contain object-center bg-gradient-to-t to-default-50 from-transparent"
+          height={300}
           src={avatar || NO_IMAGE_FOUND}
           width={300}
-          height={300}
-          className="aspect-square object-contain object-center bg-gradient-to-t to-default-50 from-transparent"
         />
 
         <div className="w-full flex justify-between gap-6">
@@ -34,18 +36,18 @@ const ProfileCard = ({
 
           <div className="md:hidden">
             <ProfileEditModal
+              dateOfBirth={dateOfBirth}
               fullName={fullName}
               gender={gender}
-              dateOfBirth={dateOfBirth}
             />
           </div>
         </div>
 
         <div className="hidden md:block">
           <ProfileEditModal
+            dateOfBirth={dateOfBirth}
             fullName={fullName}
             gender={gender}
-            dateOfBirth={dateOfBirth}
           />
         </div>
       </div>

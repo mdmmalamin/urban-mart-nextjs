@@ -1,12 +1,12 @@
 import RecentProductCard from "@/src/components/cards/RecentProductCard";
-import { TInventoryProps, TProductProps } from "@/src/types";
+import { TInventoryProps } from "@/src/types";
 
 const VendorProductCard = ({
   inventory,
 }: {
   inventory: Partial<TInventoryProps[]>;
 }) => {
-  console.log(inventory);
+  // // console.log(inventory);
   return (
     <div>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -27,8 +27,8 @@ const VendorProductCard = ({
 
             return (
               <RecentProductCard
-                product={productItems}
                 key={productItems?.id}
+                product={productItems}
               />
             );
           })}

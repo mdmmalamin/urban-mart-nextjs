@@ -1,5 +1,8 @@
 "use client";
 
+import { Button } from "@nextui-org/button";
+import { FieldValues, SubmitHandler } from "react-hook-form";
+
 import { UserInfoEditSVG } from "@/src/assets/icons/SVGicons";
 import FXDatePicker from "@/src/components/form/FXDatePicker";
 import FXForm from "@/src/components/form/FXForm";
@@ -8,8 +11,6 @@ import FXSelect from "@/src/components/form/FXSelect";
 import FXModal from "@/src/components/ui/FXModal";
 import { useUpdateMyProfile } from "@/src/hooks/vendor.hook";
 import { dateToString } from "@/src/utils";
-import { Button } from "@nextui-org/button";
-import { FieldValues, SubmitHandler } from "react-hook-form";
 
 const ProfileEditModal = ({ fullName, gender, dateOfBirth }: any) => {
   const { mutate: handleUpdateProfileInfo } = useUpdateMyProfile();
@@ -28,12 +29,14 @@ const ProfileEditModal = ({ fullName, gender, dateOfBirth }: any) => {
     }
 
     handleUpdateProfileInfo(userUpdatedData);
-    console.log(data);
+    // // console.log(data);
   };
+
   return (
     <FXModal
       buttonClassName="text-sm text-default-500"
       buttonText={<UserInfoEditSVG />}
+      isDismissable={false}
       isIconOnly={true}
       title="Profile Edit"
     >
@@ -42,24 +45,25 @@ const ProfileEditModal = ({ fullName, gender, dateOfBirth }: any) => {
         onSubmit={onSubmit}
         // resolver={zodResolver(loginValidationSchema)}
       >
+        <h3>{dateOfBirth}</h3>
         <div className="space-y-3 mb-3">
-          <FXInput name="fullName" label="Full Name" defaultValue={fullName} />
+          <FXInput defaultValue={fullName} label="Full Name" name="fullName" />
 
           <FXSelect
-            name="gender"
+            defaultSelectedKeys={[gender]}
             defaultValue={gender}
             label="Gender"
-            placeholder="Select your gender"
+            name="gender"
             options={[
               { key: "MALE", label: "Male" },
               { key: "FEMALE", label: "Female" },
             ]}
-            defaultSelectedKeys={[gender]}
+            placeholder="Select your gender"
           />
 
           <FXDatePicker
-            name="dateOfBirth"
             label="Date of Birth"
+            name="dateOfBirth"
             // value={new Date("2024-12-01")}
             // defaultValue={new Date("2024-12-01")}
           />

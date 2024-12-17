@@ -1,7 +1,8 @@
 "use server";
 
-import axiosInstance from "@/src/lib/AxiosInstance";
 import { FieldValues } from "react-hook-form";
+
+import axiosInstance from "@/src/lib/AxiosInstance";
 
 export const addToCart = async (args: FieldValues) => {
   const { id, ...payload } = args;
@@ -11,9 +12,8 @@ export const addToCart = async (args: FieldValues) => {
 
     return data;
   } catch (error: any) {
-    console.log(error);
+    // // console.log(error);
     throw new Error(error?.data?.message);
-
   }
 };
 
@@ -29,6 +29,7 @@ export const getMyCarts = async () => {
 
 export const changeMyCartItemQuantity = async (args: any) => {
   const { id, quantity } = args;
+
   try {
     const { data } = await axiosInstance.patch(`/carts/${id}`, { quantity });
 

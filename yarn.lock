@@ -310,6 +310,18 @@
     "@react-types/overlays" "3.8.11"
     "@react-types/shared" "3.26.0"
 
+"@nextui-org/avatar@2.2.4":
+  version "2.2.4"
+  resolved "https://registry.yarnpkg.com/@nextui-org/avatar/-/avatar-2.2.4.tgz#846e3d875949d02e1e2dad020cc37e9d0f1bc73c"
+  integrity sha512-YXEStFlK0/tMK31vzdEMvIYfUUGpHqqmwY1HA17dfKw0iL5UWMWK2lqN+QvBzfQfPTtbvDPW0ZcmyjOYHzx7Aw==
+  dependencies:
+    "@nextui-org/react-utils" "2.1.1"
+    "@nextui-org/shared-utils" "2.1.1"
+    "@nextui-org/use-image" "2.1.1"
+    "@react-aria/focus" "3.19.0"
+    "@react-aria/interactions" "3.22.5"
+    "@react-aria/utils" "3.26.0"
+
 "@nextui-org/avatar@^2.0.33":
   version "2.0.33"
   resolved "https://registry.yarnpkg.com/@nextui-org/avatar/-/avatar-2.0.33.tgz#1fe5d199bdc7967a0e19b4a422caf4a832e88740"
@@ -380,6 +392,39 @@
     "@react-aria/interactions" "3.21.3"
     "@react-aria/utils" "3.24.1"
     "@react-types/shared" "3.23.1"
+
+"@nextui-org/checkbox@2.3.6":
+  version "2.3.6"
+  resolved "https://registry.yarnpkg.com/@nextui-org/checkbox/-/checkbox-2.3.6.tgz#b284382992547d5f1d4a6423f99105463a90baa0"
+  integrity sha512-QiJuRNllmRACf2rDrA6/hT8o46PjC3P6ttzJxz1OeUH6ME8MUY+EyH0S+C4C+cWoBv4UC2JS5S5QXalQ0WSViw==
+  dependencies:
+    "@nextui-org/form" "2.1.6"
+    "@nextui-org/react-utils" "2.1.1"
+    "@nextui-org/shared-utils" "2.1.1"
+    "@nextui-org/use-callback-ref" "2.1.1"
+    "@nextui-org/use-safe-layout-effect" "2.1.1"
+    "@react-aria/checkbox" "3.15.0"
+    "@react-aria/focus" "3.19.0"
+    "@react-aria/interactions" "3.22.5"
+    "@react-aria/utils" "3.26.0"
+    "@react-aria/visually-hidden" "3.8.18"
+    "@react-stately/checkbox" "3.6.10"
+    "@react-stately/toggle" "3.8.0"
+    "@react-types/checkbox" "3.9.0"
+    "@react-types/shared" "3.26.0"
+
+"@nextui-org/chip@^2.2.4":
+  version "2.2.4"
+  resolved "https://registry.yarnpkg.com/@nextui-org/chip/-/chip-2.2.4.tgz#e915510ff3bf43d976e69b788a7bbcdcc6d38152"
+  integrity sha512-7fii39lPei8o/3TwdmB8e8W/ZS0FdsQxSHQKXDQpB4meS3Q7CC9dxV1MtwiniE3SXOnSQY7ChvGmu6wkGRFOOA==
+  dependencies:
+    "@nextui-org/react-utils" "2.1.1"
+    "@nextui-org/shared-icons" "2.1.1"
+    "@nextui-org/shared-utils" "2.1.1"
+    "@react-aria/focus" "3.19.0"
+    "@react-aria/interactions" "3.22.5"
+    "@react-aria/utils" "3.26.0"
+    "@react-types/checkbox" "3.9.0"
 
 "@nextui-org/code@2.0.33":
   version "2.0.33"
@@ -478,6 +523,20 @@
     "@react-aria/utils" "3.24.1"
     "@react-stately/menu" "3.7.1"
     "@react-types/menu" "3.9.9"
+
+"@nextui-org/form@2.1.6":
+  version "2.1.6"
+  resolved "https://registry.yarnpkg.com/@nextui-org/form/-/form-2.1.6.tgz#cf0dc1457745892ec61514be2dc9d9eb2642fbbc"
+  integrity sha512-bQ4TkmHcuAEvu2UKoRIYXwvZmjaAxhY8sFYqaX9Ma1Jis1tHeu9ScxhFXDKBN1q7RiNoRdWU6o9lBcFrvHEB6w==
+  dependencies:
+    "@nextui-org/react-utils" "2.1.1"
+    "@nextui-org/shared-utils" "2.1.1"
+    "@nextui-org/system" "2.4.4"
+    "@nextui-org/theme" "2.4.3"
+    "@react-aria/utils" "3.26.0"
+    "@react-stately/form" "3.1.0"
+    "@react-types/form" "3.7.8"
+    "@react-types/shared" "3.26.0"
 
 "@nextui-org/framer-utils@2.0.25":
   version "2.0.25"
@@ -637,6 +696,22 @@
     "@react-stately/utils" "3.10.1"
     react-remove-scroll "^2.5.6"
 
+"@nextui-org/pagination@^2.2.6":
+  version "2.2.6"
+  resolved "https://registry.yarnpkg.com/@nextui-org/pagination/-/pagination-2.2.6.tgz#a13d8e68034156318343fcedfe0ad396bd5681c8"
+  integrity sha512-JD467tBam5EQse34Q/bm8sf4LSFze4atZkCGZNZZP6rAcoNMpxXOJxVoo5DWflqYeaukInYYueyOarxnXn54HA==
+  dependencies:
+    "@nextui-org/react-utils" "2.1.1"
+    "@nextui-org/shared-icons" "2.1.1"
+    "@nextui-org/shared-utils" "2.1.1"
+    "@nextui-org/use-intersection-observer" "2.2.2"
+    "@nextui-org/use-pagination" "2.2.2"
+    "@react-aria/focus" "3.19.0"
+    "@react-aria/i18n" "3.12.4"
+    "@react-aria/interactions" "3.22.5"
+    "@react-aria/utils" "3.26.0"
+    scroll-into-view-if-needed "3.0.10"
+
 "@nextui-org/popover@2.1.29":
   version "2.1.29"
   resolved "https://registry.yarnpkg.com/@nextui-org/popover/-/popover-2.1.29.tgz#2972ff0f0ebc73afc5ec934bf026cdaba72d99fd"
@@ -783,6 +858,15 @@
     "@react-aria/focus" "3.17.1"
     "@react-aria/utils" "3.24.1"
 
+"@nextui-org/spacer@2.2.4":
+  version "2.2.4"
+  resolved "https://registry.yarnpkg.com/@nextui-org/spacer/-/spacer-2.2.4.tgz#cdd7394d075ae47f43a0cc4a37e847d3452097dc"
+  integrity sha512-RMkC2O3I+W6qwsax5Dge8CzF2tJIDxOiC84yiQxfwRHWVe1qPXbLRu1nM5lbvjAI/4aS9NegUQ3aYnFqZwvojQ==
+  dependencies:
+    "@nextui-org/react-utils" "2.1.1"
+    "@nextui-org/shared-utils" "2.1.1"
+    "@nextui-org/system-rsc" "2.3.4"
+
 "@nextui-org/spinner@2.0.34", "@nextui-org/spinner@^2.0.34":
   version "2.0.34"
   resolved "https://registry.yarnpkg.com/@nextui-org/spinner/-/spinner-2.0.34.tgz#91f1d3db33fa4ceedbd88e00e7b1a10c7833c9b5"
@@ -851,6 +935,26 @@
     "@react-stately/utils" "3.10.5"
     "@react-types/datepicker" "3.9.0"
 
+"@nextui-org/table@^2.2.6":
+  version "2.2.6"
+  resolved "https://registry.yarnpkg.com/@nextui-org/table/-/table-2.2.6.tgz#7d68e67599f37061a97417f5e17ad15b719aedae"
+  integrity sha512-0XZaxcsYMkIcWRbTGq9cW51pWHL6czdKUHAlj1tkRPXEcRbuUxkOWVccsz83pn2vyb56ftDA4nm1qeivcO+PkA==
+  dependencies:
+    "@nextui-org/checkbox" "2.3.6"
+    "@nextui-org/react-utils" "2.1.1"
+    "@nextui-org/shared-icons" "2.1.1"
+    "@nextui-org/shared-utils" "2.1.1"
+    "@nextui-org/spacer" "2.2.4"
+    "@react-aria/focus" "3.19.0"
+    "@react-aria/interactions" "3.22.5"
+    "@react-aria/table" "3.16.0"
+    "@react-aria/utils" "3.26.0"
+    "@react-aria/visually-hidden" "3.8.18"
+    "@react-stately/table" "3.13.0"
+    "@react-stately/virtualizer" "4.2.0"
+    "@react-types/grid" "3.2.10"
+    "@react-types/table" "3.10.3"
+
 "@nextui-org/theme@2.2.11":
   version "2.2.11"
   resolved "https://registry.yarnpkg.com/@nextui-org/theme/-/theme-2.2.11.tgz#e56bd6568326819c8bd22ae58fb9d75ac6c7cb39"
@@ -867,6 +971,20 @@
     lodash.mapkeys "^4.6.0"
     lodash.omit "^4.5.0"
     tailwind-merge "^1.14.0"
+    tailwind-variants "^0.1.20"
+
+"@nextui-org/theme@2.4.3":
+  version "2.4.3"
+  resolved "https://registry.yarnpkg.com/@nextui-org/theme/-/theme-2.4.3.tgz#fabd04a95e2dfc07f82dd39795b1493835a99c9c"
+  integrity sha512-QH9ps5NpenWU966INdGbdvZOWWUEGqxrLM2vyqkSRq+A65YON4Jhg/x1xWcSX0SJECNhoNZLh5mt6jp3jH5k8Q==
+  dependencies:
+    "@nextui-org/shared-utils" "2.1.1"
+    clsx "^1.2.1"
+    color "^4.2.3"
+    color2k "^2.0.2"
+    deepmerge "4.3.1"
+    flat "^5.0.2"
+    tailwind-merge "^2.5.2"
     tailwind-variants "^0.1.20"
 
 "@nextui-org/tooltip@2.0.41":
@@ -887,7 +1005,7 @@
     "@react-types/overlays" "3.8.7"
     "@react-types/tooltip" "3.4.9"
 
-"@nextui-org/tooltip@2.2.5":
+"@nextui-org/tooltip@2.2.5", "@nextui-org/tooltip@^2.2.5":
   version "2.2.5"
   resolved "https://registry.yarnpkg.com/@nextui-org/tooltip/-/tooltip-2.2.5.tgz#9a999eeff4be3a21e2b96367d7cc47579969fc23"
   integrity sha512-6P28S2p18uNpLHIi7trrHImtrkaxpWBimtqf3u+NZc33dYG44iBV4BfuOvp1TCFwCW+Dv5k1XLK+AMr54o1FYw==
@@ -1077,6 +1195,23 @@
   dependencies:
     "@nextui-org/use-safe-layout-effect" "2.0.6"
 
+"@nextui-org/use-image@2.1.1":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@nextui-org/use-image/-/use-image-2.1.1.tgz#58a02d871e1113b732a40e7755c8ed8a9ae37116"
+  integrity sha512-Tsfy9pA4AQBAj7rFIEonB9L/hXGg7M5agaAZNBUVpdp47NjcEwLpcU2XncKh8AhkQku0p4JOyMC9usRGV3z06Q==
+  dependencies:
+    "@nextui-org/use-safe-layout-effect" "2.1.1"
+
+"@nextui-org/use-intersection-observer@2.2.2":
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/@nextui-org/use-intersection-observer/-/use-intersection-observer-2.2.2.tgz#107f4bb270c6f9f5ededd37c10173b36fe794b76"
+  integrity sha512-fS/4m8jnXO7GYpnp/Lp+7bfBEAXPzqsXgqGK6qrp7sfFEAbLzuJp0fONkbIB3F6F3FJrbFOlY+Y5qrHptO7U/Q==
+  dependencies:
+    "@react-aria/interactions" "3.22.5"
+    "@react-aria/ssr" "3.9.7"
+    "@react-aria/utils" "3.26.0"
+    "@react-types/shared" "3.26.0"
+
 "@nextui-org/use-is-mobile@2.0.9":
   version "2.0.9"
   resolved "https://registry.yarnpkg.com/@nextui-org/use-is-mobile/-/use-is-mobile-2.0.9.tgz#6bced5d78b1845c180eaaa813026be6cfbdb20d8"
@@ -1094,6 +1229,14 @@
   resolved "https://registry.yarnpkg.com/@nextui-org/use-measure/-/use-measure-2.1.1.tgz#44ffab28413ff894af1f5cc11b7f407606030383"
   integrity sha512-2RVn90gXHTgt6fvzBH4fzgv3hMDz+SEJkqaCTbd6WUNWag4AaLb2WU/65CtLcexyu10HrgYf2xG07ZqtJv0zSg==
 
+"@nextui-org/use-pagination@2.2.2":
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/@nextui-org/use-pagination/-/use-pagination-2.2.2.tgz#fc0bac124d01914b54927e31c61c24c23f740639"
+  integrity sha512-+1s5ZIuzd77rxwG4NGU3D5X5f7YVluO85QhKHIXQhSv9GmPmHM+4eeqtgs0kFoSvfaEGtEU9Eq8DBZlsXbwSvQ==
+  dependencies:
+    "@nextui-org/shared-utils" "2.1.1"
+    "@react-aria/i18n" "3.12.4"
+
 "@nextui-org/use-safe-layout-effect@2.0.6":
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/@nextui-org/use-safe-layout-effect/-/use-safe-layout-effect-2.0.6.tgz#29a6c5afa1e3955420c681cdf7cec99eaa4a030f"
@@ -1108,6 +1251,17 @@
   version "2.0.9"
   resolved "https://registry.yarnpkg.com/@nextui-org/use-scroll-position/-/use-scroll-position-2.0.9.tgz#7b946947cb041c9eaf225e2316828caef9dd01fa"
   integrity sha512-tXbpb2bkKIjOp2I1uZ1T4T9Lxp0+Ta/TKu+5qvqsXkHRPbcoukdsquagYUDWK/fcumg72UPR8QP+na8KMn2gCg==
+
+"@nextui-org/user@^2.2.4":
+  version "2.2.4"
+  resolved "https://registry.yarnpkg.com/@nextui-org/user/-/user-2.2.4.tgz#cb91c4f845be6857de1ac6699b939e585f930d8f"
+  integrity sha512-dQVYSm26h9KzDqWjuKablBlDaa+IO8KKQXSvT84BFMPGBN8UY8FXZGeeopNmWHeF6hJBkK1Jn4HU+2K8GKo99Q==
+  dependencies:
+    "@nextui-org/avatar" "2.2.4"
+    "@nextui-org/react-utils" "2.1.1"
+    "@nextui-org/shared-utils" "2.1.1"
+    "@react-aria/focus" "3.19.0"
+    "@react-aria/utils" "3.26.0"
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
@@ -1186,6 +1340,23 @@
     "@react-types/button" "^3.9.4"
     "@react-types/calendar" "^3.4.6"
     "@react-types/shared" "^3.23.1"
+    "@swc/helpers" "^0.5.0"
+
+"@react-aria/checkbox@3.15.0":
+  version "3.15.0"
+  resolved "https://registry.yarnpkg.com/@react-aria/checkbox/-/checkbox-3.15.0.tgz#4d224b71c65d6a079ff935ab22c806323f84b746"
+  integrity sha512-z/8xd4em7o0MroBXwkkwv7QRwiJaA1FwqMhRUb7iqtBGP2oSytBEDf0N7L09oci32a1P4ZPz2rMK5GlLh/PD6g==
+  dependencies:
+    "@react-aria/form" "^3.0.11"
+    "@react-aria/interactions" "^3.22.5"
+    "@react-aria/label" "^3.7.13"
+    "@react-aria/toggle" "^3.10.10"
+    "@react-aria/utils" "^3.26.0"
+    "@react-stately/checkbox" "^3.6.10"
+    "@react-stately/form" "^3.1.0"
+    "@react-stately/toggle" "^3.8.0"
+    "@react-types/checkbox" "^3.9.0"
+    "@react-types/shared" "^3.26.0"
     "@swc/helpers" "^0.5.0"
 
 "@react-aria/datepicker@3.10.1":
@@ -1269,7 +1440,7 @@
     "@react-types/shared" "^3.23.1"
     "@swc/helpers" "^0.5.0"
 
-"@react-aria/form@^3.0.5":
+"@react-aria/form@^3.0.11", "@react-aria/form@^3.0.5":
   version "3.0.11"
   resolved "https://registry.yarnpkg.com/@react-aria/form/-/form-3.0.11.tgz#84511874e1fad5f981bae97ebd4d549923849455"
   integrity sha512-oXzjTiwVuuWjZ8muU0hp3BrDH5qjVctLOF50mjPvqUbvXQTHhoDxWweyIXPQjGshaqBd2w4pWaE4A2rG2O/apw==
@@ -1277,6 +1448,25 @@
     "@react-aria/interactions" "^3.22.5"
     "@react-aria/utils" "^3.26.0"
     "@react-stately/form" "^3.1.0"
+    "@react-types/shared" "^3.26.0"
+    "@swc/helpers" "^0.5.0"
+
+"@react-aria/grid@^3.11.0":
+  version "3.11.0"
+  resolved "https://registry.yarnpkg.com/@react-aria/grid/-/grid-3.11.0.tgz#5ad6596745482e109b3b47f1fec7ce372f632707"
+  integrity sha512-lN5FpQgu2Rq0CzTPWmzRpq6QHcMmzsXYeClsgO3108uVp1/genBNAObYVTxGOKe/jb9q99trz8EtIn05O6KN1g==
+  dependencies:
+    "@react-aria/focus" "^3.19.0"
+    "@react-aria/i18n" "^3.12.4"
+    "@react-aria/interactions" "^3.22.5"
+    "@react-aria/live-announcer" "^3.4.1"
+    "@react-aria/selection" "^3.21.0"
+    "@react-aria/utils" "^3.26.0"
+    "@react-stately/collections" "^3.12.0"
+    "@react-stately/grid" "^3.10.0"
+    "@react-stately/selection" "^3.18.0"
+    "@react-types/checkbox" "^3.9.0"
+    "@react-types/grid" "^3.2.10"
     "@react-types/shared" "^3.26.0"
     "@swc/helpers" "^0.5.0"
 
@@ -1446,7 +1636,7 @@
     "@react-types/shared" "^3.23.1"
     "@swc/helpers" "^0.5.0"
 
-"@react-aria/selection@3.21.0", "@react-aria/selection@^3.18.1":
+"@react-aria/selection@3.21.0", "@react-aria/selection@^3.18.1", "@react-aria/selection@^3.21.0":
   version "3.21.0"
   resolved "https://registry.yarnpkg.com/@react-aria/selection/-/selection-3.21.0.tgz#c5660e73a38db5e3e1cdc722e408b4489f5f589a"
   integrity sha512-52JJ6hlPcM+gt0VV3DBmz6Kj1YAJr13TfutrKfGWcK36LvNCBm1j0N+TDqbdnlp8Nue6w0+5FIwZq44XPYiBGg==
@@ -1493,7 +1683,7 @@
   dependencies:
     "@swc/helpers" "^0.5.0"
 
-"@react-aria/ssr@^3.9.4", "@react-aria/ssr@^3.9.7":
+"@react-aria/ssr@3.9.7", "@react-aria/ssr@^3.9.4", "@react-aria/ssr@^3.9.7":
   version "3.9.7"
   resolved "https://registry.yarnpkg.com/@react-aria/ssr/-/ssr-3.9.7.tgz#d89d129f7bbc5148657e6c952ac31c9353183770"
   integrity sha512-GQygZaGlmYjmYM+tiNBA5C6acmiDWF52Nqd40bBp0Znk4M4hP+LTmI0lpI1BuKMw45T8RIhrAsICIfKwZvi2Gg==
@@ -1508,6 +1698,27 @@
     "@react-aria/toggle" "^3.10.4"
     "@react-stately/toggle" "^3.7.4"
     "@react-types/switch" "^3.5.3"
+    "@swc/helpers" "^0.5.0"
+
+"@react-aria/table@3.16.0":
+  version "3.16.0"
+  resolved "https://registry.yarnpkg.com/@react-aria/table/-/table-3.16.0.tgz#f0ffb51f52494e68f2c3b81fba44278fbdc48c28"
+  integrity sha512-9xF9S3CJ7XRiiK92hsIKxPedD0kgcQWwqTMtj3IBynpQ4vsnRiW3YNIzrn9C3apjknRZDTSta8O2QPYCUMmw2A==
+  dependencies:
+    "@react-aria/focus" "^3.19.0"
+    "@react-aria/grid" "^3.11.0"
+    "@react-aria/i18n" "^3.12.4"
+    "@react-aria/interactions" "^3.22.5"
+    "@react-aria/live-announcer" "^3.4.1"
+    "@react-aria/utils" "^3.26.0"
+    "@react-aria/visually-hidden" "^3.8.18"
+    "@react-stately/collections" "^3.12.0"
+    "@react-stately/flags" "^3.0.5"
+    "@react-stately/table" "^3.13.0"
+    "@react-types/checkbox" "^3.9.0"
+    "@react-types/grid" "^3.2.10"
+    "@react-types/shared" "^3.26.0"
+    "@react-types/table" "^3.10.3"
     "@swc/helpers" "^0.5.0"
 
 "@react-aria/textfield@3.14.5":
@@ -1525,7 +1736,7 @@
     "@react-types/textfield" "^3.9.3"
     "@swc/helpers" "^0.5.0"
 
-"@react-aria/toggle@^3.10.4":
+"@react-aria/toggle@^3.10.10", "@react-aria/toggle@^3.10.4":
   version "3.10.10"
   resolved "https://registry.yarnpkg.com/@react-aria/toggle/-/toggle-3.10.10.tgz#444658bf606e6d56b1fd96737d5a552c93493979"
   integrity sha512-QwMT/vTNrbrILxWVHfd9zVQ3mV2NdBwyRu+DphVQiFAXcmc808LEaIX2n0lI6FCsUDC9ZejCyvzd91/YemdZ1Q==
@@ -1639,6 +1850,17 @@
     "@react-types/shared" "^3.26.0"
     "@swc/helpers" "^0.5.0"
 
+"@react-stately/checkbox@3.6.10", "@react-stately/checkbox@^3.6.10":
+  version "3.6.10"
+  resolved "https://registry.yarnpkg.com/@react-stately/checkbox/-/checkbox-3.6.10.tgz#69b619fdfcf1e15d2d93392e13289a36d85a8a6c"
+  integrity sha512-LHm7i4YI8A/RdgWAuADrnSAYIaYYpQeZqsp1a03Og0pJHAlZL0ymN3y2IFwbZueY0rnfM+yF+kWNXjJqbKrFEQ==
+  dependencies:
+    "@react-stately/form" "^3.1.0"
+    "@react-stately/utils" "^3.10.5"
+    "@react-types/checkbox" "^3.9.0"
+    "@react-types/shared" "^3.26.0"
+    "@swc/helpers" "^0.5.0"
+
 "@react-stately/collections@3.10.7":
   version "3.10.7"
   resolved "https://registry.yarnpkg.com/@react-stately/collections/-/collections-3.10.7.tgz#b1add46cb8e2f2a0d33938ef1b232fb2d0fd11eb"
@@ -1683,6 +1905,13 @@
     "@react-types/shared" "^3.26.0"
     "@swc/helpers" "^0.5.0"
 
+"@react-stately/flags@^3.0.5":
+  version "3.0.5"
+  resolved "https://registry.yarnpkg.com/@react-stately/flags/-/flags-3.0.5.tgz#b35bcbd3b80c4f821e23e9c649566a4af11e97bf"
+  integrity sha512-6wks4csxUwPCp23LgJSnkBRhrWpd9jGd64DjcCTNB2AHIFu7Ab1W59pJpUL6TW7uAxVxdNKjgn6D1hlBy8qWsA==
+  dependencies:
+    "@swc/helpers" "^0.5.0"
+
 "@react-stately/form@3.0.3":
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/@react-stately/form/-/form-3.0.3.tgz#9894f9b219cc4cfbbde814d43d3f897bc43b25b3"
@@ -1691,11 +1920,22 @@
     "@react-types/shared" "^3.23.1"
     "@swc/helpers" "^0.5.0"
 
-"@react-stately/form@^3.0.3", "@react-stately/form@^3.1.0":
+"@react-stately/form@3.1.0", "@react-stately/form@^3.0.3", "@react-stately/form@^3.1.0":
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/@react-stately/form/-/form-3.1.0.tgz#7fdb4ca153be18e7516a02e507ada393ad38945d"
   integrity sha512-E2wxNQ0QaTyDHD0nJFtTSnEH9A3bpJurwxhS4vgcUmESHgjFEMLlC9irUSZKgvOgb42GAq+fHoWBsgKeTp9Big==
   dependencies:
+    "@react-types/shared" "^3.26.0"
+    "@swc/helpers" "^0.5.0"
+
+"@react-stately/grid@^3.10.0":
+  version "3.10.0"
+  resolved "https://registry.yarnpkg.com/@react-stately/grid/-/grid-3.10.0.tgz#d74e46f85a662092c61812a8508cf4ac8721ec6d"
+  integrity sha512-ii+DdsOBvCnHMgL0JvUfFwO1kiAPP19Bpdpl6zn/oOltk6F5TmnoyNrzyz+2///1hCiySI3FE1O7ujsAQs7a6Q==
+  dependencies:
+    "@react-stately/collections" "^3.12.0"
+    "@react-stately/selection" "^3.18.0"
+    "@react-types/grid" "^3.2.10"
     "@react-types/shared" "^3.26.0"
     "@swc/helpers" "^0.5.0"
 
@@ -1779,6 +2019,21 @@
     "@react-types/slider" "^3.7.7"
     "@swc/helpers" "^0.5.0"
 
+"@react-stately/table@3.13.0", "@react-stately/table@^3.13.0":
+  version "3.13.0"
+  resolved "https://registry.yarnpkg.com/@react-stately/table/-/table-3.13.0.tgz#8465030f568b5ee779623d99b2ef22940a99a6cd"
+  integrity sha512-mRbNYrwQIE7xzVs09Lk3kPteEVFVyOc20vA8ph6EP54PiUf/RllJpxZe/WUYLf4eom9lUkRYej5sffuUBpxjCA==
+  dependencies:
+    "@react-stately/collections" "^3.12.0"
+    "@react-stately/flags" "^3.0.5"
+    "@react-stately/grid" "^3.10.0"
+    "@react-stately/selection" "^3.18.0"
+    "@react-stately/utils" "^3.10.5"
+    "@react-types/grid" "^3.2.10"
+    "@react-types/shared" "^3.26.0"
+    "@react-types/table" "^3.10.3"
+    "@swc/helpers" "^0.5.0"
+
 "@react-stately/toggle@3.7.4":
   version "3.7.4"
   resolved "https://registry.yarnpkg.com/@react-stately/toggle/-/toggle-3.7.4.tgz#3345b5c939db96305af7c22b73577db5536220ab"
@@ -1788,7 +2043,7 @@
     "@react-types/checkbox" "^3.8.1"
     "@swc/helpers" "^0.5.0"
 
-"@react-stately/toggle@^3.7.4", "@react-stately/toggle@^3.8.0":
+"@react-stately/toggle@3.8.0", "@react-stately/toggle@^3.7.4", "@react-stately/toggle@^3.8.0":
   version "3.8.0"
   resolved "https://registry.yarnpkg.com/@react-stately/toggle/-/toggle-3.8.0.tgz#39a3e45989f56e236809d8fe69c160cc88a616f5"
   integrity sha512-pyt/k/J8BwE/2g6LL6Z6sMSWRx9HEJB83Sm/MtovXnI66sxJ2EfQ1OaXB7Su5PEL9OMdoQF6Mb+N1RcW3zAoPw==
@@ -1852,6 +2107,15 @@
   dependencies:
     "@swc/helpers" "^0.5.0"
 
+"@react-stately/virtualizer@4.2.0":
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/@react-stately/virtualizer/-/virtualizer-4.2.0.tgz#5906ac9d10ec48bc12a81879991a0b05154605d6"
+  integrity sha512-aTMpa9AQoz/xLqn8AI1BR/caUUY7/OUo9GbuF434w2u5eGCL7+SAn3Fmq7WSCwqYyDsO+jEIERek4JTX7pEW0A==
+  dependencies:
+    "@react-aria/utils" "^3.26.0"
+    "@react-types/shared" "^3.26.0"
+    "@swc/helpers" "^0.5.0"
+
 "@react-types/accordion@3.0.0-alpha.25":
   version "3.0.0-alpha.25"
   resolved "https://registry.yarnpkg.com/@react-types/accordion/-/accordion-3.0.0-alpha.25.tgz#046caa26d277f2119174201b39e68215edd4c023"
@@ -1889,7 +2153,7 @@
     "@internationalized/date" "^3.6.0"
     "@react-types/shared" "^3.26.0"
 
-"@react-types/checkbox@^3.8.1", "@react-types/checkbox@^3.9.0":
+"@react-types/checkbox@3.9.0", "@react-types/checkbox@^3.8.1", "@react-types/checkbox@^3.9.0":
   version "3.9.0"
   resolved "https://registry.yarnpkg.com/@react-types/checkbox/-/checkbox-3.9.0.tgz#d4621fef81850543f7a028917e9c2781cd871443"
   integrity sha512-9hbHx0Oo2Hp5a8nV8Q75LQR0DHtvOIJbFaeqESSopqmV9EZoYjtY/h0NS7cZetgahQgnqYWQi44XGooMDCsmxA==
@@ -1922,6 +2186,20 @@
   integrity sha512-OXWMjrALwrlgw8aHD8SeRm/s3tbAssdaEh2h73KUSeFau3fU3n5mfKv+WnFqsEaOtN261o48l7hTlS6615H9AA==
   dependencies:
     "@react-types/overlays" "^3.8.11"
+    "@react-types/shared" "^3.26.0"
+
+"@react-types/form@3.7.8":
+  version "3.7.8"
+  resolved "https://registry.yarnpkg.com/@react-types/form/-/form-3.7.8.tgz#4d6b9e78770b9345cc9e1041990a7a26fb65e0ee"
+  integrity sha512-0wOS97/X0ijTVuIqik1lHYTZnk13QkvMTKvIEhM7c6YMU3vPiirBwLbT2kJiAdwLiymwcCkrBdDF1NTRG6kPFA==
+  dependencies:
+    "@react-types/shared" "^3.26.0"
+
+"@react-types/grid@3.2.10", "@react-types/grid@^3.2.10":
+  version "3.2.10"
+  resolved "https://registry.yarnpkg.com/@react-types/grid/-/grid-3.2.10.tgz#d2d1d124ed9472e3dedc48e91c941a7ad23bdc83"
+  integrity sha512-Z5cG0ITwqjUE4kWyU5/7VqiPl4wqMJ7kG/ZP7poAnLmwRsR8Ai0ceVn+qzp5nTA19cgURi8t3LsXn3Ar1FBoog==
+  dependencies:
     "@react-types/shared" "^3.26.0"
 
 "@react-types/link@3.5.5":
@@ -2004,6 +2282,14 @@
   resolved "https://registry.yarnpkg.com/@react-types/switch/-/switch-3.5.7.tgz#f3fb589fce5819ca1c15f12479bf348e053adc27"
   integrity sha512-1IKiq510rPTHumEZuhxuazuXBa2Cuxz6wBIlwf3NCVmgWEvU+uk1ETG0sH2yymjwCqhtJDKXi+qi9HSgPEDwAg==
   dependencies:
+    "@react-types/shared" "^3.26.0"
+
+"@react-types/table@3.10.3", "@react-types/table@^3.10.3":
+  version "3.10.3"
+  resolved "https://registry.yarnpkg.com/@react-types/table/-/table-3.10.3.tgz#33959348641500e406abe330074f84b0c75ae4ac"
+  integrity sha512-Ac+W+m/zgRzlTU8Z2GEg26HkuJFswF9S6w26r+R3MHwr8z2duGPvv37XRtE1yf3dbpRBgHEAO141xqS2TqGwNg==
+  dependencies:
+    "@react-types/grid" "^3.2.10"
     "@react-types/shared" "^3.26.0"
 
 "@react-types/textfield@3.9.3":
@@ -2956,7 +3242,7 @@ eslint-config-next@14.2.1:
     eslint-plugin-react "^7.33.2"
     eslint-plugin-react-hooks "^4.5.0 || 5.0.0-canary-7118f5dd7-20230705"
 
-eslint-config-prettier@9.1.0:
+eslint-config-prettier@^9.1.0:
   version "9.1.0"
   resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-9.1.0.tgz#31af3d94578645966c082fcb71a5846d3c94867f"
   integrity sha512-NSWl5BFQWEPi1j4TjVNItzYV7dZXZ+wP6I6ZhrBGpChQhZRUaElihE9uRRkcbRnNb76UMKDF3r+WTmNcGPKsqw==
@@ -3057,7 +3343,7 @@ eslint-plugin-node@^11.1.0:
     resolve "^1.10.1"
     semver "^6.1.0"
 
-eslint-plugin-prettier@5.2.1:
+eslint-plugin-prettier@^5.2.1:
   version "5.2.1"
   resolved "https://registry.yarnpkg.com/eslint-plugin-prettier/-/eslint-plugin-prettier-5.2.1.tgz#d1c8f972d8f60e414c25465c163d16f209411f95"
   integrity sha512-gH3iR3g4JfF+yYPaJYkN7jEl9QbweL/YfkoRlNnuIEHEz1vHVlCmWOS+eGGiRuzHQXdJFCOTxRgvju9b8VUmrw==
@@ -4818,6 +5104,11 @@ tailwind-merge@^1.14.0:
   version "1.14.0"
   resolved "https://registry.yarnpkg.com/tailwind-merge/-/tailwind-merge-1.14.0.tgz#e677f55d864edc6794562c63f5001f45093cdb8b"
   integrity sha512-3mFKyCo/MBcgyOTlrY8T7odzZFx+w+qKSMAmdFzRvqBfLlSigU6TZnlFHK0lkMwj9Bj8OYU+9yW9lmGuS0QEnQ==
+
+tailwind-merge@^2.5.2:
+  version "2.5.5"
+  resolved "https://registry.yarnpkg.com/tailwind-merge/-/tailwind-merge-2.5.5.tgz#98167859b856a2a6b8d2baf038ee171b9d814e39"
+  integrity sha512-0LXunzzAZzo0tEPxV3I297ffKZPlKDrjj7NXphC8V5ak9yHC5zRmxnOe2m/Rd/7ivsOMJe3JZ2JVocoDdQTRBA==
 
 tailwind-variants@0.1.20, tailwind-variants@^0.1.20:
   version "0.1.20"

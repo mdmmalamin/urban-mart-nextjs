@@ -8,8 +8,7 @@ export const getMyProfile = async () => {
 
     return data;
   } catch (error: any) {
-    console.log(error);
-    throw new Error(error.data.message);
+    // // console.log(error);
+    throw new Error(error?.data?.message);
   }
 };
-

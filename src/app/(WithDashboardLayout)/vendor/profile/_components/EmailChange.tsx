@@ -1,5 +1,6 @@
-import { hideString } from "@/src/utils";
 import EmailChangeModal from "./EmailChangeModal";
+
+import { hideString } from "@/src/utils";
 
 const EmailChange = ({ email }: { email: string }) => {
   return (

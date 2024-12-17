@@ -1,13 +1,5 @@
 "use client";
 
-import {
-  adminAvatarRoutes,
-  customerAvatarRoutes,
-  vendorAvatarRoutes,
-} from "@/src/config/avatar.route";
-import { protectedRouts } from "@/src/constant";
-import { useCurrentUser } from "@/src/context/user.provider";
-import { logout } from "@/src/services/AuthServices";
 import { Avatar } from "@nextui-org/avatar";
 import {
   Dropdown,
@@ -17,6 +9,15 @@ import {
 } from "@nextui-org/dropdown";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+
+import {
+  adminAvatarRoutes,
+  customerAvatarRoutes,
+  vendorAvatarRoutes,
+} from "@/src/config/avatar.route";
+import { protectedRouts } from "@/src/constant";
+import { useCurrentUser } from "@/src/context/user.provider";
+import { logout } from "@/src/services/AuthServices";
 
 const AvatarDropdown = () => {
   const { user, setIsLoading } = useCurrentUser();
@@ -38,11 +39,11 @@ const AvatarDropdown = () => {
         <Dropdown>
           <DropdownTrigger>
             <Avatar
-              className="cursor-pointer"
               isBordered
+              className="cursor-pointer"
+              name={user?.fullName}
               radius="lg"
               src={user?.avatar as string}
-              name={user?.fullName}
             />
           </DropdownTrigger>
           <DropdownMenu>
@@ -54,8 +55,8 @@ const AvatarDropdown = () => {
                     className={`m-0 p-0 my-1 ${pathname === href && "bg-default-300"}`}
                   >
                     <Link
-                      href={href}
                       className={`w-full inline-block px-3 py-2`}
+                      href={href}
                     >
                       {label}
                     </Link>
@@ -71,8 +72,8 @@ const AvatarDropdown = () => {
                     className={`m-0 p-0 my-1 ${pathname === href && "bg-default-300"}`}
                   >
                     <Link
-                      href={href}
                       className={`w-full inline-block px-3 py-2`}
+                      href={href}
                     >
                       {label}
                     </Link>
@@ -88,8 +89,8 @@ const AvatarDropdown = () => {
                     className={`m-0 p-0 my-1 ${pathname === href && "bg-default-300"}`}
                   >
                     <Link
-                      href={href}
                       className={`w-full inline-block px-3 py-2`}
+                      href={href}
                     >
                       {label}
                     </Link>
@@ -98,17 +99,17 @@ const AvatarDropdown = () => {
             </>
 
             <DropdownItem
-              onClick={() => handleLogout()}
               key="Logout"
               className="text-danger"
               color="danger"
+              onClick={() => handleLogout()}
             >
               Logout
             </DropdownItem>
           </DropdownMenu>
         </Dropdown>
       ) : (
-        <Link href="/login" className="text-sm font-bold">
+        <Link className="text-sm font-bold" href="/login">
           Login
         </Link>
       )}

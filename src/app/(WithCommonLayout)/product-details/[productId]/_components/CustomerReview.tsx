@@ -1,4 +1,5 @@
 import { Avatar } from "@nextui-org/avatar";
+
 import { formatDate } from "@/src/utils";
 import Container from "@/src/components/ui/Container";
 import Rating from "@/src/components/ui/Rating";
@@ -72,6 +73,7 @@ const CustomerReview = () => {
       createdAt: "2024-12-05T16:11:26.406Z",
     },
   ];
+
   return (
     <Container>
       <div className="section-title my-8">

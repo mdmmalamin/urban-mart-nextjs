@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import BdtSVG from "@/src/assets/icons/BdtSVG";
 import { TrashSVG } from "@/src/assets/icons/SVGicons";
 import QuantityCounter from "@/src/components/ui/QuantityCounter";
@@ -6,7 +8,6 @@ import {
   useChangeMyCartItemQuantity,
   useDeletedMyCartItem,
 } from "@/src/hooks/addToCart.hook";
-import Image from "next/image";
 
 type TCartList = {
   productId: string;
@@ -27,13 +28,14 @@ const CartList = ({
 }: TCartList) => {
   const { mutate: handleUpdateQuantity } = useChangeMyCartItemQuantity();
   const { mutate: handleDeleteCartItem } = useDeletedMyCartItem();
+
   return (
     <div className="flex items-start gap-4">
       <Image
         alt={`${name} Image.`}
+        height={100}
         src={image || NO_IMAGE_FOUND}
         width={100}
-        height={100}
       />
       <div className="w-full grid grid-cols-5 justify-between gap-4">
         <h3 className="text-sm line-clamp-2 col-span-5 md:col-span-3">
@@ -54,10 +56,10 @@ const CartList = ({
             </button>
           </div>
           <QuantityCounter
-            productId={productId}
-            quantity={quantity}
             availableQuantity={availableQuantity}
             handleUpdateQuantity={handleUpdateQuantity}
+            productId={productId}
+            quantity={quantity}
           />
         </div>
       </div>

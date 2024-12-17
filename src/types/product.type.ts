@@ -37,14 +37,14 @@ export type TInventoryProps = {
   updatedAt: string;
 };
 
-export type TImage = {
-  id: string;
-  productId: string;
+export type TImages = {
+  id?: string;
+  productId?: string;
   url: string;
-  isPrimary: boolean;
+  isPrimary?: boolean;
 
-  createdAt: string;
-  updatedAt: string;
+  createdAt?: string;
+  updatedAt?: string;
 };
 
 export type TProductProps = {
@@ -56,7 +56,7 @@ export type TProductProps = {
   price: number;
   status: TProductStatus;
   category: TCategoryProps;
-  images: TImage[];
+  images: TImages[];
   inventory: TInventoryProps;
   quantity: number;
   stock: string;

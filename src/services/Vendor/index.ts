@@ -6,11 +6,11 @@ import { TUser } from "@/src/types/profile.type";
 export const getMyShop = async () => {
   try {
     const { data } = await axiosInstance.get("/shops/my-shop");
-    console.log("my shop", data);
+    // // console.log("my shop", data);
 
     return data;
   } catch (error: any) {
-    console.log(error);
+    // // console.log(error);
     throw new Error(error.data.message);
   }
 };
@@ -31,7 +31,7 @@ export const updateMyProfile = async (args: Partial<TUser>) => {
 
     return data;
   } catch (error: any) {
-    console.log(error);
+    // // console.log(error);
     throw new Error(error.data.message);
   }
 };

@@ -1,7 +1,8 @@
-import { IInput } from "@/src/types";
 import { Select, SelectItem } from "@nextui-org/select";
 import { ChangeEventHandler } from "react";
 import { useFormContext } from "react-hook-form";
+
+import { IInput } from "@/src/types";
 
 interface IProps extends IInput {
   options: {
@@ -29,17 +30,18 @@ const FXSelect = ({
     register,
     formState: { errors },
   } = useFormContext();
+
   return (
     <Select
-      label={label}
-      placeholder={placeholder}
       className="min-w-full sm:min-w-xs"
-      variant={variant}
-      size={size}
+      defaultSelectedKeys={defaultSelectedKeys}
+      errorMessage={errors[name] ? (errors[name].message as String) : ""}
       isDisabled={isDisabled}
       isRequired={isRequired}
-      defaultSelectedKeys={defaultSelectedKeys}
-      // errorMessage={errors[name] ? (errors[name].message as String) : ""}
+      label={label}
+      placeholder={placeholder}
+      size={size}
+      variant={variant}
       {...register(name)}
       onChange={onChange}
     >

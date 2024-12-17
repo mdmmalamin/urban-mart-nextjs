@@ -1,13 +1,15 @@
 "use client";
 
-import ProductInfoSkeleton from "@/src/components/skeletons/ProductInfoSkeleton";
-import RecentPostSkeleton from "@/src/components/skeletons/RecentPostSkeleton";
-import { useGetProduct } from "@/src/hooks/product.hook";
 import { Suspense } from "react";
+
 import ProductInfo from "./_components/ProductInfo";
 import RelatedProduct from "./_components/RelatedProduct";
 import CustomerReview from "./_components/CustomerReview";
 import ImageGallery from "./_components/ImageGallery";
+
+import { useGetProduct } from "@/src/hooks/product.hook";
+import RecentPostSkeleton from "@/src/components/skeletons/RecentPostSkeleton";
+import ProductInfoSkeleton from "@/src/components/skeletons/ProductInfoSkeleton";
 import { linkToGetId } from "@/src/utils";
 import FXErrorBoundary from "@/src/components/ui/FXErrorBoundary";
 
@@ -22,7 +24,7 @@ const ProductDetailsPage = ({ params }: { params: { productId: string } }) => {
   const { data } = useGetProduct(linkToGetId(productId));
   const { name, description, price, images, category, inventory, stock } =
     data?.data || [];
-  // console.log("Product Details Page: ", data?.data);
+  // // // console.log("Product Details Page: ", data?.data);
 
   return (
     <>
@@ -41,11 +43,11 @@ const ProductDetailsPage = ({ params }: { params: { productId: string } }) => {
           <FXErrorBoundary fallback={<ProductInfoSkeleton />}>
             <Suspense fallback={<ProductInfoSkeleton />}>
               <ProductInfo
+                category={category}
+                description={description}
                 inventory={inventory}
                 name={name}
                 price={price}
-                category={category}
-                description={description}
                 stock={stock}
               />
             </Suspense>

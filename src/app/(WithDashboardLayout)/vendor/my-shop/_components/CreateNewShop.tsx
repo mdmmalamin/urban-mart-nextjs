@@ -1,25 +1,26 @@
 "use client";
 
+import { Button } from "@nextui-org/button";
+import { ChangeEvent, useState } from "react";
+import { FieldValues, SubmitHandler } from "react-hook-form";
+
 import MinusSVG from "@/src/assets/icons/MinusSVG";
 import PlusSVG from "@/src/assets/icons/PlusSVG";
 import FXForm from "@/src/components/form/FXForm";
 import FXInput from "@/src/components/form/FXInput";
 import FXTextArea from "@/src/components/form/FXTextArea";
 import { useCreateNewShop } from "@/src/hooks/shop.hook";
-import { Button } from "@nextui-org/button";
-import { ChangeEvent, useState } from "react";
-import { FieldValues, SubmitHandler } from "react-hook-form";
 
 const CreateNewShop = () => {
   const [itemImage, setItemImage] = useState<File | undefined>(undefined);
   const [imagePreview, setImagePreview] = useState<string | undefined>(
-    undefined
+    undefined,
   );
 
   const { mutate: handleCreateNewShop } = useCreateNewShop();
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
-    console.log(data);
+    // // console.log(data);
 
     const formData = new FormData();
     const shopData = {
@@ -40,6 +41,7 @@ const CreateNewShop = () => {
 
     if (file) {
       const reader = new FileReader();
+
       reader.onloadend = () => {
         setImagePreview(reader.result as string);
       };
@@ -47,6 +49,7 @@ const CreateNewShop = () => {
       reader.readAsDataURL(file);
     }
   };
+
   return (
     <div>
       <FXForm
@@ -66,11 +69,11 @@ const CreateNewShop = () => {
                   />
 
                   <Button
-                    className="absolute -right-2.5 -top-2.5"
                     isIconOnly
+                    className="absolute -right-2.5 -top-2.5"
+                    color="danger"
                     radius="full"
                     size="sm"
-                    color="danger"
                     onClick={() => {
                       setItemImage(undefined);
                       setImagePreview(undefined);
@@ -86,16 +89,16 @@ const CreateNewShop = () => {
               {!itemImage && (
                 <>
                   <label
-                    htmlFor="image"
                     className="bg-default-100 size-32 ring ring-default-200 rounded-lg cursor-pointer inline-block"
+                    htmlFor="image"
                   >
                     <PlusSVG className="mx-auto my-auto h-full size-12" />
                   </label>
                   <input
                     multiple
-                    type="file"
-                    id="image"
                     className="hidden"
+                    id="image"
+                    type="file"
                     onChange={(e) => handleImageChange(e)}
                   />
                 </>
@@ -105,9 +108,9 @@ const CreateNewShop = () => {
             <h3 className="text-center my-3">Shop Logo</h3>
           </div>
 
-          <FXInput name="name" label="Your Shop Name" />
+          <FXInput label="Your Shop Name" name="name" />
 
-          <FXTextArea name="description" label="Description" />
+          <FXTextArea label="Description" name="description" />
 
           <Button className="w-full" size="md" type="submit">
             Create My Shop

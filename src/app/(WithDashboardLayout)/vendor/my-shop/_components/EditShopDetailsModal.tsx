@@ -2,8 +2,7 @@
 
 import { Button } from "@nextui-org/button";
 import { FieldValues, SubmitHandler } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { forgetPasswordValidationSchema } from "@/src/schemas";
+
 import { useForgetPassword } from "@/src/hooks/auth.hook";
 import Loading from "@/src/components/ui/Loading";
 import FXModal from "@/src/components/ui/FXModal";
@@ -18,19 +17,18 @@ const EditShopDetailsModal = () => {
     isSuccess,
   } = useForgetPassword();
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
-    // handleForgetPassword(data);
-    console.log(data);
+    handleForgetPassword(data);
   };
 
   return (
     <>
-      {isPending && <Loading />}
+      {isPending && !isSuccess && <Loading />}
 
       <FXModal
         buttonClassName="text-sm text-default-500"
+        buttonSize="sm"
         buttonText="Edit Details"
         title="Forgot your password?"
-        buttonSize="sm"
       >
         <span className="text-sm">
           Please enter the account for which you want to reset the password.
@@ -39,19 +37,19 @@ const EditShopDetailsModal = () => {
           onSubmit={onSubmit}
           // resolver={zodResolver(forgetPasswordValidationSchema)}
           //! Only for development
-          defaultValues={{
-            name: "Leatherium Ltd.",
-          }}
+          // defaultValues={{
+          //   name: "Leatherium Ltd.",
+          // }}
         >
           <div className="space-y-3 mb-6">
             <FXInput
               isRequired
+              label="Enter Your Shop Name"
               name="name"
               type="text"
-              label="Enter Your Shop Name"
             />
 
-            <FXTextArea name="description" label="Description" />
+            <FXTextArea label="Description" name="description" />
 
             <Button className="w-full" size="md" type="submit">
               Update Shop Details

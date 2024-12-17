@@ -1,4 +1,3 @@
-import ThreeDotSVG from "@/src/assets/icons/ThreeDotSVG";
 import { Button } from "@nextui-org/button";
 import {
   Dropdown,
@@ -6,7 +5,10 @@ import {
   DropdownMenu,
   DropdownTrigger,
 } from "@nextui-org/dropdown";
+
 import EditShopDetailsModal from "./EditShopDetailsModal";
+
+import ThreeDotSVG from "@/src/assets/icons/ThreeDotSVG";
 
 const ThreeDotMenu = () => {
   return (

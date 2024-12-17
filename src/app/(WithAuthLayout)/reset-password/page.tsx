@@ -1,5 +1,11 @@
 "use client";
 
+import { Button } from "@nextui-org/button";
+import Link from "next/link";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
+import { FieldValues, SubmitHandler } from "react-hook-form";
+
 import ArrowSVG from "@/src/assets/icons/ArrowSVG";
 import EyeCloseSVG from "@/src/assets/icons/EyeCloseSVG";
 import EyeSlashOpenSVG from "@/src/assets/icons/EyeSlashOpenSVG";
@@ -8,11 +14,6 @@ import FXInput from "@/src/components/form/FXInput";
 import Container from "@/src/components/ui/Container";
 import Loading from "@/src/components/ui/Loading";
 import { useResetPassword } from "@/src/hooks/auth.hook";
-import { Button } from "@nextui-org/button";
-import Link from "next/link";
-import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
-import { FieldValues, SubmitHandler } from "react-hook-form";
 
 const ResetPasswordPage = () => {
   const searchParams = useSearchParams();
@@ -20,7 +21,7 @@ const ResetPasswordPage = () => {
 
   const userId = searchParams.get("userId");
   const token = searchParams.get("token");
-  // console.log({ userId, token });
+  // // // console.log({ userId, token });
 
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
@@ -31,6 +32,7 @@ const ResetPasswordPage = () => {
   } = useResetPassword();
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     const resetData = { resetToken: token, id: userId, ...data };
+
     handleResetPassword(resetData);
   };
 
@@ -39,6 +41,7 @@ const ResetPasswordPage = () => {
       router.push("/login");
     }
   }, [isPending, isSuccess]);
+
   return (
     <>
       {isPending && <Loading />}
@@ -59,16 +62,13 @@ const ResetPasswordPage = () => {
               <div className="space-y-3">
                 <FXInput
                   isRequired
-                  type={isPasswordVisible ? "text" : "password"}
-                  name="password"
                   label="Password"
+                  name="password"
+                  type={isPasswordVisible ? "text" : "password"}
                 />
 
                 <FXInput
                   isRequired
-                  type={isPasswordVisible ? "text" : "password"}
-                  name="confirmPassword"
-                  label="Confirm Password"
                   endContent={
                     <button
                       aria-label="toggle password visibility"
@@ -83,6 +83,9 @@ const ResetPasswordPage = () => {
                       )}
                     </button>
                   }
+                  label="Confirm Password"
+                  name="confirmPassword"
+                  type={isPasswordVisible ? "text" : "password"}
                 />
 
                 <Button
@@ -99,8 +102,8 @@ const ResetPasswordPage = () => {
 
           <div className="text-center">
             <Link
-              href="/login"
               className="font-semibold flex items-center justify-center gap-2 text-default-500 hover:text-secondary-500"
+              href="/login"
             >
               <ArrowSVG className="rotate-180" /> Back to log in
             </Link>

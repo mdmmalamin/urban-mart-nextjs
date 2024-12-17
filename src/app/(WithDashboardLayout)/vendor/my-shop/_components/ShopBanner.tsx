@@ -1,26 +1,29 @@
 "use client";
 
+import { Avatar } from "@nextui-org/avatar";
+import { Button } from "@nextui-org/button";
+
+import ThreeDotMenu from "./ThreeDotMenu";
+
 import ShopSVG from "@/src/assets/icons/ShopSVG";
 import Container from "@/src/components/ui/Container";
 import { useGetMyShop } from "@/src/hooks/vendor.hook";
-import { Avatar } from "@nextui-org/avatar";
-import { Button } from "@nextui-org/button";
-import ThreeDotMenu from "./ThreeDotMenu";
 
 const ShopBanner = () => {
   const { data } = useGetMyShop();
   const { data: myShop } = data || {};
-  // console.log("My Shop Hook: ", myShop);
+
+  // // // console.log("My Shop Hook: ", myShop);
   return (
     <div className="w-full h-48 bg-gradient-to-tr to-default-300 from-default-50 flex items-end">
       <Container>
         <div className="flex gap-6 items-end">
           <Avatar
-            color="secondary"
-            className="w-36 h-36"
             isBordered
-            src={myShop?.logo}
+            className="w-36 h-36"
+            color="secondary"
             name={myShop?.name || "Shop"}
+            src={myShop?.logo}
           />
 
           <div className="space-y-2">

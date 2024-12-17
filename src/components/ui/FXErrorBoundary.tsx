@@ -30,6 +30,7 @@ class FXErrorBoundary extends Component<
     if (this.state.hasError) {
       return this.props.fallback;
     }
+
     return this.props.children;
   }
 }

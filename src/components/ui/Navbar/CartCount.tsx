@@ -1,6 +1,7 @@
+import Link from "next/link";
+
 import CartSVG from "@/src/assets/icons/CartSVG";
 import { useMyCarts } from "@/src/hooks/addToCart.hook";
-import Link from "next/link";
 
 const CartCount = () => {
   const { data } = useMyCarts();
@@ -16,10 +17,10 @@ const CartCount = () => {
     <div>
       <div className="relative select-none">
         <Link
-          href={`/cart?${data?.data?.id || "no-cart-available"}`}
           className="text-xl"
+          href={`/cart?${data?.data?.id || "no-cart-available"}`}
         >
-          <CartSVG size="size-6" className="text-secondary-600" />
+          <CartSVG className="text-secondary-600" size="size-6" />
           <span
             className={`text-xs text-default-50 font-semibold bg-secondary-500 rounded-full leading-3 px-1.5 py-1 absolute -top-2 -right-2 ${
               maxValue !== 0 ? "block" : "hidden"

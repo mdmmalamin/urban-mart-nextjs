@@ -1,8 +1,10 @@
 import { Input } from "@nextui-org/input";
-import { SearchIcon } from "../../../../components/icons";
 import { Button } from "@nextui-org/button";
-import ShippingSVG from "@/src/assets/icons/ShippingSVG";
 import Link from "next/link";
+
+import { SearchIcon } from "../../../../components/icons";
+
+import ShippingSVG from "@/src/assets/icons/ShippingSVG";
 
 const Landing = () => {
   return (
@@ -11,9 +13,7 @@ const Landing = () => {
         <div className="max-w-lg flex-1 mx-auto px-6">
           <form className="py-12">
             <Input
-              label="Search"
               isClearable
-              radius="lg"
               classNames={{
                 label: "text-black/50 dark:text-white/90",
                 input: [
@@ -35,7 +35,9 @@ const Landing = () => {
                   "!cursor-text",
                 ],
               }}
+              label="Search"
               placeholder="Find your item..."
+              radius="lg"
               startContent={
                 <SearchIcon className="text-black/50 mb-0.5 dark:text-white/90 text-slate-400 pointer-events-none flex-shrink-0" />
               }
@@ -44,10 +46,10 @@ const Landing = () => {
         </div>
 
         <div className="flex items-center justify-center py-6 md:py-12">
-          <Link href={`/all-products`} className="">
+          <Link className="" href={`/all-products`}>
             <Button
-              size="lg"
               className="bg-primary-500 text-default-50 font-bold flex items-center gap-2"
+              size="lg"
             >
               <ShippingSVG /> Shop Now
             </Button>

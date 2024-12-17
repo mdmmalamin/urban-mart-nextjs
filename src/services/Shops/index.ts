@@ -1,8 +1,10 @@
 "use server";
 
-import axiosInstance from "@/src/lib/AxiosInstance";
-import { TQuery } from "../Categories";
 import { FieldValues } from "react-hook-form";
+
+import { TQuery } from "../Categories";
+
+import axiosInstance from "@/src/lib/AxiosInstance";
 
 export const getAllShops = async (query?: TQuery[]) => {
   const params = new URLSearchParams();

@@ -1,5 +1,9 @@
 "use client";
 
+import { Button } from "@nextui-org/button";
+import Link from "next/link";
+import { useState } from "react";
+
 import BdtSVG from "@/src/assets/icons/BdtSVG";
 import { SVGicons } from "@/src/assets/icons/SVGicons";
 import FXPriceRange from "@/src/components/ui/FXPriceRange";
@@ -7,9 +11,6 @@ import { PriceRangeOptions } from "@/src/constant";
 import { useProduct } from "@/src/context/product.provider";
 import { useCategories } from "@/src/hooks/categories.hook";
 import { TCategoryProps } from "@/src/types";
-import { Button } from "@nextui-org/button";
-import Link from "next/link";
-import { useState } from "react";
 
 const FilterSidebar = () => {
   const [isFilterOpen, setFilterOpen] = useState(false);
@@ -29,8 +30,8 @@ const FilterSidebar = () => {
       >
         {/* //? Toggle Button for small devices */}
         <Button
-          className="lg:hidden fixed -right-10 top-5"
           isIconOnly
+          className="lg:hidden fixed -right-10 top-5"
           radius="full"
           onClick={() => setFilterOpen(!isFilterOpen)}
         >
@@ -54,10 +55,10 @@ const FilterSidebar = () => {
 
           <div className="space-y-3">
             {PriceRangeOptions?.map(({ min, max }, idx) => (
-              <Link href={`/all-products?`} className="block" key={idx}>
+              <Link key={idx} className="block" href={`/all-products?`}>
                 <Button
-                  size="sm"
                   className="w-full flex items-center gap-2"
+                  size="sm"
                   onClick={() => setQueryPriceRange([min, max])}
                 >
                   {min === 0 ? (
@@ -89,9 +90,9 @@ const FilterSidebar = () => {
           <div className="space-y-3">
             {categories?.data?.map(({ id, name, _count }: TCategoryProps) => (
               <Link
-                href={`/all-products?category=${name}`}
-                className="w-full flex items-center justify-between gap-2 bg-default-50 hover:bg-default-100 duration-300 py-2 px-3 rounded-lg"
                 key={id}
+                className="w-full flex items-center justify-between gap-2 bg-default-50 hover:bg-default-100 duration-300 py-2 px-3 rounded-lg"
+                href={`/all-products?category=${name}`}
               >
                 {name}
                 <span>{_count?.products}</span>

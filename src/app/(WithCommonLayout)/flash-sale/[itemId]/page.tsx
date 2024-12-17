@@ -11,12 +11,13 @@ export const metadata = {
 
 const FlashProductDetailsPage = async ({ params: { flashSaleId } }: IProps) => {
   // const { data: post } = await getPost(itemId);
-  // console.log(post);
+  // // // console.log(post);
 
   return (
     <>
       flash-sale/:id
       <div className="mx-auto my-3 max-w-[720px] border">
+        <h3>{flashSaleId}</h3>
         {/* <Post key={post?._id} post={post} /> */}
         abc
       </div>

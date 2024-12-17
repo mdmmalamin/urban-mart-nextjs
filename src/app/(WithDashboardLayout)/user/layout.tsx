@@ -1,6 +1,8 @@
-import Container from "@/src/components/ui/Container";
 import { ReactNode } from "react";
+
 import Sidebar from "../_components/Sidebar";
+
+import Container from "@/src/components/ui/Container";
 
 const layout = ({ children }: { children: ReactNode }) => {
   return (

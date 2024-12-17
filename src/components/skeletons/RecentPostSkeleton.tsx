@@ -1,9 +1,10 @@
 import { Card } from "@nextui-org/card";
 import { Skeleton } from "@nextui-org/skeleton";
 import React from "react";
-import Container from "../ui/Container";
 import { Button } from "@nextui-org/button";
 import Link from "next/link";
+
+import Container from "../ui/Container";
 
 const RecentProductSkeleton = () => {
   return (
@@ -16,20 +17,20 @@ const RecentProductSkeleton = () => {
         </p>
       </div>
       <div className="my-8 grid justify-center gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
-        {[...Array(10)].map(() => (
-          <Card className="space-y-5 p-4 w-full h-[300px]">
+        {[...Array(10)].map((_, idx) => (
+          <Card key={idx} className="space-y-5 p-4 w-full h-[300px]">
             <Skeleton className="rounded-lg">
-              <div className="h-24 rounded-lg bg-default-300"></div>
+              <div className="h-24 rounded-lg bg-default-300" />
             </Skeleton>
             <div className="space-y-3">
               <Skeleton className="w-3/5 rounded-lg">
-                <div className="h-3 w-3/5 rounded-lg bg-default-200"></div>
+                <div className="h-3 w-3/5 rounded-lg bg-default-200" />
               </Skeleton>
               <Skeleton className="w-4/5 rounded-lg">
-                <div className="h-3 w-4/5 rounded-lg bg-default-200"></div>
+                <div className="h-3 w-4/5 rounded-lg bg-default-200" />
               </Skeleton>
               <Skeleton className="w-2/5 rounded-lg">
-                <div className="h-3 w-2/5 rounded-lg bg-default-300"></div>
+                <div className="h-3 w-2/5 rounded-lg bg-default-300" />
               </Skeleton>
             </div>
           </Card>

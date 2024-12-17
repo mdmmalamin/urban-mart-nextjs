@@ -1,8 +1,10 @@
-import { TProductProps } from "@/src/types";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+
 import AddToCart from "../ui/AddToCart";
+
+import { TProductProps } from "@/src/types";
 import { linkString } from "@/src/utils";
 import { NO_IMAGE_FOUND } from "@/src/constant";
 
@@ -11,7 +13,7 @@ const RecentProductCard = ({
 }: {
   product: Partial<TProductProps>;
 }) => {
-  const { id, name, price, stock, images } = product;
+  const { id, name, price, images } = product;
 
   return (
     <div className="relative group max-w-64 w-full">
@@ -38,9 +40,9 @@ const RecentProductCard = ({
             <Image
               alt={`${name} recent product card image`}
               className="size-40 w-full bg-light/0 object-contain object-center rounded"
+              height={160}
               src={images?.[0]?.url || NO_IMAGE_FOUND}
               width={160}
-              height={160}
             />
             {/* Card Info */}
             {/* <div className="flex items-center justify-between my-2 text-xs">

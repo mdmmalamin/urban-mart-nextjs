@@ -1,6 +1,8 @@
-import FXErrorBoundary from "@/src/components/ui/FXErrorBoundary";
 import { Suspense } from "react";
+
 import RecentProduct from "./_components/RecentProduct";
+
+import FXErrorBoundary from "@/src/components/ui/FXErrorBoundary";
 import RecentProductSkeleton from "@/src/components/skeletons/RecentPostSkeleton";
 
 export const metadata = {

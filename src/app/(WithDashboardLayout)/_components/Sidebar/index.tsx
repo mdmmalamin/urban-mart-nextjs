@@ -1,15 +1,17 @@
 "use client";
 
 import Image from "next/image";
-import SidebarOptions from "./SidebarOptions";
 import { Button } from "@nextui-org/button";
+import Link from "next/link";
+import { Skeleton } from "@nextui-org/skeleton";
+
 import {
   adminSidebarRoutes,
   customerSidebarRoutes,
   vendorSidebarRoutes,
 } from "./constant";
-import Link from "next/link";
-import { Skeleton } from "@nextui-org/skeleton";
+import SidebarOptions from "./SidebarOptions";
+
 import { useCurrentUser } from "@/src/context/user.provider";
 import SidebarRoutesSkeleton from "@/src/components/skeletons/SidebarRoutesSkeleton";
 import { NO_IMAGE_FOUND } from "@/src/constant";
@@ -18,9 +20,9 @@ const Sidebar = () => {
   const { user } = useCurrentUser();
 
   // if (user) {
-  //   console.log("User info:", user);
+  //   // // console.log("User info:", user);
   // } else {
-  //   console.log("No user information available.");
+  //   // // console.log("No user information available.");
   // }
 
   return (
@@ -29,10 +31,10 @@ const Sidebar = () => {
         {user ? (
           <Image
             alt={(user?.fullName as string) || ""}
+            className="aspect-square w-full object-contain object-center bg-gradient-to-t to-default-50 from-transparent"
+            height={300}
             src={(user?.avatar as string) || NO_IMAGE_FOUND}
             width={300}
-            height={300}
-            className="aspect-square w-full object-contain object-center bg-gradient-to-t to-default-50 from-transparent"
           />
         ) : (
           <Skeleton className="aspect-square w-full object-contain object-center bg-default-50" />

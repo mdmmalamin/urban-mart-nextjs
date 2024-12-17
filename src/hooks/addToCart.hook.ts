@@ -1,11 +1,12 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { toast } from "sonner";
+
 import {
   addToCart,
   changeMyCartItemQuantity,
   deletedMyCartItem,
   getMyCarts,
 } from "../services/AddToCart";
-import { toast } from "sonner";
 
 type TCartItem = {
   id: string;
@@ -22,8 +23,7 @@ export const useAddToCart = () => {
       toast.success("Successfully product added to cart.");
       queryClient.invalidateQueries({ queryKey: ["CART_ITEMS"], exact: true });
     },
-    onError: (error) =>
-      toast.error("Quantity not available.") || "Something went wrong!",
+    onError: (error) => toast.error(error.message) || "Something went wrong!",
   });
 };
 

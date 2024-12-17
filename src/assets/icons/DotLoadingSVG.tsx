@@ -5,63 +5,63 @@ type TProps = {
 const DotLoadingSVG = ({ mode = "Dark" }: TProps) => {
   return (
     <svg
-      xmlns="http://www.w3.org/2000/svg"
+      height="24"
       viewBox="0 0 24 24"
       width="24"
-      height="24"
+      xmlns="http://www.w3.org/2000/svg"
     >
       <circle
-        fill={mode === "Dark" ? "#141414" : "#ffffff"}
-        stroke={mode === "Dark" ? "#141414" : "#ffffff"}
-        strokeWidth="0.24"
-        r="1.8"
         cx="4.8"
         cy="12"
+        fill={mode === "Dark" ? "#141414" : "#ffffff"}
+        r="1.8"
+        stroke={mode === "Dark" ? "#141414" : "#ffffff"}
+        strokeWidth="0.24"
       >
         <animate
           attributeName="opacity"
+          begin="-.4s"
           calcMode="spline"
           dur="2s"
-          values="1;0;1;"
           keySplines=".5 0 .5 1;.5 0 .5 1"
           repeatCount="indefinite"
-          begin="-.4s"
+          values="1;0;1;"
         />
       </circle>
       <circle
-        fill={mode === "Dark" ? "#141414" : "#ffffff"}
-        stroke={mode === "Dark" ? "#141414" : "#ffffff"}
-        strokeWidth="0.24"
-        r="1.8"
         cx="12"
         cy="12"
+        fill={mode === "Dark" ? "#141414" : "#ffffff"}
+        r="1.8"
+        stroke={mode === "Dark" ? "#141414" : "#ffffff"}
+        strokeWidth="0.24"
       >
         <animate
           attributeName="opacity"
+          begin="-.2s"
           calcMode="spline"
           dur="2s"
-          values="1;0;1;"
           keySplines=".5 0 .5 1;.5 0 .5 1"
           repeatCount="indefinite"
-          begin="-.2s"
+          values="1;0;1;"
         />
       </circle>
       <circle
-        fill={mode === "Dark" ? "#141414" : "#ffffff"}
-        stroke={mode === "Dark" ? "#141414" : "#ffffff"}
-        strokeWidth="0.24"
-        r="1.8"
         cx="19.2"
         cy="12"
+        fill={mode === "Dark" ? "#141414" : "#ffffff"}
+        r="1.8"
+        stroke={mode === "Dark" ? "#141414" : "#ffffff"}
+        strokeWidth="0.24"
       >
         <animate
           attributeName="opacity"
+          begin="0s"
           calcMode="spline"
           dur="2s"
-          values="1;0;1;"
           keySplines=".5 0 .5 1;.5 0 .5 1"
           repeatCount="indefinite"
-          begin="0s"
+          values="1;0;1;"
         />
       </circle>
     </svg>

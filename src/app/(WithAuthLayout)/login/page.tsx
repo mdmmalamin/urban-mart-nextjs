@@ -1,19 +1,21 @@
 "use client";
 
-import FXForm from "@/src/components/form/FXForm";
-import FXInput from "@/src/components/form/FXInput";
-import Container from "@/src/components/ui/Container";
 import { Button } from "@nextui-org/button";
 import Link from "next/link";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { loginValidationSchema } from "@/src/schemas";
 import { FieldValues, SubmitHandler } from "react-hook-form";
-import { useUserLogin } from "@/src/hooks/auth.hook";
-import Loading from "@/src/components/ui/Loading";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
-import { useCurrentUser } from "@/src/context/user.provider";
+
 import ForgetPasswordModal from "./_components/ForgetPasswordModal";
+
+import FXForm from "@/src/components/form/FXForm";
+import FXInput from "@/src/components/form/FXInput";
+import Container from "@/src/components/ui/Container";
+import { loginValidationSchema } from "@/src/schemas";
+import { useUserLogin } from "@/src/hooks/auth.hook";
+import Loading from "@/src/components/ui/Loading";
+import { useCurrentUser } from "@/src/context/user.provider";
 import EyeCloseSVG from "@/src/assets/icons/EyeCloseSVG";
 import EyeSlashOpenSVG from "@/src/assets/icons/EyeSlashOpenSVG";
 
@@ -55,27 +57,26 @@ const LoginPage = () => {
         <section className="flex flex-col items-center justify-center gap-12 h-[calc(100vh-88px)]">
           <div className="text-center space-y-2">
             <h1 className="text-2xl font-bold">Login with Urban Mart</h1>
-            <p>Welcome Back! Let's Get Started</p>
+            <p>Welcome Back! Let&apos;s Get Started</p>
           </div>
           <div className="max-w-xl min-w-fit w-full">
             <FXForm
-              onSubmit={onSubmit}
               resolver={zodResolver(loginValidationSchema)}
+              onSubmit={onSubmit}
               //! Only for development
-              defaultValues={{
-                // phone: "1684420495", //! vendor
-                // password: "amin1234", //! vendor
-                phone: "1941505091", //! vendor
-                password: "123456", //! vendor
-                // phone: "1111111111", //! user
-                // password: "123456", //! user
-              }}
+              // defaultValues={{
+              //   // phone: "1684420495", //! vendor
+              //   // password: "amin1234", //! vendor
+              //   phone: "1941505091", //! vendor
+              //   password: "123456", //! vendor
+              //   // phone: "1111111111", //! user
+              //   // password: "123456", //! user
+              // }}
             >
               <div className="space-y-3">
                 <FXInput
-                  name="phone"
-                  type="phone"
                   label="Phone Number"
+                  name="phone"
                   startContent={
                     <span
                       aria-label="The country calling code of Bangladesh is +880."
@@ -84,11 +85,9 @@ const LoginPage = () => {
                       +880
                     </span>
                   }
+                  type="phone"
                 />
                 <FXInput
-                  name="password"
-                  type={isPasswordVisible ? "text" : "password"}
-                  label="Password"
                   endContent={
                     <button
                       aria-label="toggle password visibility"
@@ -103,6 +102,9 @@ const LoginPage = () => {
                       )}
                     </button>
                   }
+                  label="Password"
+                  name="password"
+                  type={isPasswordVisible ? "text" : "password"}
                 />
 
                 <Button className="w-full" size="md" type="submit">
@@ -116,8 +118,8 @@ const LoginPage = () => {
           </div>
 
           <div className="text-center">
-            Don't have any account?{" "}
-            <Link href="/register" className="text-blue-500 font-semibold">
+            Don&apos;t have any account?{" "}
+            <Link className="text-blue-500 font-semibold" href="/register">
               Register
             </Link>
           </div>

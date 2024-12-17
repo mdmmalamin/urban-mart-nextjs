@@ -1,15 +1,16 @@
 "use server";
 
-import axiosInstance from "@/src/lib/AxiosInstance";
 import { jwtDecode } from "jwt-decode";
 import { cookies } from "next/headers";
 import { FieldValues } from "react-hook-form";
+
+import axiosInstance from "@/src/lib/AxiosInstance";
 
 export const registerCustomer = async (userData: FieldValues) => {
   try {
     const { data } = await axiosInstance.post(
       "/users/create-customer",
-      userData
+      userData,
     );
 
     if (data.success) {
@@ -68,7 +69,7 @@ export const forgetPassword = async (userData: FieldValues) => {
   try {
     const { data } = await axiosInstance.post(
       "/auth/forget-password",
-      userData
+      userData,
     );
 
     return data;
@@ -93,7 +94,7 @@ export const resetPassword = async (userData: FieldValues) => {
           "Content-Type": "application/json",
           Authorization: `${resetToken}`,
         },
-      }
+      },
     );
 
     return data;
@@ -115,7 +116,7 @@ export const changeEmail = async (userData: FieldValues) => {
 export const getCurrentUser = async () => {
   const accessToken = cookies().get("accessToken")?.value;
   // const accessToken = localStorage.getItem("accessToken");
-  // console.log("accessToken: ", accessToken);
+  // // // console.log("accessToken: ", accessToken);
 
   let decodedToken = null;
 
@@ -128,7 +129,7 @@ export const getCurrentUser = async () => {
   //? Optional: Validate the token (e.g., check expiration)
   // const currentTime = Math.floor(Date.now() / 1000);
   // if (decodedToken.exp < currentTime) {
-  //   console.warn("Access token has expired.");
+  //   // console.warn("Access token has expired.");
   //   return null;
   // }
 

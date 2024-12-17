@@ -20,15 +20,15 @@ const FXPriceRange = ({
   return (
     <>
       <Slider
-        size="sm"
-        showSteps={false}
-        showTooltip={true}
         className="max-w-md"
         defaultValue={defaultValue}
         formatOptions={{ style: "currency", currency: currency }}
         label="Price Range"
         maxValue={Math.ceil(maxValue) + 100}
         minValue={minValue}
+        showSteps={false}
+        showTooltip={true}
+        size="sm"
         step={step}
         onChangeEnd={onChangeEnd}
       />

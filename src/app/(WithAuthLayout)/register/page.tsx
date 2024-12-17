@@ -1,23 +1,24 @@
 "use client";
 
-import FXForm from "@/src/components/form/FXForm";
-import FXInput from "@/src/components/form/FXInput";
-import Container from "@/src/components/ui/Container";
 import { Button, ButtonGroup } from "@nextui-org/button";
 import Link from "next/link";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { FieldValues, SubmitHandler } from "react-hook-form";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
+
+import FXForm from "@/src/components/form/FXForm";
+import FXInput from "@/src/components/form/FXInput";
+import Container from "@/src/components/ui/Container";
 import {
   registerCustomerValidationSchema,
   registerVendorValidationSchema,
 } from "@/src/schemas";
-import { FieldValues, SubmitHandler } from "react-hook-form";
 import Loading from "@/src/components/ui/Loading";
-import { useRouter, useSearchParams } from "next/navigation";
 import {
   useCustomerRegistration,
   useVendorRegistration,
 } from "@/src/hooks/auth.hook";
-import { useEffect, useState } from "react";
 import EyeSlashOpenSVG from "@/src/assets/icons/EyeSlashOpenSVG";
 import EyeCloseSVG from "@/src/assets/icons/EyeCloseSVG";
 import HappyUserSVG from "@/src/assets/icons/HappyUserSVG";
@@ -36,7 +37,7 @@ const RegisterPage = () => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const [isVendor, setIsVendor] = useState(false);
   const [validation, setValidation] = useState(
-    registerCustomerValidationSchema
+    registerCustomerValidationSchema,
   );
 
   const {
@@ -90,12 +91,12 @@ const RegisterPage = () => {
         <section className="flex flex-col items-center justify-center gap-12 min-h-[calc(100vh-88px)]">
           <div className="text-center space-y-2">
             <h1 className="text-2xl font-bold">Register with Urban Mart</h1>
-            <p>Looks like you're new here!</p>
+            <p>Looks like you&apos;re new here!</p>
           </div>
           <div className="max-w-xl min-w-fit w-full">
             <FXForm
-              onSubmit={onSubmit}
               resolver={zodResolver(validation)}
+              onSubmit={onSubmit}
               //! Only for development
               // defaultValues={{
               //   fullName: "Vendor One",
@@ -109,28 +110,28 @@ const RegisterPage = () => {
                   <>
                     <FXInput
                       isRequired
+                      label="Full Name"
                       name="fullName"
                       type="text"
-                      label="Full Name"
                     />
                     <div className="grid grid-cols-2 gap-6">
                       <div className="col-span-1 my-auto">
                         <FXDatePicker
                           isRequired
-                          name="dateOfBirth"
                           label="Date of Birth"
+                          name="dateOfBirth"
                         />
                       </div>
                       <div className="col-span-1 my-auto">
                         <FXSelect
                           isRequired
-                          name="gender"
                           label="Gender"
-                          placeholder="Select your gender"
+                          name="gender"
                           options={[
                             { key: "MALE", label: "Male" },
                             { key: "FEMALE", label: "Female" },
                           ]}
+                          placeholder="Select your gender"
                         />
                       </div>
                     </div>
@@ -139,12 +140,11 @@ const RegisterPage = () => {
                   <></>
                 )}
 
-                <FXInput isRequired name="email" type="email" label="Email" />
+                <FXInput isRequired label="Email" name="email" type="email" />
                 <FXInput
                   isRequired
-                  name="phone"
-                  type="text"
                   label="Mobile Number"
+                  name="phone"
                   startContent={
                     <span
                       aria-label="The country calling code of Bangladesh is +880."
@@ -153,12 +153,10 @@ const RegisterPage = () => {
                       +880
                     </span>
                   }
+                  type="text"
                 />
                 <FXInput
                   isRequired
-                  type={isPasswordVisible ? "text" : "password"}
-                  name="password"
-                  label="Password"
                   endContent={
                     <button
                       aria-label="toggle password visibility"
@@ -173,6 +171,9 @@ const RegisterPage = () => {
                       )}
                     </button>
                   }
+                  label="Password"
+                  name="password"
+                  type={isPasswordVisible ? "text" : "password"}
                 />
 
                 <Button className="w-full" size="md" type="submit">
@@ -209,7 +210,7 @@ const RegisterPage = () => {
 
           <div className="text-center">
             Already have an account?{" "}
-            <Link href="/login" className="text-blue-500 font-semibold">
+            <Link className="text-blue-500 font-semibold" href="/login">
               Login
             </Link>
           </div>

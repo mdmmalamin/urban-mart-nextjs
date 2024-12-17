@@ -21,13 +21,11 @@ export const publishedProductValidationSchema = z.object({
     .string()
     .regex(
       /^\d+(\.\d{1,2})?$/,
-      "Price must be a valid number with up to 2 decimal places."
+      "Price must be a valid number with up to 2 decimal places.",
     ),
-    // .transform((value) => parseFloat(value)), //? Converts to number,
-  quantity: z
-    .string()
-    .regex(/^\d+$/, "Quantity must be a valid integer.")
-    // .transform((value) => parseInt(value, 10)), //? Converts to number
+  // .transform((value) => parseFloat(value)), //? Converts to number,
+  quantity: z.string().regex(/^\d+$/, "Quantity must be a valid integer."),
+  // .transform((value) => parseInt(value, 10)), //? Converts to number
 });
 
 export const draftedProductValidationSchema = z.object({

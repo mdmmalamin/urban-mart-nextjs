@@ -16,8 +16,8 @@ const QuantityCounter = ({
     <div className="flex items-center gap-4 border border-default-400">
       <Button
         isIconOnly
-        radius="none"
         isDisabled={quantity === 1}
+        radius="none"
         onClick={() =>
           handleUpdateQuantity({ id: productId, quantity: quantity - 1 })
         }
@@ -27,8 +27,8 @@ const QuantityCounter = ({
       <span className="font-semibold">{quantity}</span>
       <Button
         isIconOnly
-        radius="none"
         isDisabled={availableQuantity <= quantity}
+        radius="none"
         onClick={() =>
           handleUpdateQuantity({ id: productId, quantity: quantity + 1 })
         }

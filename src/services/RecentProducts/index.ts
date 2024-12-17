@@ -11,7 +11,7 @@ export const getProducts = async () => {
     };
     const res = await fetch(
       `${envConfig.baseApi}/products?page=1&limit=10&status=PUBLISHED`,
-      fetchOptions
+      fetchOptions,
     );
 
     return await res.json();

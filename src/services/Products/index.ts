@@ -1,8 +1,11 @@
 "use server";
 
-import axiosInstance from "@/src/lib/AxiosInstance";
-import { TQuery } from "../Categories";
 import { FieldValues } from "react-hook-form";
+
+import { TQuery } from "../Categories";
+
+import axiosInstance from "@/src/lib/AxiosInstance";
+import { TProductStatus } from "@/src/types";
 
 export const getAllProducts = async (query?: TQuery[]) => {
   const params = new URLSearchParams();
@@ -39,6 +42,56 @@ export const getProductDetails = async (id: string) => {
 export const createProduct = async (args: FieldValues) => {
   try {
     const { data } = await axiosInstance.post(`/products`, args);
+
+    return data;
+  } catch (error: any) {
+    throw new Error(error);
+  }
+};
+
+export const productDuplicate = async (id: string) => {
+  try {
+    const { data } = await axiosInstance.post(`/products/${id}/duplicate`);
+
+    return data;
+  } catch (error: any) {
+    throw new Error(error);
+  }
+};
+
+export const updateProduct = async (args: FieldValues) => {
+  const { id, ...payload } = args;
+
+  try {
+    const { data } = await axiosInstance.patch(`/products/${id}`, payload);
+
+    return data;
+  } catch (error: any) {
+    throw new Error(error?.data?.message);
+  }
+};
+
+export const changeProductStatus = async (args: {
+  id: string;
+  status: TProductStatus;
+}) => {
+  const { id, ...payload } = args;
+
+  try {
+    const { data } = await axiosInstance.patch(
+      `/products/${id}/status`,
+      payload,
+    );
+
+    return data;
+  } catch (error: any) {
+    throw new Error(error?.data?.message);
+  }
+};
+
+export const deleteProduct = async (id: string) => {
+  try {
+    const { data } = await axiosInstance.delete(`/products/${id}`);
 
     return data;
   } catch (error: any) {

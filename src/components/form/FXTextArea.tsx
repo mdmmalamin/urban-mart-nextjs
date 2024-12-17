@@ -17,14 +17,16 @@ const FXTextArea = ({
     register,
     formState: { errors },
   } = useFormContext();
+
   return (
     <Textarea
       className="bg-default-50"
       {...register(name)}
+      errorMessage={errors[name] ? (errors[name].message as String) : ""}
+      isRequired={isRequired}
       label={label}
       minRows={6}
       variant={variant}
-      isRequired={isRequired}
     />
   );
 };

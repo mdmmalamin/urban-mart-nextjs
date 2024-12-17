@@ -1,5 +1,7 @@
 import { ReactNode, Suspense } from "react";
+
 import Sidebar from "./_components/Sidebar";
+
 import FXErrorBoundary from "@/src/components/ui/FXErrorBoundary";
 
 const layout = ({ children }: { children: ReactNode }) => {

@@ -1,5 +1,6 @@
-import BdtSVG from "@/src/assets/icons/BdtSVG";
 import ClaimCouponCode from "./ClaimCouponCode";
+
+import BdtSVG from "@/src/assets/icons/BdtSVG";
 
 type TOrderSummary = {
   totalItem: number;

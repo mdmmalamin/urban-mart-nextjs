@@ -1,8 +1,9 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { createNewShop, getAllShops, getShop } from "../services/Shops";
-import { TQuery } from "../services/Categories";
 import { FieldValues } from "react-hook-form";
 import { toast } from "sonner";
+
+import { createNewShop, getAllShops, getShop } from "../services/Shops";
+import { TQuery } from "../services/Categories";
 
 export const useGetAllShops = (query?: TQuery[]) => {
   return useQuery({

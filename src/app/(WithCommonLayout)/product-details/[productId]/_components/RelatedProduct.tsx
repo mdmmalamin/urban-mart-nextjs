@@ -19,7 +19,7 @@ const RelatedProduct = async ({ category }: { category: TCategoryProps }) => {
     },
   ]);
 
-  console.log("Related Product:", products);
+  // // console.log("Related Product:", products);
 
   return (
     <Container>
@@ -34,7 +34,7 @@ const RelatedProduct = async ({ category }: { category: TCategoryProps }) => {
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 my-8">
         {products?.data?.slice(0, 5)?.map((product: TProductProps) => (
           <>
-            <RecentProductCard product={product} key={product.id} />
+            <RecentProductCard key={product.id} product={product} />
           </>
         ))}
       </div>

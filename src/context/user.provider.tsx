@@ -9,6 +9,7 @@ import {
   useEffect,
   useState,
 } from "react";
+
 import { TAuthProps } from "../types";
 import { getCurrentUser } from "../services/AuthServices";
 
@@ -31,8 +32,9 @@ const UserProvider = ({ children }: { children: ReactNode }) => {
 
       setUser(userData);
       setIsLoading(false);
-    } catch (error) {
-      console.error("Failed to fetch user data:", error);
+    } catch (error: any) {
+      // console.error("Failed to fetch user data:", error);
+      throw new Error(error.message);
       setUser(null);
     }
   };
@@ -50,11 +52,13 @@ const UserProvider = ({ children }: { children: ReactNode }) => {
 
 export const useCurrentUser = () => {
   const context = useContext(USER_CONTEXT);
+
   if (context === undefined) {
     throw new Error(
-      "useCurrentUser must be used within the UserProvider context."
+      "useCurrentUser must be used within the UserProvider context.",
     );
   }
+
   return context;
 };
 

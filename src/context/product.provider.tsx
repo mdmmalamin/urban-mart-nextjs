@@ -7,6 +7,7 @@ import {
   useEffect,
   ReactNode,
 } from "react";
+
 import { useGetAllProducts } from "../hooks/product.hook";
 
 type TProductContext = {
@@ -40,8 +41,10 @@ export const ProductProvider = ({ children }: { children: ReactNode }) => {
 //? Custom Hook for Using Context
 export const useProduct = (): TProductContext => {
   const context = useContext(ProductContext);
+
   if (!context) {
     throw new Error("useProduct must be used within a ProductProvider");
   }
+
   return context;
 };
