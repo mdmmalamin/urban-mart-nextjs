@@ -16,6 +16,8 @@ const AllProductPage = async ({ searchParams }: { searchParams: any }) => {
     name: key.toString(),
     value: String(value),
   }));
+
+  console.log(queryObj)
   const { data } = await getAllProducts(queryObj);
 
   return (

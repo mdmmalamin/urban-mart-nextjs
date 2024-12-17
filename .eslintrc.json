@@ -204,7 +204,8 @@
     "prettier/prettier": [
       "warn",
       {
-        "endOfLine": "auto"
+        "endOfLine": "auto",
+        "parser": "flow"
       }
     ]
   }

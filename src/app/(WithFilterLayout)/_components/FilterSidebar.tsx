@@ -55,7 +55,11 @@ const FilterSidebar = () => {
 
           <div className="space-y-3">
             {PriceRangeOptions?.map(({ min, max }, idx) => (
-              <Link key={idx} className="block" href={`/all-products?`}>
+              <Link
+                key={idx}
+                className="block"
+                href={`/all-products?minPrice=${min}&maxPrice=${max}`}
+              >
                 <Button
                   className="w-full flex items-center gap-2"
                   size="sm"

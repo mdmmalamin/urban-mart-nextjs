@@ -20,9 +20,9 @@ const Sidebar = () => {
   const { user } = useCurrentUser();
 
   // if (user) {
-  //   // // console.log("User info:", user);
+  // console.log("User info:", user);
   // } else {
-  //   // // console.log("No user information available.");
+  // console.log("No user information available.");
   // }
 
   return (
@@ -53,11 +53,11 @@ const Sidebar = () => {
             </div>
           )}
 
-          <Link href="/profile/create-post">
+          {/* <Link href="/profile/create-post">
             <Button className="w-full mt-3" size="md" type="submit">
               Create a post
             </Button>
-          </Link>
+          </Link> */}
         </div>
       </div>
 

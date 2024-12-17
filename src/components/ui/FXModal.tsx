@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Button } from "@nextui-org/button";
 import {
   Modal,
@@ -73,7 +74,7 @@ const FXModal = ({
         onOpenChange={onOpenChange}
       >
         <ModalContent>
-          {() => (
+          {(onClose) => (
             <>
               <ModalHeader className="flex flex-col gap-1">{title}</ModalHeader>
               <ModalBody>{children}</ModalBody>

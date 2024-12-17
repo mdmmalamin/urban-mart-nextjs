@@ -10,6 +10,7 @@ interface IProps extends IInput {
 }
 
 const FXTextArea = ({
+  defaultValue,
   name,
   label,
   variant = "underlined",
@@ -24,6 +25,7 @@ const FXTextArea = ({
     <Textarea
       className="bg-default-50"
       {...register(name)}
+      defaultValue={defaultValue}
       errorMessage={errors[name] ? (errors[name].message as String) : ""}
       isRequired={isRequired}
       label={label}

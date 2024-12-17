@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
+/* eslint-disable prettier/prettier */
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -42,13 +44,12 @@ const CreateNewProduct = () => {
       ({ id, name }: { id: string; name: string }) => ({
         key: id,
         label: name.toUpperCase(),
-      }),
+      })
     );
   }
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     const formData = new FormData();
-    // // console.log(data);
 
     const productData = {
       name: data.name,
@@ -65,12 +66,10 @@ const CreateNewProduct = () => {
       formData.append("images", image);
     }
 
-    // // console.log(formData.get("data"));
-    // // console.log(formData.get("images"));
+    console.log(formData.get("data"));
+    console.log(formData.get("images"));
 
     handleCreateProduct(formData);
-
-    // // console.log(productData);
   };
 
   const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {

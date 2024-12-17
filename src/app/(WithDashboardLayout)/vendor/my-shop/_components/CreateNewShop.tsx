@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 "use client";
 
 import { Button } from "@nextui-org/button";
@@ -14,13 +15,13 @@ import { useCreateNewShop } from "@/src/hooks/shop.hook";
 const CreateNewShop = () => {
   const [itemImage, setItemImage] = useState<File | undefined>(undefined);
   const [imagePreview, setImagePreview] = useState<string | undefined>(
-    undefined,
+    undefined
   );
 
   const { mutate: handleCreateNewShop } = useCreateNewShop();
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
-    // // console.log(data);
+    console.log(data);
 
     const formData = new FormData();
     const shopData = {
