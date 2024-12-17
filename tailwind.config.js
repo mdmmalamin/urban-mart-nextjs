@@ -1,7 +1,7 @@
-  import { nextui } from "@nextui-org/theme";
+import { nextui } from "@nextui-org/theme";
 
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+const config = {
   content: [
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
@@ -21,40 +21,33 @@ module.exports = {
       themes: {
         light: {
           colors: {
-            background: "#FFFFFF", // or DEFAULT
-            foreground: "#11181C", // or 50 to 900 DEFAULT
+            background: "#FFFFFF",
+            foreground: "#11181C",
             primary: {
-              //... 50 to 900
               foreground: "#FFFFFF",
               DEFAULT: "#006FEE",
             },
             accent: {
-              //... 50 to 900
               foreground: "#FFFFFF",
               DEFAULT: "#17AF26",
             },
-            // ... rest of the colors
           },
         },
         dark: {
           colors: {
-            background: "#000000", // or DEFAULT
-            foreground: "#ECEDEE", // or 50 to 900 DEFAULT
+            background: "#000000",
+            foreground: "#ECEDEE",
             primary: {
-              //... 50 to 900
               foreground: "#FFFFFF",
               DEFAULT: "#006FEE",
             },
             accent: {
-              //... 50 to 900
               foreground: "#FFFFFF",
               DEFAULT: "#17AF26",
             },
           },
-          // ... rest of the colors
         },
         mytheme: {
-          // custom theme
           extend: "dark",
           colors: {
             primary: {
@@ -68,3 +61,5 @@ module.exports = {
     }),
   ],
 };
+
+export default config;

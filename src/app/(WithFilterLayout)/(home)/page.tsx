@@ -3,7 +3,7 @@ import { Suspense } from "react";
 import RecentProduct from "./_components/RecentProduct";
 
 import FXErrorBoundary from "@/src/components/ui/FXErrorBoundary";
-import RecentProductSkeleton from "@/src/components/skeletons/RecentPostSkeleton";
+import RecentProductSkeleton from "@/src/components/skeletons/RecentProductSkeleton";
 
 export const metadata = {
   title: "Home",

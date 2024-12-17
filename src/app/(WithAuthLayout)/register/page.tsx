@@ -36,8 +36,9 @@ const RegisterPage = () => {
 
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const [isVendor, setIsVendor] = useState(false);
+  const [gender, setGender] = useState("");
   const [validation, setValidation] = useState(
-    registerCustomerValidationSchema,
+    registerCustomerValidationSchema
   );
 
   const {
@@ -52,11 +53,13 @@ const RegisterPage = () => {
   } = useVendorRegistration();
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
+    console.log(data);
     let userData;
 
     isVendor
       ? (userData = {
           ...data,
+          gender: gender,
           dateOfBirth: dateToISO(data.dateOfBirth),
         })
       : (userData = {
@@ -95,7 +98,7 @@ const RegisterPage = () => {
           </div>
           <div className="max-w-xl min-w-fit w-full">
             <FXForm
-              resolver={zodResolver(validation)}
+              // resolver={zodResolver(validation)}
               onSubmit={onSubmit}
               //! Only for development
               // defaultValues={{
@@ -132,6 +135,7 @@ const RegisterPage = () => {
                             { key: "FEMALE", label: "Female" },
                           ]}
                           placeholder="Select your gender"
+                          onChange={(e) => setGender(e.target.value)}
                         />
                       </div>
                     </div>

@@ -8,15 +8,10 @@ import CustomerReview from "./_components/CustomerReview";
 import ImageGallery from "./_components/ImageGallery";
 
 import { useGetProduct } from "@/src/hooks/product.hook";
-import RecentPostSkeleton from "@/src/components/skeletons/RecentPostSkeleton";
 import ProductInfoSkeleton from "@/src/components/skeletons/ProductInfoSkeleton";
 import { linkToGetId } from "@/src/utils";
 import FXErrorBoundary from "@/src/components/ui/FXErrorBoundary";
-
-// export const metadata = {
-//   title: "Home",
-//   description: "",
-// };
+import RecentProductSkeleton from "@/src/components/skeletons/RecentProductSkeleton";
 
 const ProductDetailsPage = ({ params }: { params: { productId: string } }) => {
   const { productId } = params;
@@ -24,15 +19,14 @@ const ProductDetailsPage = ({ params }: { params: { productId: string } }) => {
   const { data } = useGetProduct(linkToGetId(productId));
   const { name, description, price, images, category, inventory, stock } =
     data?.data || [];
-  // // // console.log("Product Details Page: ", data?.data);
 
   return (
     <>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-20">
         {/* //? Product Images Gallery */}
         <div className="col-span-1 rounded-lg p-2">
-          <FXErrorBoundary fallback={<RecentPostSkeleton />}>
-            <Suspense fallback={<RecentPostSkeleton />}>
+          <FXErrorBoundary fallback={<RecentProductSkeleton />}>
+            <Suspense fallback={<RecentProductSkeleton />}>
               <ImageGallery images={images} />
             </Suspense>
           </FXErrorBoundary>

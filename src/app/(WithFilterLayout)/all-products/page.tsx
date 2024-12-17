@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 
 import RecentProductCard from "@/src/components/cards/RecentProductCard";
-import RecentProductSkeleton from "@/src/components/skeletons/RecentPostSkeleton";
+import RecentProductSkeleton from "@/src/components/skeletons/RecentProductSkeleton";
 import FXErrorBoundary from "@/src/components/ui/FXErrorBoundary";
 import { getAllProducts } from "@/src/services/Products";
 import { TProductProps } from "@/src/types";

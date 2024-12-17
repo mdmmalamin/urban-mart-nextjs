@@ -1,3 +1,5 @@
+"use client";
+
 import { Skeleton } from "@nextui-org/skeleton";
 
 import Rating from "../ui/Rating";

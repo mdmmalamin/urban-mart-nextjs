@@ -1,3 +1,5 @@
+"use client";
+
 import { Skeleton } from "@nextui-org/skeleton";
 
 const SidebarRoutesSkeleton = () => {
