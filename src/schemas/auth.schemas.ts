@@ -17,11 +17,9 @@ export const registerVendorValidationSchema = z.object({
     month: z.number().min(1).max(12),
     year: z.number().min(1900).max(new Date().getFullYear()),
   }),
-  gender: z
-    .enum(["MALE", "FEMALE"], {
-      required_error: "Gender is required!",
-    })
-    .optional(),
+  gender: z.enum(["MALE", "FEMALE"]).refine((value) => value !== undefined, {
+    message: "Gender is required!",
+  }),
   email: z.string().trim().toLowerCase().email("Please enter a valid email!"),
   phone: z.string().regex(/^\d{10}$/, "Please enter a valid mobile number!"),
   password: z.string().min(6, "Password at least 6 character!"),

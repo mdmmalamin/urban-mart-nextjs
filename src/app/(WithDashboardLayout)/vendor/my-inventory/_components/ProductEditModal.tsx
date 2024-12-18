@@ -7,14 +7,16 @@ import { FieldValues, SubmitHandler } from "react-hook-form";
 import { EditSVG } from "@/src/assets/icons/SVGicons";
 import FXForm from "@/src/components/form/FXForm";
 import FXInput from "@/src/components/form/FXInput";
-import FXSelect from "@/src/components/form/FXSelect";
 import FXTextArea from "@/src/components/form/FXTextArea";
 import FXModal from "@/src/components/ui/FXModal";
 import { useCategories } from "@/src/hooks/categories.hook";
 import { useGetProduct, useUpdateProduct } from "@/src/hooks/product.hook";
 import Loading from "@/src/components/ui/Loading";
+import FXSelectControlled from "@/src/components/form/FXSelectControlled";
+import { useState } from "react";
 
 const ProductEditModal = ({ productId }: { productId: string }) => {
+  const [selectCategory, setSelectCategory] = useState("");
   const {
     data: categoryData,
     isLoading: categoryLoading,
@@ -37,6 +39,7 @@ const ProductEditModal = ({ productId }: { productId: string }) => {
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     const updateData = {
       id: productId,
+      category: selectCategory || product?.data?.category?.id,
       price: Number(data.price),
       ...data,
     };
@@ -77,7 +80,7 @@ const ProductEditModal = ({ productId }: { productId: string }) => {
                 name="price"
               />
 
-              <FXSelect
+              <FXSelectControlled
                 defaultSelectedKeys={[product?.data?.category?.id]}
                 defaultValue={product?.data?.category?.name}
                 isDisabled={!categorySuccess}
@@ -85,6 +88,7 @@ const ProductEditModal = ({ productId }: { productId: string }) => {
                 name="categoryId"
                 options={categoryOptions}
                 placeholder="Select a category"
+                onChange={(e) => setSelectCategory(e.target.value)}
               />
 
               <FXTextArea

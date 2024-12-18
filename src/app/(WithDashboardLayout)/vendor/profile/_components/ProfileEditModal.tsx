@@ -7,12 +7,14 @@ import { UserInfoEditSVG } from "@/src/assets/icons/SVGicons";
 import FXDatePicker from "@/src/components/form/FXDatePicker";
 import FXForm from "@/src/components/form/FXForm";
 import FXInput from "@/src/components/form/FXInput";
-import FXSelect from "@/src/components/form/FXSelect";
 import FXModal from "@/src/components/ui/FXModal";
 import { useUpdateMyProfile } from "@/src/hooks/vendor.hook";
 import { dateToString } from "@/src/utils";
+import FXSelectControlled from "@/src/components/form/FXSelectControlled";
+import { useState } from "react";
 
 const ProfileEditModal = ({ fullName, gender, dateOfBirth }: any) => {
+  const [selectGender, setSelectGender] = useState(gender);
   const { mutate: handleUpdateProfileInfo } = useUpdateMyProfile();
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     let userUpdatedData;
@@ -20,6 +22,7 @@ const ProfileEditModal = ({ fullName, gender, dateOfBirth }: any) => {
     if (data?.dateOfBirth) {
       userUpdatedData = {
         ...data,
+        gender: selectGender,
         dateOfBirth: dateToString(data.dateOfBirth),
       };
     } else {
@@ -49,7 +52,7 @@ const ProfileEditModal = ({ fullName, gender, dateOfBirth }: any) => {
         <div className="space-y-3 mb-3">
           <FXInput defaultValue={fullName} label="Full Name" name="fullName" />
 
-          <FXSelect
+          <FXSelectControlled
             defaultSelectedKeys={[gender]}
             defaultValue={gender}
             label="Gender"
@@ -59,6 +62,7 @@ const ProfileEditModal = ({ fullName, gender, dateOfBirth }: any) => {
               { key: "FEMALE", label: "Female" },
             ]}
             placeholder="Select your gender"
+            onChange={(e) => setSelectGender(e.target.value)}
           />
 
           <FXDatePicker

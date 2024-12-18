@@ -36,7 +36,6 @@ const RegisterPage = () => {
 
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const [isVendor, setIsVendor] = useState(false);
-  const [gender, setGender] = useState("");
   const [validation, setValidation] = useState(
     registerCustomerValidationSchema
   );
@@ -59,7 +58,6 @@ const RegisterPage = () => {
     isVendor
       ? (userData = {
           ...data,
-          gender: gender,
           dateOfBirth: dateToISO(data.dateOfBirth),
         })
       : (userData = {
@@ -98,7 +96,7 @@ const RegisterPage = () => {
           </div>
           <div className="max-w-xl min-w-fit w-full">
             <FXForm
-              // resolver={zodResolver(validation)}
+              resolver={zodResolver(validation)}
               onSubmit={onSubmit}
               //! Only for development
               // defaultValues={{
@@ -127,7 +125,7 @@ const RegisterPage = () => {
                       </div>
                       <div className="col-span-1 my-auto">
                         <FXSelect
-                          isRequired
+                          // isRequired
                           label="Gender"
                           name="gender"
                           options={[
@@ -135,7 +133,6 @@ const RegisterPage = () => {
                             { key: "FEMALE", label: "Female" },
                           ]}
                           placeholder="Select your gender"
-                          onChange={(e) => setGender(e.target.value)}
                         />
                       </div>
                     </div>
@@ -147,8 +144,9 @@ const RegisterPage = () => {
                 <FXInput isRequired label="Email" name="email" type="email" />
                 <FXInput
                   isRequired
-                  label="Mobile Number"
+                  label="Mobile Number (10 digits)"
                   name="phone"
+                  // placeholder="17000 00000"
                   startContent={
                     <span
                       aria-label="The country calling code of Bangladesh is +880."

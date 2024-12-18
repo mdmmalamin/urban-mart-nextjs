@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
-/* eslint-disable prettier/prettier */
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -11,12 +9,12 @@ import MinusSVG from "@/src/assets/icons/MinusSVG";
 import PlusSVG from "@/src/assets/icons/PlusSVG";
 import FXForm from "@/src/components/form/FXForm";
 import FXInput from "@/src/components/form/FXInput";
-import FXSelect from "@/src/components/form/FXSelect";
 import FXTextArea from "@/src/components/form/FXTextArea";
 import Loading from "@/src/components/ui/Loading";
 import { useCategories } from "@/src/hooks/categories.hook";
 import { useCreateProduct } from "@/src/hooks/product.hook";
 import { publishedProductValidationSchema } from "@/src/schemas/product.schemas";
+import FXSelectControlled from "@/src/components/form/FXSelectControlled";
 
 const CreateNewProduct = () => {
   const [itemImages, setItemImages] = useState<File[] | []>([]);
@@ -122,7 +120,7 @@ const CreateNewProduct = () => {
             </div>
 
             <div className="col-span-2 sm:col-span-1">
-              <FXSelect
+              <FXSelectControlled
                 isRequired
                 isDisabled={!categorySuccess}
                 label="Category"
@@ -134,7 +132,7 @@ const CreateNewProduct = () => {
             </div>
 
             <div className="col-span-2 sm:col-span-1">
-              <FXSelect
+              <FXSelectControlled
                 isRequired
                 label="Status"
                 name="status"

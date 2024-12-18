@@ -207,6 +207,7 @@
         "endOfLine": "auto",
         "parser": "flow"
       }
-    ]
+    ],
+    "@typescript-eslint/semi": ["never", "never"]
   }
 }

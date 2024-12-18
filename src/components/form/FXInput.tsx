@@ -25,7 +25,7 @@ const FXInput = ({
 
   return (
     <Input
-      className={className}
+      className={`${className}`}
       defaultValue={defaultValue}
       errorMessage={errors[name] ? (errors[name].message as String) : ""}
       isInvalid={!!errors[name]}
