@@ -15,7 +15,7 @@ import { TQuery } from "../services/Categories";
 import { TProductStatus } from "../types";
 
 export const useGetAllProducts = (query?: TQuery[]) => {
-  // // console.log(query);
+  // console.log(query);
   return useQuery({
     queryKey: ["GET_ALL_PRODUCTS", query],
     queryFn: async () => await getAllProducts(query),

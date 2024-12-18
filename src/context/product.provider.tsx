@@ -26,7 +26,9 @@ export const ProductProvider = ({ children }: { children: ReactNode }) => {
   const { data: products } = useGetAllProducts();
 
   useEffect(() => {
-    setMaxPrice(products?.meta?.maxPrice);
+    if (products?.meta?.maxPrice !== undefined) {
+      setMaxPrice(products.meta.maxPrice);
+    }
   }, [products]);
 
   return (
@@ -43,6 +45,7 @@ export const useProduct = (): TProductContext => {
   const context = useContext(ProductContext);
 
   if (!context) {
+    console.error("useProduct called outside of ProductProvider");
     throw new Error("useProduct must be used within a ProductProvider");
   }
 

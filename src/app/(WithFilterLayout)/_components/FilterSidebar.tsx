@@ -11,10 +11,13 @@ import { PriceRangeOptions } from "@/src/constant";
 import { useProduct } from "@/src/context/product.provider";
 import { useCategories } from "@/src/hooks/categories.hook";
 import { TCategoryProps } from "@/src/types";
+import { useRouter } from "next/navigation";
 
 const FilterSidebar = () => {
   const [isFilterOpen, setFilterOpen] = useState(false);
-  const { maxPrice, setQueryPriceRange } = useProduct();
+  const { maxPrice, queryPriceRange, setQueryPriceRange } = useProduct();
+
+  const router = useRouter();
 
   const { data: categories } = useCategories();
 
@@ -49,7 +52,12 @@ const FilterSidebar = () => {
           <div>
             <FXPriceRange
               maxValue={maxPrice as number}
-              onChangeEnd={(value) => setQueryPriceRange(value as number[])}
+              onChangeEnd={(value) => {
+                setQueryPriceRange(value as number[]);
+                router.push(
+                  `/all-products?minPrice=${queryPriceRange?.[0].toString()}&maxPrice=${queryPriceRange?.[1].toString()}`
+                );
+              }}
             />
           </div>
 

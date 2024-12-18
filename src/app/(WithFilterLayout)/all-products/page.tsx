@@ -17,14 +17,14 @@ const AllProductPage = async ({ searchParams }: { searchParams: any }) => {
     value: String(value),
   }));
 
-  const { data } = await getAllProducts(queryObj);
+  const { data: products } = await getAllProducts(queryObj);
 
   return (
     <>
       <FXErrorBoundary fallback={<RecentProductSkeleton />}>
         <Suspense fallback={<RecentProductSkeleton />}>
-          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center gap-4 my-8">
-            {data?.map((product: TProductProps) => (
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center gap-4 my-6">
+            {products?.map((product: TProductProps) => (
               <>
                 <RecentProductCard key={product.id} product={product} />
               </>

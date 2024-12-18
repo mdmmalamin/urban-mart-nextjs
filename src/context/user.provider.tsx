@@ -33,8 +33,6 @@ const UserProvider = ({ children }: { children: ReactNode }) => {
       setUser(userData);
       setIsLoading(false);
     } catch (error: any) {
-      // console.error("Failed to fetch user data:", error);
-      throw new Error(error.message);
       setUser(null);
     }
   };
@@ -55,7 +53,7 @@ export const useCurrentUser = () => {
 
   if (context === undefined) {
     throw new Error(
-      "useCurrentUser must be used within the UserProvider context.",
+      "useCurrentUser must be used within the UserProvider context."
     );
   }
 
