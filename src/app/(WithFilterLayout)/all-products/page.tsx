@@ -1,10 +1,8 @@
 import { Suspense } from "react";
-
-import RecentProductCard from "@/src/components/cards/RecentProductCard";
 import RecentProductSkeleton from "@/src/components/skeletons/RecentProductSkeleton";
 import FXErrorBoundary from "@/src/components/ui/FXErrorBoundary";
-import { getAllProducts } from "@/src/services/Products";
-import { TProductProps } from "@/src/types";
+import AllProductContainer from "./_components/AllProductContainer";
+import FXSortBy from "@/src/components/ui/FXSortBy";
 
 export const metadata = {
   title: "All Product",
@@ -17,19 +15,13 @@ const AllProductPage = async ({ searchParams }: { searchParams: any }) => {
     value: String(value),
   }));
 
-  const { data: products } = await getAllProducts(queryObj);
-
   return (
     <>
+      <FXSortBy params={searchParams} />
+
       <FXErrorBoundary fallback={<RecentProductSkeleton />}>
         <Suspense fallback={<RecentProductSkeleton />}>
-          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center gap-4 my-6">
-            {products?.map((product: TProductProps) => (
-              <>
-                <RecentProductCard key={product.id} product={product} />
-              </>
-            ))}
-          </div>
+          <AllProductContainer queryObj={queryObj} />
         </Suspense>
       </FXErrorBoundary>
     </>

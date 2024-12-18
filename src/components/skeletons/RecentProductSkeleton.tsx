@@ -6,10 +6,10 @@ import { Skeleton } from "@nextui-org/skeleton";
 const RecentProductSkeleton = () => {
   return (
     <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center gap-4 my-8">
-      {[...Array(10)].map((_, idx) => (
-        <Card key={idx} className="space-y-5 p-4 w-full h-[300px]">
+      {[...Array(8)].map((_, idx) => (
+        <Card key={idx} className="space-y-5 p-4 w-full h-72">
           <Skeleton className="rounded-lg">
-            <div className="h-24 rounded-lg bg-default-300" />
+            <div className="h-52 rounded-lg bg-default-300" />
           </Skeleton>
           <div className="space-y-3">
             <Skeleton className="w-3/5 rounded-lg">
