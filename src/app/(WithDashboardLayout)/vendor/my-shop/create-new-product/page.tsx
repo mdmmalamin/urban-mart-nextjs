@@ -15,6 +15,7 @@ import { useCategories } from "@/src/hooks/categories.hook";
 import { useCreateProduct } from "@/src/hooks/product.hook";
 import { publishedProductValidationSchema } from "@/src/schemas/product.schemas";
 import FXSelectControlled from "@/src/components/form/FXSelectControlled";
+import { useRouter } from "next/navigation";
 
 const CreateNewProduct = () => {
   const [itemImages, setItemImages] = useState<File[] | []>([]);
@@ -23,8 +24,7 @@ const CreateNewProduct = () => {
     "DRAFTED" | "PUBLISHED" | undefined
   >(undefined);
   const [categoryId, setCategoryId] = useState("");
-  // const { user } = useUser();
-  // const router = useRouter();
+  const router = useRouter();
 
   const {
     data: categoryData,
@@ -32,8 +32,11 @@ const CreateNewProduct = () => {
     isSuccess: categorySuccess,
   } = useCategories();
 
-  const { mutate: handleCreateProduct, isPending: createProductPending } =
-    useCreateProduct();
+  const {
+    mutate: handleCreateProduct,
+    isPending: createProductPending,
+    isSuccess: createProductSuccess,
+  } = useCreateProduct();
 
   let categoryOptions: { key: string; label: string }[] = [];
 
@@ -64,8 +67,8 @@ const CreateNewProduct = () => {
       formData.append("images", image);
     }
 
-    console.log(formData.get("data"));
-    console.log(formData.get("images"));
+    // console.log(formData.get("data"));
+    // console.log(formData.get("images"));
 
     handleCreateProduct(formData);
   };
@@ -86,19 +89,25 @@ const CreateNewProduct = () => {
     }
   };
 
-  // const handleImageRemove = (e: ChangeEvent<HTMLInputElement>) => {
-  //   const file = e.target.files![0];
+  const handleImageRemove = (imageToRemove: File | string) => {
+    //? Remove the image from the itemImages array (state containing the files)
+    setItemImages((prevImages) =>
+      prevImages.filter((image) => image !== imageToRemove)
+    );
 
-  //   const updated = itemImages.filter((item) => item !== file);
+    //? Remove the image from the preview array (state containing image data URLs)
+    setImagePreview((prevPreviews) =>
+      prevPreviews.filter((preview) => preview !== imageToRemove)
+    );
+  };
 
-  //   setItemImages(updated);
-  // };
-
-  // if (!createPostPending && createPostSuccess) router.push("/");
+  if (!createProductPending && createProductSuccess)
+    router.push("/vendor/my-inventory");
 
   return (
     <>
-      {createProductPending && <Loading />}
+      {createProductPending && !createProductSuccess && <Loading />}
+
       <section className="sm:p-6">
         <h1 className="text-xl font-bold text-center">Add New Product</h1>
 
@@ -168,7 +177,7 @@ const CreateNewProduct = () => {
 
                       <span
                         className="bg-danger-500 absolute -top-2 -right-2 rounded-full hover:bg-danger-300 duration-300"
-                        // onChange={(e) => handleImageRemove(e)}
+                        onClick={() => handleImageRemove(imageDataURL)}
                       >
                         <MinusSVG />
                       </span>
@@ -211,10 +220,3 @@ const CreateNewProduct = () => {
 };
 
 export default CreateNewProduct;
-
-// {
-//   "categoryId": "9d8050b8-6ddc-4c0c-b7eb-b9bc9f954ceb",
-
-//   "status": "PUBLISHED",
-
-// }
