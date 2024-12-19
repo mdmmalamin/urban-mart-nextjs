@@ -25,7 +25,9 @@ export const getAllProducts = async (query?: TQuery[]) => {
 
     return data;
   } catch (error: any) {
-    throw new Error(error);
+    if (error.response) {
+      throw new Error(error.response.data.message); // Rethrow to pass to `onError`
+    }
   }
 };
 
@@ -35,7 +37,9 @@ export const getProductDetails = async (id: string) => {
 
     return data;
   } catch (error: any) {
-    throw new Error(error);
+    if (error.response) {
+      throw new Error(error.response.data.message); // Rethrow to pass to `onError`
+    }
   }
 };
 
@@ -45,7 +49,9 @@ export const createProduct = async (args: FieldValues) => {
 
     return data;
   } catch (error: any) {
-    throw new Error(error);
+    if (error.response) {
+      throw new Error(error.response.data.message); // Rethrow to pass to `onError`
+    }
   }
 };
 
@@ -55,7 +61,9 @@ export const productDuplicate = async (id: string) => {
 
     return data;
   } catch (error: any) {
-    throw new Error(error);
+    if (error.response) {
+      throw new Error(error.response.data.message); // Rethrow to pass to `onError`
+    }
   }
 };
 
@@ -67,7 +75,9 @@ export const updateProduct = async (args: FieldValues) => {
 
     return data;
   } catch (error: any) {
-    throw new Error(error?.data?.message);
+    if (error.response) {
+      throw new Error(error.response.data.message); // Rethrow to pass to `onError`
+    }
   }
 };
 
@@ -80,12 +90,14 @@ export const changeProductStatus = async (args: {
   try {
     const { data } = await axiosInstance.patch(
       `/products/${id}/status`,
-      payload,
+      payload
     );
 
     return data;
   } catch (error: any) {
-    throw new Error(error?.data?.message);
+    if (error.response) {
+      throw new Error(error.response.data.message); // Rethrow to pass to `onError`
+    }
   }
 };
 
@@ -95,6 +107,8 @@ export const deleteProduct = async (id: string) => {
 
     return data;
   } catch (error: any) {
-    throw new Error(error);
+    if (error.response) {
+      throw new Error(error.response.data.message); // Rethrow to pass to `onError`
+    }
   }
 };

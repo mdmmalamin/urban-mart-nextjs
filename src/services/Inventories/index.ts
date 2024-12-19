@@ -21,6 +21,8 @@ export const getMyInventory = async (query?: TQuery[]) => {
 
     return data;
   } catch (error: any) {
-    throw new Error(error);
+    if (error.response) {
+      throw new Error(error.response.data.message); // Rethrow to pass to `onError`
+    }
   }
 };

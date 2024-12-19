@@ -10,7 +10,7 @@ export const registerCustomer = async (userData: FieldValues) => {
   try {
     const { data } = await axiosInstance.post(
       "/users/create-customer",
-      userData,
+      userData
     );
 
     if (data.success) {
@@ -23,7 +23,9 @@ export const registerCustomer = async (userData: FieldValues) => {
 
     return data;
   } catch (error: any) {
-    throw new Error(error);
+    if (error.response) {
+      throw new Error(error.response.data.message); // Rethrow to pass to `onError`
+    }
   }
 };
 
@@ -41,7 +43,9 @@ export const registerVendor = async (userData: FieldValues) => {
 
     return data;
   } catch (error: any) {
-    throw new Error(error);
+    if (error.response) {
+      throw new Error(error.response.data.message); // Rethrow to pass to `onError`
+    }
   }
 };
 
@@ -61,7 +65,9 @@ export const loginUser = async (userData: FieldValues) => {
 
     return data;
   } catch (error: any) {
-    throw new Error(error);
+    if (error.response) {
+      throw new Error(error.response.data.message); // Rethrow to pass to `onError`
+    }
   }
 };
 
@@ -69,12 +75,14 @@ export const forgetPassword = async (userData: FieldValues) => {
   try {
     const { data } = await axiosInstance.post(
       "/auth/forget-password",
-      userData,
+      userData
     );
 
     return data;
   } catch (error: any) {
-    throw new Error(error);
+    if (error.response) {
+      throw new Error(error.response.data.message); // Rethrow to pass to `onError`
+    }
   }
 };
 
@@ -94,12 +102,14 @@ export const resetPassword = async (userData: FieldValues) => {
           "Content-Type": "application/json",
           Authorization: `${resetToken}`,
         },
-      },
+      }
     );
 
     return data;
   } catch (error: any) {
-    throw new Error(error);
+    if (error.response) {
+      throw new Error(error.response.data.message); // Rethrow to pass to `onError`
+    }
   }
 };
 
@@ -109,7 +119,9 @@ export const changeEmail = async (userData: FieldValues) => {
 
     return data;
   } catch (error: any) {
-    throw new Error(error);
+    if (error.response) {
+      throw new Error(error.response.data.message); // Rethrow to pass to `onError`
+    }
   }
 };
 

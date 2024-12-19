@@ -6,12 +6,12 @@ import { TUser } from "@/src/types/profile.type";
 export const getMyShop = async () => {
   try {
     const { data } = await axiosInstance.get("/shops/my-shop");
-    // // console.log("my shop", data);
 
     return data;
   } catch (error: any) {
-    // // console.log(error);
-    throw new Error(error.data.message);
+    if (error.response) {
+      throw new Error(error.response.data.message); // Rethrow to pass to `onError`
+    }
   }
 };
 
@@ -21,7 +21,9 @@ export const getMyInventories = async () => {
 
     return data;
   } catch (error: any) {
-    throw new Error(error);
+    if (error.response) {
+      throw new Error(error.response.data.message); // Rethrow to pass to `onError`
+    }
   }
 };
 
@@ -31,7 +33,8 @@ export const updateMyProfile = async (args: Partial<TUser>) => {
 
     return data;
   } catch (error: any) {
-    // // console.log(error);
-    throw new Error(error.data.message);
+    if (error.response) {
+      throw new Error(error.response.data.message); // Rethrow to pass to `onError`
+    }
   }
 };

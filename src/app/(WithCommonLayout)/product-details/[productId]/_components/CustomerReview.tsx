@@ -1,3 +1,5 @@
+"use client";
+
 import { Avatar } from "@nextui-org/avatar";
 
 import { formatDate } from "@/src/utils";

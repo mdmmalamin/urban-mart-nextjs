@@ -4,13 +4,12 @@ import { SelectorSVG } from "@/src/assets/icons/SVGicons";
 import { Select, SelectItem } from "@nextui-org/select";
 import { useRouter } from "next/navigation";
 
+const sortBy = [
+  { key: "", label: "Best Price" },
+  { key: "asc", label: "Price low to high" },
+  { key: "desc", label: "Price hight to low" },
+];
 const FXSortBy = ({ params }: { params: any }) => {
-  const sortBy = [
-    { key: "", label: "Best Price" },
-    { key: "asc", label: "Price low to high" },
-    { key: "desc", label: "Price hight to low" },
-  ];
-
   const router = useRouter();
 
   const handleQueryParams = (key: string) => {

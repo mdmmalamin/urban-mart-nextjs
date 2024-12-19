@@ -15,7 +15,6 @@ export const getCategories = async (query?: TQuery[]) => {
         params.append(item.name, item.value);
       });
     }
-    // // // console.log(params);
 
     const { data } = await axiosInstance.get(`/categories?`, {
       params,
@@ -23,6 +22,8 @@ export const getCategories = async (query?: TQuery[]) => {
 
     return data;
   } catch (error: any) {
-    throw new Error(error.message || "Something went wrong!");
+    if (error.response) {
+      throw new Error(error.response.data.message); // Rethrow to pass to `onError`
+    }
   }
 };

@@ -1,15 +1,13 @@
 import Link from "next/link";
-import { Button } from "@nextui-org/button";
-import { Accordion, AccordionItem } from "@nextui-org/accordion";
-
 import ShopAvatar from "./ShopAvatar";
-
 import BdtSVG from "@/src/assets/icons/BdtSVG";
-import CartSVG from "@/src/assets/icons/CartSVG";
 import { TProductProps } from "@/src/types";
 import Rating from "@/src/components/ui/Rating";
+import ProductDescription from "./ProductDescription";
+import ProductAddToCart from "./ProductAddToCart";
 
 const ProductInfo = ({
+  id,
   inventory,
   name,
   price,
@@ -38,22 +36,14 @@ const ProductInfo = ({
 
       <Link
         className="text-primary-500 capitalize"
-        href={`/all-products/${category?.id}`}
+        href={`/all-products?category=${category?.name}`}
       >
         {category?.name}
       </Link>
 
-      <Button className="w-full" color="secondary" size="lg">
-        <CartSVG /> Add To Cart
-      </Button>
+      <ProductAddToCart inventory={inventory!} productId={id!} />
 
-      <div>
-        <Accordion variant="bordered">
-          <AccordionItem key="1" aria-label="Description" title="Description">
-            {description}
-          </AccordionItem>
-        </Accordion>
-      </div>
+      <ProductDescription description={description} />
     </>
   );
 };

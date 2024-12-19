@@ -12,8 +12,9 @@ export const addToCart = async (args: FieldValues) => {
 
     return data;
   } catch (error: any) {
-    // // console.log(error);
-    throw new Error(error?.data?.message);
+    if (error.response) {
+      throw new Error(error.response.data.message); // Rethrow to pass to `onError`
+    }
   }
 };
 
@@ -23,7 +24,9 @@ export const getMyCarts = async () => {
 
     return data;
   } catch (error: any) {
-    throw new Error(error);
+    if (error.response) {
+      throw new Error(error.response.data.message); // Rethrow to pass to `onError`
+    }
   }
 };
 
@@ -35,7 +38,9 @@ export const changeMyCartItemQuantity = async (args: any) => {
 
     return data;
   } catch (error: any) {
-    throw new Error(error);
+    if (error.response) {
+      throw new Error(error.response.data.message); // Rethrow to pass to `onError`
+    }
   }
 };
 
@@ -45,6 +50,8 @@ export const deletedMyCartItem = async (id: string) => {
 
     return data;
   } catch (error: any) {
-    throw new Error(error);
+    if (error.response) {
+      throw new Error(error.response.data.message); // Rethrow to pass to `onError`
+    }
   }
 };

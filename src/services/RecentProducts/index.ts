@@ -11,11 +11,13 @@ export const getProducts = async () => {
     };
     const res = await fetch(
       `${envConfig.baseApi}/products?page=1&limit=10&status=PUBLISHED`,
-      fetchOptions,
+      fetchOptions
     );
 
     return await res.json();
   } catch (error: any) {
-    throw new Error(error.message);
+    if (error.response) {
+      throw new Error(error.response.data.message); // Rethrow to pass to `onError`
+    }
   }
 };

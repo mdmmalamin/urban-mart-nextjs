@@ -23,7 +23,9 @@ export const useAddToCart = () => {
       toast.success("Successfully product added to cart.");
       queryClient.invalidateQueries({ queryKey: ["CART_ITEMS"], exact: true });
     },
-    onError: (error) => toast.error(error.message) || "Something went wrong!",
+    onError: (error) => {
+      toast.error(error.message);
+    },
   });
 };
 

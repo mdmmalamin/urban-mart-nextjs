@@ -8,6 +8,7 @@ import {
   useChangeMyCartItemQuantity,
   useDeletedMyCartItem,
 } from "@/src/hooks/addToCart.hook";
+import Loading from "@/src/components/ui/Loading";
 
 type TCartList = {
   productId: string;
@@ -26,44 +27,57 @@ const CartList = ({
   quantity,
   availableQuantity,
 }: TCartList) => {
-  const { mutate: handleUpdateQuantity } = useChangeMyCartItemQuantity();
-  const { mutate: handleDeleteCartItem } = useDeletedMyCartItem();
+  const {
+    mutate: handleUpdateQuantity,
+    isPending: updateIsPending,
+    isSuccess: updateIsSuccess,
+  } = useChangeMyCartItemQuantity();
+  const {
+    mutate: handleDeleteCartItem,
+    isPending: deleteIsPending,
+    isSuccess: deleteIsSuccess,
+  } = useDeletedMyCartItem();
 
   return (
-    <div className="flex items-start gap-4">
-      <Image
-        alt={`${name} Image.`}
-        height={100}
-        src={image || NO_IMAGE_FOUND}
-        width={100}
-      />
-      <div className="w-full grid grid-cols-5 justify-between gap-4">
-        <h3 className="text-sm line-clamp-2 col-span-5 md:col-span-3">
-          {name}
-        </h3>
+    <>
+      {(updateIsPending && !updateIsSuccess && <Loading />) ||
+        (deleteIsPending && !deleteIsSuccess && <Loading />)}
 
-        <div className="col-span-2 flex items-start justify-between gap-2">
-          <div className="flex flex-col items-center gap-4">
-            <span className="flex items-center gap-2 max-w-32">
-              <BdtSVG /> {price}
-            </span>
+      <div className="flex items-start gap-4">
+        <Image
+          alt={`${name} Image.`}
+          height={100}
+          src={image || NO_IMAGE_FOUND}
+          width={100}
+        />
+        <div className="w-full grid grid-cols-5 justify-between gap-4">
+          <h3 className="text-sm line-clamp-2 col-span-5 md:col-span-3">
+            {name}
+          </h3>
 
-            <button
-              className="hover:text-danger-400 duration-300 text-default-500"
-              onClick={() => handleDeleteCartItem(productId)}
-            >
-              <TrashSVG />
-            </button>
+          <div className="col-span-2 flex items-start justify-between gap-2">
+            <div className="flex flex-col items-center gap-4">
+              <span className="flex items-center gap-2 max-w-32">
+                <BdtSVG /> {price}
+              </span>
+
+              <button
+                className="hover:text-danger-400 duration-300 text-default-500"
+                onClick={() => handleDeleteCartItem(productId)}
+              >
+                <TrashSVG />
+              </button>
+            </div>
+            <QuantityCounter
+              availableQuantity={availableQuantity}
+              handleUpdateQuantity={handleUpdateQuantity}
+              productId={productId}
+              quantity={quantity}
+            />
           </div>
-          <QuantityCounter
-            availableQuantity={availableQuantity}
-            handleUpdateQuantity={handleUpdateQuantity}
-            productId={productId}
-            quantity={quantity}
-          />
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
