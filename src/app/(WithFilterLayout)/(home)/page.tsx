@@ -1,7 +1,5 @@
 import { Suspense } from "react";
-
 import RecentProduct from "./_components/RecentProduct";
-
 import FXErrorBoundary from "@/src/components/ui/FXErrorBoundary";
 import RecentProductSkeleton from "@/src/components/skeletons/RecentProductSkeleton";
 import Link from "next/link";
@@ -9,14 +7,14 @@ import Container from "@/src/components/ui/Container";
 
 export const metadata = {
   title: "Home",
-  description: "",
+  description:
+    "Discover our newly added products, handpicked for quality and uniqueness",
 };
 
 export default function Home() {
   return (
     <>
       <Container>
-        {/* //? Header */}
         <div className="section-title my-8">
           <h2 className="mb-2 text-center text-2xl font-bold">
             Recently Added Products
@@ -33,7 +31,6 @@ export default function Home() {
           </Suspense>
         </FXErrorBoundary>
 
-        {/* //? Footer */}
         <div className="flex justify-center">
           <Link href="/all-products">
             <div className="rounded-md bg-default-900 hover:bg-default-700 duration-300 font-semibold text-default px-3 py-2">

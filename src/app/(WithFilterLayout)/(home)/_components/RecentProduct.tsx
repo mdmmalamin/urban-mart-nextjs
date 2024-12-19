@@ -3,25 +3,22 @@ import RecentProductCard from "@/src/components/cards/RecentProductCard";
 import { getAllProducts } from "@/src/services/Products";
 
 const RecentProduct = async () => {
-  const { data: products } = await getAllProducts([
-    // {
-    //   name: "minPrice",
-    //   value: queryPriceRange[0]?.toString(),
-    // },
-    // {
-    //   name: "maxPrice",
-    //   value: queryPriceRange[1]?.toString(),
-    // },
+  const products = await getAllProducts([
+    {
+      name: "page",
+      value: "1",
+    },
+    {
+      name: "limit",
+      value: "10",
+    },
   ]);
 
   return (
     <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center gap-4 my-8">
-      {/* //? Body */}
-      {products
-        ?.slice(0, 10)
-        ?.map((product: TProductProps) => (
-          <RecentProductCard key={product.id} product={product} />
-        ))}
+      {products?.data?.map((product: TProductProps) => (
+        <RecentProductCard key={product.id} product={product} />
+      ))}
     </div>
   );
 };
