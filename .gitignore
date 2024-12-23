@@ -35,3 +35,12 @@ yarn-error.log*
 next-env.d.ts
 
 .vercel
+
+
+# .env.local
+
+# # NEXT_PUBLIC_BASE_API=http://localhost:5000/api/v1
+# # NEXT_PUBLIC_BASE_URL=http://localhost:5000
+
+# NEXT_PUBLIC_BASE_API=https://urban-mart-server-nu.vercel.app/api/v1
+# NEXT_PUBLIC_BASE_URL=https://urban-mart-server-nu.vercel.app
